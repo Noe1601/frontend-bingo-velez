@@ -1,0 +1,48 @@
+<mat-sidenav-container>
+    <mat-sidenav>Menu</mat-sidenav>
+    <section>
+      <div class="menu-title">Bingo Velez</div>
+      <div class="menu-content">
+        <div
+          class="menu-item"
+          [routerLink]="['/pages/home']"
+          routerLinkActive="active"
+        >
+          <button mat-mini-fab color="primary">
+            <mat-icon>today</mat-icon>
+          </button>
+          <span class="text">Pagina principal</span>
+        </div>
+        <div
+          class="menu-item"
+          [routerLink]="['/pages/users']"
+          routerLinkActive="active"
+        >
+          <button mat-mini-fab color="primary">
+            <mat-icon>today</mat-icon>
+          </button>
+          <span class="text">Usuarios</span>
+        </div>
+  
+        <div class="menu-item"
+        [routerLink]="['/pages/settings']"
+        routerLinkActive="active">
+          <button mat-mini-fab color="primary">
+            <mat-icon>today</mat-icon>
+          </button>
+          <span class="text">Settings</span>
+        </div>
+  
+        <div
+          class="menu-item"
+          [routerLink]="['/pages/profile/1']"
+          routerLinkActive="active"
+        >
+          <button mat-mini-fab color="primary">
+            <mat-icon>today</mat-icon>
+          </button>
+          <span class="text">Profile</span>
+        </div>
+      </div>
+    </section>
+  </mat-sidenav-container>

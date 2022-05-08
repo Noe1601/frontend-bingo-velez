@@ -1,0 +1,25 @@
+.fill-space{
+    flex: 1 1 auto
+}
+
+
+.menu-item{
+    margin: 0 5px
+}
+
+.clickable{
+    cursor: pointer;
+    display: flex;
+    gap: 10px;
+    align-items: cente;
+
+}
+
+.clickable:hover{
+    color: #F0F0F0
+}
+
+.user{
+    margin-right: 3px;
+    font-size: 18px;
+}
