@@ -1,13 +1,1 @@
-<div class="sidebar">
-    <mat-drawer-container class="page-body" autosize [hasBackdrop]="false">
-      <app-navbar (toogle)="drawer.toggle()"></app-navbar>
-      <mat-drawer #drawer class="side-nav" mode="side">
-        <app-sidenav></app-sidenav>
-      </mat-drawer>
-  
-      <div class="content">
-        <router-outlet></router-outlet>
-      </div>
-    </mat-drawer-container>
-  </div>
-  
+<router-outlet></router-outlet> 
