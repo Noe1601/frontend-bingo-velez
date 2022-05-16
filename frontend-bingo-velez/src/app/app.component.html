@@ -1,4 +1,4 @@
-<div class="sidebar">
+<div *ngIf="canMenuVisible" class="sidebar">
     <mat-drawer-container class="page-body" autosize [hasBackdrop]="false">
       <app-navbar (toogle)="drawer.toggle()"></app-navbar>
       <mat-drawer #drawer class="side-nav" mode="side">
@@ -10,4 +10,7 @@
       </div>
     </mat-drawer-container>
   </div>
-  
+
+<div *ngIf="!canMenuVisible">
+    <router-outlet></router-outlet>
+</div>
