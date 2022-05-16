@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'frontend-bingo-velez';
+
+  public actualRoute: string = '';
+  public canMenuVisible: boolean = true;
+
+  constructor(private location: Location){
+    this.actualRoute = this.location.path();
+
+    if(this.actualRoute === '/login' || this.actualRoute === '/register'){
+      this.canMenuVisible = false
+    }else{
+      this.canMenuVisible = true;
+    }
+
+    console.log(this.canMenuVisible);
+  }
 }
