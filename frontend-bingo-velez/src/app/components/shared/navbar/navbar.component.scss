@@ -1,25 +1,33 @@
-.fill-space{
-    flex: 1 1 auto
+.navbar-container {
+  .dropdown {
+    button {
+      background-color: transparent;
+      border: none;
+    }
+  }
 }
 
-
-.menu-item{
-    margin: 0 5px
+.fill-space {
+  flex: 1 1 auto;
 }
 
-.clickable{
-    cursor: pointer;
-    display: flex;
-    gap: 10px;
-    align-items: cente;
-
+.menu-item {
+  margin: 0 5px;
+  cursor: pointer;
 }
 
-.clickable:hover{
-    color: #F0F0F0
+.clickable {
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  align-items: cente;
 }
 
-.user{
-    margin-right: 3px;
-    font-size: 18px;
+.clickable:hover {
+  color: #f0f0f0;
+}
+
+.user {
+  margin-right: 3px;
+  font-size: 18px;
 }
