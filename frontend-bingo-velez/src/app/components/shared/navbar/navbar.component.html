@@ -1,33 +1,35 @@
-<mat-toolbar color="primary">
-    <mat-icon
-      class="menu-item clickable"
-      (click)="Toogle()"
-      aria-hidden="false"
-      title="Toogle menu"
-      aria-label="Toogle the menu"
+<mat-toolbar color="primary" class="navbar-container">
+  <span class="menu-item" [routerLink]="['/pages/home']">Bingo Velez</span>
+
+  <span class="fill-space"></span>
+
+  <mat-icon
+    *ngIf="showMenu"
+    [matMenuTriggerFor]="menu"
+    class="menu-item clickable"
+    >more_vert</mat-icon
+  >
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>exit_to_app</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+
+  <div class="dropdown">
+    <button
+      class="btn btn-secondary dropdown-toggle"
+      type="button"
+      id="dropdownMenuButton1"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
     >
-      menu</mat-icon
-    >
-  
-    <span class="menu-item">Bingo Velez</span>
-  
-    <span class="fill-space"></span>
-  
-    <mat-icon
-      *ngIf="showMenu"
-      [matMenuTriggerFor]="menu"
-      class="menu-item clickable"
-      >more_vert</mat-icon
-    >
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item>
-        <mat-icon>exit_to_app</mat-icon>
-        <span>Logout</span>
-      </button>
-    </mat-menu>
-  
-    <div class="logout clickable" (click)="Logout()">
-      <span class="user"> {{ userName }} </span>
-      <span class="material-icons">logout</span>
-    </div>
-  </mat-toolbar>
+      Escobarty3
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li><a class="dropdown-item" href="#" [routerLink]="['/pages/profile/1']">Profile</a></li>
+      <li><a class="dropdown-item" href="#" [routerLink]="['/pages/settings']">Settings</a></li>
+      <li><a class="dropdown-item" href="#" [routerLink]="['/pages/users']">Usuarios</a></li>
+    </ul>
+  </div>
+</mat-toolbar>
