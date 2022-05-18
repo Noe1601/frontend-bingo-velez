@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-navbar',
@@ -14,9 +15,8 @@ export class NavbarComponent implements OnInit {
   showMenu = false;
   userName: any;
 
-  constructor(private _router: Router) {
-
-  }
+  constructor(private _router: Router,
+              private _sharedService: SharedService) { }
 
   ngOnInit(): void {
     this.Toogle();
@@ -27,6 +27,8 @@ export class NavbarComponent implements OnInit {
   }
 
   Logout() {
+    this._sharedService.removeItemFromLocalStorage('token');
+    this._sharedService.removeItemFromLocalStorage('user');
     this._router.navigateByUrl('/login');
   }
 

@@ -8,7 +8,10 @@ import { MaterialModule } from '../../shared/material/material.module';
 @NgModule({
   declarations: [LoginComponent],
   imports: [
-    CommonModule, ReactiveFormsModule, FormsModule, MaterialModule
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MaterialModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

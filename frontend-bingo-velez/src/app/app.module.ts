@@ -10,6 +10,7 @@ import { MaterialModule } from './components/shared/material/material.module';
 import { SharedModule } from './components/shared/shared.module';
 import { AuthModule } from './components/pages/login/auth.module';
 import { RegisterModule } from './components/pages/register/register.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { RegisterModule } from './components/pages/register/register.module';
     MaterialModule,
     SharedModule,
     AuthModule,
-    RegisterModule
+    RegisterModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
