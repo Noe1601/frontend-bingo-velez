@@ -5,34 +5,38 @@
     id="container"
   >
     <div class="form-container sign-up-container">
-      <form action="#">
-        <h1>Create Account</h1>
-        <input type="text" placeholder="Name" />
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
-        <button>Sign Up</button>
+      <form [autocomplete]="false" [formGroup]="sinupForm">
+        <h1>Registro de usuarios</h1>
+        <input type="text" placeholder="Name" formControlName="NAME" />
+        <input type="email" placeholder="Email" formControlName="EMAIL" />
+        <input type="password" placeholder="Password" formControlName="PASSWORD" />
+        <input [hidden]="!canShowCodeInput" type="password" placeholder="Code" formControlName="CODE" />
+        <input [hidden]="true" type="password" placeholder="Code" formControlName="ROLE" />
+        <input [hidden]="true" type="password" placeholder="Code" formControlName="STATUS" />
+        <button (click)="sendCode()" [hidden]="!isVerifyMoment">Verificar</button>
+        <button (click)="signUp()" [hidden]="isVerifyMoment">Registrarme</button>
       </form>
     </div>
     <div class="form-container sign-in-container">
-      <form action="#">
-        <h1>Sign in</h1>
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
-        <a href="#">Forgot your password?</a>
-        <button>Sign In</button>
+      <form autocomplete="off"[formGroup]="siningForm">
+        <h1>Login</h1>
+        <input type="email" placeholder="Email" formControlName="email" />
+        <input type="password" placeholder="Password" formControlName="password" />
+        <a>Olvidaste tu contrasena?</a>
+        <button (click)="signIn()">Ingresar</button>
       </form>
     </div>
     <div class="overlay-container">
       <div class="overlay">
         <div class="overlay-panel overlay-left">
-          <h1>Welcome Back!</h1>
-          <p>To keep connected with us please login with your personal info</p>
-          <button class="ghost" id="signIn" (click)="sign()">Sign In</button>
+          <h1>Bienvenido de nuevo!</h1>
+          <p>Para mantenerse conectado con nosotros, inicie sesión con su información personal</p>
+          <button class="ghost" id="signIn" (click)="sign()">Ingresar</button>
         </div>
         <div class="overlay-panel overlay-right">
-          <h1>Hello, Friend!</h1>
-          <p>Enter your personal details and start journey with us</p>
-          <button class="ghost" id="signUp" (click)="sign()">Sign Up</button>
+          <h1>Hola, amigo</h1>
+          <p>Ingresa tus datos personales y comienza tu viaje con nosotros</p>
+          <button class="ghost" id="signUp" (click)="sign()">Registrarme</button>
         </div>
       </div>
     </div>
