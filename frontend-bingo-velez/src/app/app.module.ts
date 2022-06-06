@@ -11,10 +11,13 @@ import { SharedModule } from './components/shared/shared.module';
 import { AuthModule } from './components/pages/login/auth.module';
 import { RegisterModule } from './components/pages/register/register.module';
 import { HttpClientModule } from '@angular/common/http';
+import { RecuperatePasswordComponent } from './components/recuperate-password/recuperate-password.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
+    RecuperatePasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     SharedModule,
     AuthModule,
     RegisterModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
