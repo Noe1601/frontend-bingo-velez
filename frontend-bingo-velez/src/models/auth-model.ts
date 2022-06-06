@@ -19,3 +19,13 @@ export interface SubMenu {
     titulo: string;
     url: string;
 }
+
+
+export interface RegisterUser{
+    EMAIL: string;
+    PASSWORD: string;
+    NAME: string;
+    CODE: string;
+    ROLE: string;
+    STATUS?: any;
+}
