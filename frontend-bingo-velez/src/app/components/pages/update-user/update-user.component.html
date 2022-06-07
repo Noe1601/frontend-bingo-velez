@@ -1,0 +1,14 @@
+<form [autocomplete]="false" [formGroup]="updateUserForm">
+    <h1>Actualizar usuario</h1>
+    <input class="form-control" type="text" formControlName="NAME" placeholder="Nombre"/>
+    <br>
+    <input class="form-control" type="text" formControlName="EMAIL" placeholder="Correo" />
+    <br>
+    <select class="form-control" type="password" formControlName="ROLE">
+        <option value="USER_ROLE">USUARIO</option>
+        <option value="ADMIN_ROLE">ADMINISTRADOR</option>
+    </select>
+    <br>
+    <button style="width: 100%;" class="btn btn-primary btn-lg btn-block" (click)="updateUser()">Actualizar</button>
+  </form>
+  

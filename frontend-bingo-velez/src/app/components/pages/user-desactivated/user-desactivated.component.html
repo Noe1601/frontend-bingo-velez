@@ -18,11 +18,11 @@
                     <td> {{ user.EMAIL }} </td>
                     <td> {{ user.ROLE === "ADMIN_ROLE" ? "ADMIN" : "USER" }} </td>
                     <td>
-                        <button class="btn btn-warning" (click)="openUpdateUserDialog(user)" style="margin-right: 5px;">Actualizar</button>
-                        <button class="btn btn-danger" (click)="deleteUser(user)">Eliminar</button>
+                        <button class="btn btn-primary" (click)="activateUser(user)">Activar</button>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
 </mat-card>
+

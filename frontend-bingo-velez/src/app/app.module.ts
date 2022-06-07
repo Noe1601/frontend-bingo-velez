@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RecuperatePasswordComponent } from './components/recuperate-password/recuperate-password.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     AppComponent,
