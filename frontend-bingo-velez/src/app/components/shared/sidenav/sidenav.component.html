@@ -1,52 +1,3 @@
-<!-- <mat-sidenav-container>
-    <mat-sidenav>Menu</mat-sidenav>
-    <section>
-      <div class="menu-title">Bingo Velez</div>
-      <div class="menu-content">
-        <div
-          class="menu-item"
-          [routerLink]="['/pages/home']"
-          routerLinkActive="active"
-        >
-          <button mat-mini-fab color="primary">
-            <mat-icon>today</mat-icon>
-          </button>
-          <span class="text">Pagina principal</span>
-        </div>
-        <div
-          class="menu-item"
-          [routerLink]="['/pages/users']"
-          routerLinkActive="active"
-        >
-          <button mat-mini-fab color="primary">
-            <mat-icon>today</mat-icon>
-          </button>
-          <span class="text">Usuarios</span>
-        </div>
-  
-        <div class="menu-item"
-        [routerLink]="['/pages/settings']"
-        routerLinkActive="active">
-          <button mat-mini-fab color="primary">
-            <mat-icon>today</mat-icon>
-          </button>
-          <span class="text">Settings</span>
-        </div>
-  
-        <div
-          class="menu-item"
-          [routerLink]="['/pages/profile/1']"
-          routerLinkActive="active"
-        >
-          <button mat-mini-fab color="primary">
-            <mat-icon>today</mat-icon>
-          </button>
-          <span class="text">Profile</span>
-        </div>
-      </div>
-    </section>
-  </mat-sidenav-container> -->
-
 <aside class="left-sidebar" data-sidebarbg="skin6">
   <!-- Sidebar scroll-->
   <div class="scroll-sidebar">
@@ -57,17 +8,15 @@
         <li class="sidebar-item">
           <a
             class="sidebar-link waves-effect waves-dark sidebar-link"
-            href="index.html"
             aria-expanded="false"
-            [routerLink]="['/pages/settings']"
+            [routerLink]="['/pages/home']"
             ><i class="mdi me-2 mdi-gauge"></i
-            ><span class="hide-menu">Dashboard</span></a
+            ><span class="hide-menu">Cartones</span></a
           >
         </li>
         <li class="sidebar-item">
           <a
             class="sidebar-link waves-effect waves-dark sidebar-link"
-            href="pages-profile.html"
             aria-expanded="false"
             [routerLink]="['/pages/profile/1']"
           >
@@ -80,44 +29,19 @@
             class="sidebar-link waves-effect waves-dark sidebar-link"
             href="table-basic.html"
             aria-expanded="false"
+            [routerLink]="['/pages/users']"
             ><i class="mdi me-2 mdi-table"></i
-            ><span class="hide-menu">Table</span></a
+            ><span class="hide-menu">Usuarios activos</span></a
           >
         </li>
         <li class="sidebar-item">
           <a
             class="sidebar-link waves-effect waves-dark sidebar-link"
-            href="icon-material.html"
+            href="table-basic.html"
             aria-expanded="false"
-            ><i class="mdi me-2 mdi-emoticon"></i
-            ><span class="hide-menu">Icon</span></a
-          >
-        </li>
-        <li class="sidebar-item">
-          <a
-            class="sidebar-link waves-effect waves-dark sidebar-link"
-            href="map-google.html"
-            aria-expanded="false"
-            ><i class="mdi me-2 mdi-earth"></i
-            ><span class="hide-menu">Google Map</span></a
-          >
-        </li>
-        <li class="sidebar-item">
-          <a
-            class="sidebar-link waves-effect waves-dark sidebar-link"
-            href="pages-blank.html"
-            aria-expanded="false"
-            ><i class="mdi me-2 mdi-book-open-variant"></i
-            ><span class="hide-menu">Blank</span></a
-          >
-        </li>
-        <li class="sidebar-item">
-          <a
-            class="sidebar-link waves-effect waves-dark sidebar-link"
-            href="pages-error-404.html"
-            aria-expanded="false"
-            ><i class="mdi me-2 mdi-help-circle"></i
-            ><span class="hide-menu">Error 404</span></a
+            [routerLink]="['/pages/desactivatedUsers']"
+            ><i class="mdi me-2 mdi-table"></i
+            ><span class="hide-menu">Usuarios inactivos</span></a
           >
         </li>
       </ul>
