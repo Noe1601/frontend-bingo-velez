@@ -10,6 +10,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { UserDesactivatedComponent } from './user-desactivated/user-desactivated.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { WinnersComponent } from './winners/winners.component';
+import { GamersComponent } from './gamers/gamers.component';
+import { PlaysComponent } from './plays/plays.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     SettingsComponent,
     ProfileComponent,
     UserDesactivatedComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
+    WinnersComponent,
+    GamersComponent,
+    PlaysComponent
   ],
   imports: [
     CommonModule,

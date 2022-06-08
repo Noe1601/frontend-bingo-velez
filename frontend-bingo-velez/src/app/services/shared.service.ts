@@ -8,11 +8,11 @@ export class SharedService {
   constructor() { }
 
   setLocalStorage(key: string, value: string){
-    localStorage.setItem(key,value);
+    localStorage.setItem(key,JSON.stringify(value));
   }
 
   getLocalStorage(key: string){
-    localStorage.getItem(key)
+    localStorage.getItem(key);
   }
 
   removeItemFromLocalStorage(key: string){

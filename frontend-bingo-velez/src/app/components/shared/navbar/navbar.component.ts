@@ -14,12 +14,15 @@ export class NavbarComponent implements OnInit {
   menu: any;
   showMenu = false;
   userName: any;
+  userID: any;
 
   constructor(private _router: Router,
               private _sharedService: SharedService) { }
 
   ngOnInit(): void {
     this.Toogle();
+    this.userName = localStorage.getItem('user');
+    this.userID = localStorage.getItem('id');
   }
 
   Toogle() {
@@ -30,6 +33,10 @@ export class NavbarComponent implements OnInit {
     this._sharedService.removeItemFromLocalStorage('token');
     this._sharedService.removeItemFromLocalStorage('user');
     this._router.navigateByUrl('/login');
+  }
+
+  goToProfile(){
+    this._router.navigateByUrl(`/pages/profile/${ this.userID }`);
   }
 
 }
