@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidenav',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
 
-  constructor() { }
+  userID: any;
+
+  constructor(private _router: Router) { }
 
   ngOnInit(): void {
+    this.userID = localStorage.getItem('id');
   }
+
+  
+  goToProfile(){
+    this._router.navigateByUrl(`/pages/profile/${ this.userID }`);
+  }
+
 
 }

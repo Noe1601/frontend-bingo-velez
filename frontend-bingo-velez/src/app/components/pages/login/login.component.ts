@@ -59,6 +59,8 @@ export class LoginComponent implements OnInit {
     this._authService.login(this.siningForm.value).subscribe((data: any) => {
       this._sharedService.setLocalStorage('token', data.token);
       this._sharedService.setLocalStorage('user', data.userAuthenticate.NAME);
+      this._sharedService.setLocalStorage('id', data.userAuthenticate.id);
+      this._sharedService.setLocalStorage('role', data.userAuthenticate.ROLE);
       this._router.navigateByUrl('/pages/home');
     }, (err) => {
       Swal.fire('Fallo autenticación', err.error.message, 'error')
