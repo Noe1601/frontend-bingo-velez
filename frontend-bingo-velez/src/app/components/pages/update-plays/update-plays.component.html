@@ -1,0 +1,9 @@
+<form [autocomplete]="false" [formGroup]="updatePlaysForm">
+    <h1>Actualizar jugada</h1>
+    <input class="form-control" type="text" formControlName="name" placeholder="Nombre"/>
+    <br>
+    <input class="form-control" type="text" formControlName="monto" placeholder="Monto" />
+    <br>
+    <button style="width: 100%;" class="btn btn-primary btn-lg btn-block" (click)="updatePlay()">Actualizar</button>
+  </form>
+  

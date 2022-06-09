@@ -13,6 +13,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { WinnersComponent } from './winners/winners.component';
 import { GamersComponent } from './gamers/gamers.component';
 import { PlaysComponent } from './plays/plays.component';
+import { UpdatePlayerComponent } from './update-player/update-player.component';
+import { UpdatePlaysComponent } from './update-plays/update-plays.component';
+import { UpdateWinnersComponent } from './update-winners/update-winners.component';
+import { CreatePlayComponent } from './create-play/create-play.component';
+import { CreatePlayerComponent } from './create-player/create-player.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +30,12 @@ import { PlaysComponent } from './plays/plays.component';
     UpdateUserComponent,
     WinnersComponent,
     GamersComponent,
-    PlaysComponent
+    PlaysComponent,
+    UpdatePlayerComponent,
+    UpdatePlaysComponent,
+    UpdateWinnersComponent,
+    CreatePlayComponent,
+    CreatePlayerComponent
   ],
   imports: [
     CommonModule,
