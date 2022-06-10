@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { PlaysService } from 'src/app/services/plays.service';
 import Swal from 'sweetalert2';
 import { CreatePlayComponent } from '../create-play/create-play.component';
@@ -15,7 +16,8 @@ export class PlaysComponent implements OnInit {
   plays: any;
 
   constructor(private _playService: PlaysService,
-              private _dialog: MatDialog) { }
+              private _dialog: MatDialog,
+              private _router: Router) { }
 
   ngOnInit(): void {
     this.getPlays();
@@ -49,4 +51,7 @@ export class PlaysComponent implements OnInit {
     })
   }
 
+  goToPlaysInactives(){
+    this._router.navigateByUrl('/pages/desactivatedPlays');
+  }
 }

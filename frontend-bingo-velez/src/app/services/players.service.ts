@@ -22,6 +22,8 @@ export class PlayersService {
       )
   }
 
+  
+
   getPlayer(id: any): Observable<any> {
     return this._http.get<any>(`${base_url}/jugadores/${ id }`)
       .pipe(

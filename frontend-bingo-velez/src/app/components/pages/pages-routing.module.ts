@@ -4,6 +4,7 @@ import { AuthGuard } from 'src/app/guards/auth.guard';
 import { GamersComponent } from './gamers/gamers.component';
 import { HomeComponent } from './home/home.component';
 import { PagesComponent } from './pages.component';
+import { PlaysDesactivatedComponent } from './plays-desactivated/plays-desactivated.component';
 import { PlaysComponent } from './plays/plays.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
@@ -23,6 +24,7 @@ export const routes: Routes = [
         { path: 'profile/:id', component: ProfileComponent },
         { path: 'settings', component: SettingsComponent },
         {path: 'desactivatedUsers', component: UserDesactivatedComponent},
+        {path: 'desactivatedPlays', component: PlaysDesactivatedComponent},
         {path: 'plays', component: PlaysComponent},
         {path: 'players', component: GamersComponent},
         {path: 'winners', component: WinnersComponent},

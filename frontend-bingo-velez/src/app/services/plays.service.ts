@@ -21,6 +21,15 @@ export class PlaysService {
       )
   }
 
+  getDesactivatedPlays(): Observable<any>{
+    return this._http.get<any>(`${ base_url }/jugadas/desactivated`)
+          .pipe(
+            catchError(err => {
+              throw err;
+            })
+          )
+  }
+
   getPlay(id: any): Observable<any> {
     return this._http.get<any>(`${base_url}/jugadas/${ id }`)
       .pipe(
