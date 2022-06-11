@@ -19,7 +19,6 @@ export class AppComponent {
     }else{
       this.canMenuVisible = true;
     }
-
-    console.log(this.canMenuVisible);
+    
   }
 }

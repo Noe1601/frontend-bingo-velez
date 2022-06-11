@@ -19,6 +19,7 @@ import { UpdateWinnersComponent } from './update-winners/update-winners.componen
 import { CreatePlayComponent } from './create-play/create-play.component';
 import { CreatePlayerComponent } from './create-player/create-player.component';
 import { PlaysDesactivatedComponent } from './plays-desactivated/plays-desactivated.component';
+import { ViewWinnerDetailsComponent } from './view-winner-details/view-winner-details.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { PlaysDesactivatedComponent } from './plays-desactivated/plays-desactiva
     CreatePlayComponent,
     CreatePlayerComponent,
     PlaysDesactivatedComponent,
+    ViewWinnerDetailsComponent,
   ],
   imports: [
     CommonModule,

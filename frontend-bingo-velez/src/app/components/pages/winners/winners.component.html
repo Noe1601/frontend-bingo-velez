@@ -1,1 +1,23 @@
-<p>winners works!</p>
+<mat-card style="margin-top: 40px;">
+    <div class="table-responsive">
+        <table class="table">
+            <caption>Listado de ganadores</caption>
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let winner of winners">
+                    <th scope="row"> {{ winner.id }} </th>
+                    <td> {{ winner.name }} </td>
+                    <td>
+                        <button class="btn btn-warning" style="margin-right: 5px;">Ver detalle</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</mat-card>
