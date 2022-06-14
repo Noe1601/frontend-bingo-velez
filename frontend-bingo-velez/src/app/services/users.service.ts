@@ -4,7 +4,7 @@ import { catchError, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Users } from 'src/models/users-model';
 
-const base_url = environment.base_url;3
+const base_url = environment.base_url;
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class UsersService {
     return this._http.get<any>(`${ base_url }/users`).pipe(
       catchError((err) => {
         throw err;
-      })
+      }) 
     )
   }
 

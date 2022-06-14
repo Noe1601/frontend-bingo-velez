@@ -29,7 +29,6 @@ export class UpdateUserComponent implements OnInit {
   ngOnInit(): void {}
 
   updateUser(){
-    console.log(this.updateUserForm.value);
     this._userService.updateUser(this.data.id, this.updateUserForm.value).subscribe(data => {
       Swal.fire('Usuario actualizado', 'Se actualizo el usuario correctamente.', 'success');
       this._dialog.closeAll();

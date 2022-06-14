@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
 import { Users } from 'src/models/users-model';
 import Swal from 'sweetalert2';
@@ -16,7 +17,8 @@ export class UsersComponent implements OnInit {
   public userSelected: any;
   
   constructor(private _userService: UsersService,
-              private _dialog: MatDialog) { }
+              private _dialog: MatDialog,
+              private _router: Router) { }
 
   ngOnInit(): void {
     this.getUsers();
@@ -42,6 +44,10 @@ export class UsersComponent implements OnInit {
       width: '500px',
       data: user
     });
+  }
+
+  goToUsersInactives(){
+    this._router.navigateByUrl('/pages/desactivatedUsers');
   }
 
 }

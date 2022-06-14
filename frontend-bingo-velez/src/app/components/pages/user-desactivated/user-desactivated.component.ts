@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
 import { Users } from 'src/models/users-model';
 import Swal from 'sweetalert2';
@@ -12,7 +13,8 @@ export class UserDesactivatedComponent implements OnInit {
 
   public users: Users[] = [];
   
-  constructor(private _userService: UsersService) { }
+  constructor(private _userService: UsersService,
+              private _router: Router) { }
 
   ngOnInit(): void {
     this.getDesactivatedUsers();
@@ -31,6 +33,10 @@ export class UserDesactivatedComponent implements OnInit {
     }, err => {
       Swal.fire('Error', 'Hubo un fallo, comiquese con soporte.', 'error');
     })
+  }
+
+  goToUsersActive(){
+    this._router.navigateByUrl('/pages/users');
   }
 
 }

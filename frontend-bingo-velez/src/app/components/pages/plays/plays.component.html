@@ -1,0 +1,28 @@
+<mat-card style="margin-top: 40px;">
+    <div class="table-responsive">
+        <button class="btn btn-secondary" style="margin-right: 5px;" (click)="openCreatePlayDialog()">Crear jugada</button>
+        <button class="btn btn-primary" (click)="goToPlaysInactives()">Jugadas inactivas</button>
+        <table class="table">
+            <caption>Listado de jugadas</caption>
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Monto</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let play of plays">
+                    <th scope="row"> {{ play.id }} </th>
+                    <td> {{ play.name }} </td>
+                    <td> {{ play.monto | currency }} </td>
+                    <td>
+                        <button class="btn btn-warning" (click)="openUpdatePlayDialog(play)" style="margin-right: 5px;">Actualizar</button>
+                        <button class="btn btn-danger" (click)="deletePlay(play)">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</mat-card>
