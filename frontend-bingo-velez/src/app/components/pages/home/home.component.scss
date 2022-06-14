@@ -5,14 +5,13 @@
   border-radius: 15px;
   .cards {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
     gap: 25px;
-    .card {
-      width: 250px;
-      height: 230px;
+    .card-cardboard {
+      width: 210px;
       border: 2px solid #3f51b5;
-      padding: 2px;
+      padding: 5px;
       border-radius: 10px;
       .top-content {
         padding: 12px 5px;
@@ -40,7 +39,7 @@
         }
       }
       .cuadriculas {
-        .table {
+        .table-cardboard {
           width: 100%;
           display: flex;
           flex-direction: column;
@@ -104,3 +103,4 @@
     }
   }
 }
+
