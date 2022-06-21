@@ -4,33 +4,39 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { PagesModule } from './components/pages/pages.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './components/shared/material/material.module';
-import { SharedModule } from './components/shared/shared.module';
-import { AuthModule } from './components/pages/login/auth.module';
-import { RegisterModule } from './components/pages/register/register.module';
+import { MaterialModule } from './shared/material/material.module';
 import { HttpClientModule } from '@angular/common/http';
-import { RecuperatePasswordComponent } from './components/recuperate-password/recuperate-password.component';
+import { RecuperatePasswordComponent } from './core/components/recuperate-password/recuperate-password.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { CoreModule } from './core/core.module';
+import { ModulesComponent } from './modules/modules.component';
+import { AuthModule } from './modules/auth/auth.module';
+import { HomeModule } from './modules/home/pages/home.module';
+import { UsersModule } from './modules/users-module/pages/users.module';
+import { GamersModule } from './modules/gamers/gamers.module';
+import { PlaysModule } from './modules/plays/plays.module';
+import { WinnersModule } from './modules/winners/winners.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RecuperatePasswordComponent,
+    ModulesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PagesModule,
     BrowserAnimationsModule,
     MaterialModule,
-    SharedModule,
-    AuthModule,
-    RegisterModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CoreModule,
+    AuthModule,
+    HomeModule,
+    UsersModule,
+    GamersModule,
+    PlaysModule,
+    WinnersModule
   ],
   providers: [],
   bootstrap: [AppComponent]
