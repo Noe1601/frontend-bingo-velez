@@ -7,16 +7,15 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material/material.module';
 import { HttpClientModule } from '@angular/common/http';
-import { RecuperatePasswordComponent } from './core/components/recuperate-password/recuperate-password.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CoreModule } from './core/core.module';
 import { ModulesComponent } from './modules/modules.component';
 import { AuthModule } from './modules/auth/auth.module';
-import { HomeModule } from './modules/home/pages/home.module';
-import { UsersModule } from './modules/users-module/pages/users.module';
+import { HomeModule } from './modules/home/home.module';
+import { UsersModule } from './modules/users-module/users.module';
 import { GamersModule } from './modules/gamers/gamers.module';
 import { PlaysModule } from './modules/plays/plays.module';
 import { WinnersModule } from './modules/winners/winners.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -30,13 +29,13 @@ import { WinnersModule } from './modules/winners/winners.module';
     MaterialModule,
     HttpClientModule,
     ReactiveFormsModule,
-    CoreModule,
     AuthModule,
     HomeModule,
     UsersModule,
     GamersModule,
     PlaysModule,
-    WinnersModule
+    WinnersModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
