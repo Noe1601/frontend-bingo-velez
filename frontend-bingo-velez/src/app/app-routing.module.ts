@@ -15,15 +15,8 @@ import { WinnersComponent } from './modules/winners/pages/winners/winners.compon
 
 const routes: Routes = [
   {
-    path: '/login', component: LoginComponent
+    path: '', redirectTo: 'login', pathMatch: 'full'
   },
-  // {
-  //   path: 'auth',
-  //   loadChildren: () =>
-  //     import('./modules/auth/auth.module').then(
-  //       (m) => m.AuthModule
-  //     ),
-  // },
   {
     path: 'pages',
     component: ModulesComponent,

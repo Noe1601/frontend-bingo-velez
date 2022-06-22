@@ -35,7 +35,7 @@ import { CoreModule } from './core/core.module';
     GamersModule,
     PlaysModule,
     WinnersModule,
-    CoreModule
+    CoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
