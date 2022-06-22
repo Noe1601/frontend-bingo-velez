@@ -18,31 +18,35 @@ export class LoginComponent implements OnInit {
   Sign: boolean = false;
   canShowCodeInput: boolean = false;
   isVerifyMoment: boolean = true;
-
-  public siningForm = this._formBuilder.group({
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', Validators.required]
-  });
-
-  public recuperateForm = this._formBuilder.group({
-    password: ['', Validators.required],
-    code: ['', Validators.required]
-  });
-
-  public sinupForm = this._formBuilder.group({
-    EMAIL: ['', [Validators.required, Validators.email]],
-    PASSWORD: ['', Validators.required],
-    NAME: ['', Validators.required],
-    CODE: ['', Validators.required],
-    ROLE: ['USER_ROLE', Validators.required],
-    STATUS: [true, Validators.required],
-  });
+  siningForm: FormGroup;
+  sinupForm: FormGroup;
+  recuperateForm: FormGroup;
 
   constructor(private _formBuilder: FormBuilder,
     private _authService: AuthService,
     private _sharedService: SharedService,
     private _router: Router,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog) {
+
+      this.siningForm = this._formBuilder.group({
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', Validators.required]
+      });
+
+      this.sinupForm = this._formBuilder.group({
+        EMAIL: ['', [Validators.required, Validators.email]],
+        PASSWORD: ['', Validators.required],
+        NAME: ['', Validators.required],
+        CODE: ['', Validators.required],
+        ROLE: ['USER_ROLE', Validators.required],
+        STATUS: [true, Validators.required],
+      });
+
+      this.recuperateForm = this._formBuilder.group({
+        password: ['', Validators.required],
+        code: ['', Validators.required]
+      });
+     }
 
   ngOnInit(): void { }
 
@@ -57,7 +61,6 @@ export class LoginComponent implements OnInit {
 
   signIn() {
     this._authService.login(this.siningForm.value).subscribe((data: any) => {
-      console.log(data);
       this._sharedService.setLocalStorage('token', data.token);
       this._sharedService.setLocalStorage('user', data.userAuthenticate.NAME);
       this._sharedService.setLocalStorage('id', data.userAuthenticate.id);
@@ -88,7 +91,7 @@ export class LoginComponent implements OnInit {
       PASSWORD,
       NAME,
       CODE,
-      ROLE: 'USER_ROLE'
+      ROLE: 'USERS_ROLE'
     }
 
     if (this.sinupForm.invalid) {
