@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PlaysDesactivatedComponent } from './core/components/plays-desactivated/plays-desactivated.component';
 import { UserDesactivatedComponent } from './core/components/user-desactivated/user-desactivated.component';
+import { AuthGuard } from './core/guards/auth.guard';
 import { LoginRoutingModule } from './modules/auth/auth-routing.module';
 import { LoginComponent } from './modules/auth/pages/login/login.component';
 import { GamersComponent } from './modules/gamers/pages/gamers/gamers.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
   {
     path: 'pages',
     component: ModulesComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: 'home', component: HomeComponent },
       { path: 'plays', component: PlaysComponent },

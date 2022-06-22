@@ -20,14 +20,14 @@ export class AuthGuard implements CanActivate {
       setTimeout(() => {
       const token = this._sharedService.getLocalStorage('token');
 
-      if(token != null){
-        this.isAuth = false;
+      if(localStorage.getItem('token') != null){
+        this.isAuth = true;
       }else{
         this.isAuth = false;
         this._router.navigateByUrl('/login')
       }
 
-      }, 5000)
+      }, 800)
 
       return this.isAuth;
 

@@ -57,6 +57,7 @@ export class LoginComponent implements OnInit {
 
   signIn() {
     this._authService.login(this.siningForm.value).subscribe((data: any) => {
+      console.log(data);
       this._sharedService.setLocalStorage('token', data.token);
       this._sharedService.setLocalStorage('user', data.userAuthenticate.NAME);
       this._sharedService.setLocalStorage('id', data.userAuthenticate.id);
@@ -73,8 +74,9 @@ export class LoginComponent implements OnInit {
     this._authService.sendCode(email == null ? EMAIL : email).subscribe(code => {
       this.isVerifyMoment = false;
       this.canShowCodeInput = true;
+      Swal.fire('Codigo de verificacion', `Se envio correctamente el codigo de verificacion, revise el correo: ${ email }`, 'success');
     }, err => {
-      Swal.fire('Fallo autenticación', err.error.message, 'error');
+      Swal.fire('Fallo envio de correo', err.error.message, 'error');
     });
   }
 
