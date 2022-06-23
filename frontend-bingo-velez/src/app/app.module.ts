@@ -16,6 +16,7 @@ import { GamersModule } from './modules/gamers/gamers.module';
 import { PlaysModule } from './modules/plays/plays.module';
 import { WinnersModule } from './modules/winners/winners.module';
 import { CoreModule } from './core/core.module';
+import { SettingsModule } from './modules/settings/settings.module';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { CoreModule } from './core/core.module';
     PlaysModule,
     WinnersModule,
     CoreModule,
+    SettingsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
