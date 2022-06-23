@@ -57,7 +57,6 @@ export class LoginComponent implements OnInit {
 
   signIn() {
     this._authService.login(this.siningForm.value).subscribe((data: any) => {
-      console.log(data);
       this._sharedService.setLocalStorage('token', data.token);
       this._sharedService.setLocalStorage('user', data.userAuthenticate.NAME);
       this._sharedService.setLocalStorage('id', data.userAuthenticate.id);

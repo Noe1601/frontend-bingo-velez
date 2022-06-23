@@ -1,3 +1,21 @@
 <div class="settings-container">
-  <p>Settings working!</p>
+  <div class="cartones-settings">
+    <form class="carton-quantity-form" [formGroup]="form">
+      <h3>Cantidad de cartones</h3>
+      <div class="input-check-form">
+        <label>21</label>
+        <div class="form-check form-switch">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            role="switch"
+            id="flexSwitchCheckDefault"
+            formControlName="switch"
+            (click)="setCartonesQuantity()"
+          />
+        </div>
+        <label>30</label>
+      </div>
+    </form>
+  </div>
 </div>

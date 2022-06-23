@@ -40,7 +40,6 @@ export class ProfileComponent implements OnInit {
     this._userService.updateUser(this.userProfile.id,this.profileForm.value).subscribe(data => {
       this.getProfileInfo(this.params);
       Swal.fire('Perfil actualizado','Se actualizo el perfil correctamente', 'success');
-      console.log(data);
     }, err => {
       Swal.fire('Error','Ocurrio un fallo en la actualizacion del perfil', 'error');
     })

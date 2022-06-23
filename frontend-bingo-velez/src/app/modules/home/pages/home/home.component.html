@@ -17,7 +17,7 @@
                 {{ player.name }}
               </option>
             </select>
-            <button class="refresh-button">
+            <button class="refresh-button" (click)="resetCarton(item)">
               <img src="../../../../assets/img/logos/refresh.svg" alt="" />
             </button>
           </div>
@@ -34,40 +34,40 @@
               </thead>
               <tbody>
                 <tr class="t-body">
-                  <td>{{ item.row1.column1 }}</td>
-                  <td>{{ item.row1.column2 }}</td>
-                  <td>{{ item.row1.column3 }}</td>
-                  <td>{{ item.row1.column4 }}</td>
-                  <td>{{ item.row1.column5 }}</td>
+                  <td [ngClass]="{'td-color' : item.row1[0].selected}">{{ item.row1[0].number }}</td>
+                  <td [ngClass]="{'td-color' : item.row2[0].selected}">{{ item.row2[0].number }}</td>
+                  <td [ngClass]="{'td-color' : item.row3[0].selected}">{{ item.row3[0].number }}</td>
+                  <td [ngClass]="{'td-color' : item.row4[0].selected}">{{ item.row4[0].number }}</td>
+                  <td [ngClass]="{'td-color' : item.row5[0].selected}">{{ item.row5[0].number }}</td>
                 </tr>
                 <tr class="t-body">
-                  <td>{{ item.row2.column1 }}</td>
-                  <td>{{ item.row2.column2 }}</td>
-                  <td>{{ item.row2.column3 }}</td>
-                  <td>{{ item.row2.column4 }}</td>
-                  <td>{{ item.row2.column5 }}</td>
+                  <td [ngClass]="{'td-color' : item.row1[1].selected}">{{ item.row1[1].number }}</td>
+                  <td [ngClass]="{'td-color' : item.row2[1].selected}">{{ item.row2[1].number }}</td>
+                  <td [ngClass]="{'td-color' : item.row3[1].selected}">{{ item.row3[1].number }}</td>
+                  <td [ngClass]="{'td-color' : item.row4[1].selected}">{{ item.row4[1].number }}</td>
+                  <td [ngClass]="{'td-color' : item.row5[1].selected}">{{ item.row5[1].number }}</td>
                 </tr>
-                <tr class="t-body middle-row">
-                  <td>{{ item.row3.column1 }}</td>
-                  <td>{{ item.row3.column2 }}</td>
-                  <td><img [src]="item.row3.column3" /></td>
-                  <td>{{ item.row3.column4 }}</td>
-                  <td>{{ item.row3.column5 }}</td>
+                 <tr class="t-body middle-row">
+                  <td [ngClass]="{'td-color' : item.row1[2].selected}">{{ item.row1[2].number }}</td>
+                  <td [ngClass]="{'td-color' : item.row2[2].selected}">{{ item.row2[2].number }}</td>
+                  <td [ngClass]="{'td-color' : item.row3[2].selected}"><img [src]="item.row3[2].image"></td>
+                  <td [ngClass]="{'td-color' : item.row4[2].selected}">{{ item.row4[2].number }}</td>
+                  <td [ngClass]="{'td-color' : item.row5[2].selected}">{{ item.row5[2].number }}</td>
                 </tr>
                 <tr class="t-body">
-                  <td>{{ item.row4.column1 }}</td>
-                  <td>{{ item.row4.column2 }}</td>
-                  <td>{{ item.row4.column3 }}</td>
-                  <td>{{ item.row4.column4 }}</td>
-                  <td>{{ item.row4.column5 }}</td>
+                  <td [ngClass]="{'td-color' : item.row1[3].selected}">{{ item.row1[3].number }}</td>
+                  <td [ngClass]="{'td-color' : item.row2[3].selected}">{{ item.row2[3].number }}</td>
+                  <td [ngClass]="{'td-color' : item.row3[3].selected}">{{ item.row3[3].number }}</td>
+                  <td [ngClass]="{'td-color' : item.row4[3].selected}">{{ item.row4[3].number }}</td>
+                  <td [ngClass]="{'td-color' : item.row5[3].selected}">{{ item.row5[3].number }}</td>
                 </tr>
                 <tr class="t-body last-row">
-                  <td>{{ item.row5.column1 }}</td>
-                  <td>{{ item.row5.column2 }}</td>
-                  <td>{{ item.row5.column3 }}</td>
-                  <td>{{ item.row5.column4 }}</td>
-                  <td>{{ item.row5.column5 }}</td>
-                </tr>
+                  <td [ngClass]="{'td-color' : item.row1[4].selected}">{{ item.row1[4].number }}</td>
+                  <td [ngClass]="{'td-color' : item.row2[4].selected}">{{ item.row2[4].number }}</td>
+                  <td [ngClass]="{'td-color' : item.row3[4].selected}">{{ item.row3[4].number }}</td>
+                  <td [ngClass]="{'td-color' : item.row4[4].selected}">{{ item.row4[4].number }}</td>
+                  <td [ngClass]="{'td-color' : item.row5[4].selected}">{{ item.row5[4].number }}</td>
+                </tr> 
               </tbody>
             </table>
           </div>
