@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SharedService } from 'src/app/core/services/shared.service';
 import { ValidateRoleService } from '../../services/validation-user-role.service';
@@ -12,10 +13,18 @@ export class SidenavComponent implements OnInit {
 
   userID: any;
   isAdmin: boolean = false;
+  priceSelected: any;
+  prices: any[] = [];
 
   constructor(private _router: Router,
     private _sharedService: SharedService,
-    private _validateRoleService: ValidateRoleService) { }
+    private _validateRoleService: ValidateRoleService) {
+    this.prices = [15, 20, 30];
+  }
+
+  changePrice(price: any) {
+   this._sharedService.setLocalStorage('price', price);
+  }
 
   ngOnInit(): void {
     this.isAdmin = this._validateRoleService.validationRole;

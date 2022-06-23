@@ -1,1 +1,45 @@
-<p>view-winner-details works!</p>
+<mat-card style="margin-top: 30px; width: 90%; text-align: center;">
+
+    <mat-form-field style="width: 90%;" class="example-form-field" appearance="outline">
+        <mat-label>Search</mat-label>
+        <input matInput type="text">
+    </mat-form-field>
+
+    <mat-form-field style="width: 90%;" appearance="outline">
+        <mat-label>Ingresa un rango de fecha</mat-label>
+        <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+            <input matStartDate formControlName="start" placeholder="Start date">
+            <input matEndDate formControlName="end" placeholder="End date">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+
+    </mat-form-field>
+
+    <button style="width: 90%;" mat-raised-button color="primary">Buscar por fechas</button>
+
+</mat-card>
+
+<mat-card style="margin-top: 60px; width: 90%; text-align: center;">
+    <div class="table-responsive">
+        <table class="table">
+            <caption>Listado de ganadores</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Nombre ganador</th>
+                    <th scope="col">Nombre jugada</th>
+                    <th scope="col">Monto jugada</th>
+                    <th scope="col">Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let detail of details">
+                    <th scope="row"> {{ detail.winnerName }} </th>
+                    <td> {{ detail.playName }} </td>
+                    <td> {{ detail.amount | currency }} </td>
+                    <td> {{ detail.createdAt | date }} </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</mat-card>

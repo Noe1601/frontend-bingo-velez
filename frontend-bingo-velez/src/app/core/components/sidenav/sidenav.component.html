@@ -6,91 +6,56 @@
       <ul id="sidebarnav">
         <!-- User Profile-->
         <li class="sidebar-item">
-          <a
-            class="sidebar-link waves-effect waves-dark sidebar-link"
-            aria-expanded="false"
-            [routerLink]="['/pages/home']"
-            ><i class="mdi me-2 mdi-grid"></i
-            ><span class="hide-menu">Cartones</span></a
-          >
+          <a class="sidebar-link waves-effect waves-dark sidebar-link" aria-expanded="false"
+            [routerLink]="['/pages/home']" target="_blank"><i class="mdi me-2 mdi-grid"></i><span
+              class="hide-menu">Cartones</span></a>
         </li>
         <li class="sidebar-item">
-          <a
-            class="sidebar-link waves-effect waves-dark sidebar-link"
-            aria-expanded="false"
-            (click)="goToProfile()"
-          >
-            <i class="mdi me-2 mdi-account"></i
-            ><span class="hide-menu">Profile</span></a
-          >
-        </li>
-        <li class="sidebar-item">
-          <a
-            class="sidebar-link waves-effect waves-dark sidebar-link"
-            href="table-basic.html"
-            aria-expanded="false"
-            [routerLink]="['/pages/users']"
-            ><i class="mdi me-2 mdi-account-multiple"></i
-            ><span class="hide-menu">Usuarios activos</span></a
-          >
+          <a class="sidebar-link waves-effect waves-dark sidebar-link" href="table-basic.html" aria-expanded="false"
+            [routerLink]="['/pages/users']" target="_blank"><i class="mdi me-2 mdi-account-multiple"></i><span
+              class="hide-menu">Usuarios activos</span></a>
         </li>
 
         <li class="sidebar-item">
-          <a
-            class="sidebar-link waves-effect waves-dark sidebar-link"
-            href="table-basic.html"
-            aria-expanded="false"
-            [routerLink]="['/pages/players']"
-            ><i class="mdi me-2 mdi-table"></i
-            ><span class="hide-menu">Jugadores</span></a
-          >
+          <a class="sidebar-link waves-effect waves-dark sidebar-link" href="table-basic.html" aria-expanded="false"
+            [routerLink]="['/pages/players']" target="_blank"><i class="mdi me-2 mdi-table"></i><span
+              class="hide-menu">Jugadores</span></a>
         </li>
 
         <li class="sidebar-item">
-          <a
-            class="sidebar-link waves-effect waves-dark sidebar-link"
-            href="table-basic.html"
-            aria-expanded="false"
-            [routerLink]="['/pages/plays']"
-            ><i class="mdi me-2 mdi-table"></i
-            ><span class="hide-menu">Jugadas</span></a
-          >
+          <a class="sidebar-link waves-effect waves-dark sidebar-link" href="table-basic.html" aria-expanded="false"
+            [routerLink]="['/pages/plays']" target="_blank"><i class="mdi me-2 mdi-table"></i><span
+              class="hide-menu">Jugadas</span></a>
         </li>
 
         <li *ngIf="isAdmin" class="sidebar-item">
-          <a
-            class="sidebar-link waves-effect waves-dark sidebar-link"
-            href="table-basic.html"
-            aria-expanded="false"
-            [routerLink]="['/pages/winners']"
-            ><i class="mdi me-2 mdi-table"></i
-            ><span class="hide-menu">Ganadores</span></a
-          >
+          <a class="sidebar-link waves-effect waves-dark sidebar-link" href="table-basic.html" aria-expanded="false"
+            [routerLink]="['/pages/winners']" target="_blank"><i class="mdi me-2 mdi-table"></i><span
+              class="hide-menu">Ganadores</span></a>
         </li>
 
         <li *ngIf="isAdmin" class="sidebar-item">
-          <a
-            class="sidebar-link waves-effect waves-dark sidebar-link"
-            href="table-basic.html"
-            aria-expanded="false"
-            [routerLink]="['/pages/settings']"
-            ><i class="mdi me-2 mdi-table"></i
-            ><span class="hide-menu">Configuraciones</span></a
-          >
+          <a class="sidebar-link waves-effect waves-dark sidebar-link" href="table-basic.html" aria-expanded="false"
+            [routerLink]="['/pages/settings']" target="_blank"><i class="mdi me-2 mdi-table"></i><span
+              class="hide-menu">Configuraciones</span></a>
         </li>
 
         <li class="sidebar-item">
-          <a
-            class="sidebar-link waves-effect waves-dark sidebar-link"
-            href="table-basic.html"
-            aria-expanded="false"
-            [routerLink]="['/login']"
-            (click)="logOut()"
-            ><i class="mdi me-2 mdi-table"></i
-            ><span class="hide-menu">Cerrar sesion</span></a
-          >
+          <a class="sidebar-link waves-effect waves-dark sidebar-link" href="table-basic.html" aria-expanded="false"
+            [routerLink]="['/login']" (click)="logOut()"><i class="mdi me-2 mdi-table"></i><span
+              class="hide-menu">Cerrar sesion</span></a>
         </li>
       </ul>
+
+      <div style="margin-top: 200px; text-align: center;" class="cartones-quantity">
+        <h3>Precio de partida</h3>
+
+        <mat-radio-group class="example-radio-group" [(ngModel)]="priceSelected">
+          <mat-radio-button class="example-radio-button" *ngFor="let price of prices" [value]="price" (change)="changePrice(price)">
+            {{price | currency}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
     </nav>
     <!-- End Sidebar navigation -->
   </div>

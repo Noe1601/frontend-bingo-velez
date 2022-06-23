@@ -14,7 +14,7 @@
                     <th scope="row"> {{ winner.id }} </th>
                     <td> {{ winner.name }} </td>
                     <td>
-                        <button class="btn btn-warning" style="margin-right: 5px;">Ver detalle</button>
+                        <button class="btn btn-warning" style="margin-right: 5px;" (click)="goToDetails(winner.id)">Ver detalle</button>
                     </td>
                 </tr>
             </tbody>

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PlaysDesactivatedComponent } from './core/components/plays-desactivated/plays-desactivated.component';
 import { UserDesactivatedComponent } from './core/components/user-desactivated/user-desactivated.component';
+import { ViewWinnerDetailsComponent } from './core/components/view-winner-details/view-winner-details.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { LoginRoutingModule } from './modules/auth/auth-routing.module';
 import { LoginComponent } from './modules/auth/pages/login/login.component';
@@ -32,7 +33,8 @@ const routes: Routes = [
       { path: 'players', component: GamersComponent },
       { path: 'desactivatedUsers', component: UserDesactivatedComponent },
       { path: 'desactivatedPlays', component: PlaysDesactivatedComponent },
-      { path: 'settings', component: SettingsComponent }
+      { path: 'settings', component: SettingsComponent },
+      { path: 'winner-detail/:id', component: ViewWinnerDetailsComponent }
     ]
   }
 ];
