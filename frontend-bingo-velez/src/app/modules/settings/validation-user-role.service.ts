@@ -12,15 +12,7 @@ export class ValidateRoleService {
     }
 
     validateRole() {
-
-        const role = localStorage.getItem('role'); 
-
-        if(role?.includes('ADMIN_ROLE')){
-            return true;
-        } 
-        else{
-            return false;
-        }
+        return (localStorage.getItem('role')?.toLocaleLowerCase() == 'admin_role') ? true : false;
     }
 
 }

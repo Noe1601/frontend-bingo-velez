@@ -5,6 +5,7 @@ import { UsersService } from 'src/app/core/services/users.service';
 import { Users } from 'src/app/core/interfaces/users-model';
 import Swal from 'sweetalert2';
 import { UpdateUserComponent } from '../../../../core/components/update-user/update-user.component';
+import { ValidateRoleService } from 'src/app/core/services/validation-user-role.service';
 
 @Component({
   selector: 'app-users',
@@ -15,12 +16,15 @@ export class UsersComponent implements OnInit {
 
   public users: Users[] = [];
   public userSelected: any;
+  isAdmin: boolean = false;
   
   constructor(private _userService: UsersService,
               private _dialog: MatDialog,
-              private _router: Router) { }
+              private _router: Router,
+              private _validateRoleService: ValidateRoleService) { }
 
   ngOnInit(): void {
+    this.isAdmin = this._validateRoleService.validationRole;
     this.getUsers();
   }
 
