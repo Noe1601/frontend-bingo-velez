@@ -8,6 +8,22 @@
   </head>
   <body>
     <main class="main-container">
+      <div class="generate-random-number">
+        <button
+          class="random-number-generator"
+          (click)="setColorToCellNumber()"
+        >
+          <p *ngIf="randomNumber == 0">Generar número</p>
+          <p *ngIf="randomNumber > 0">{{ randomNumber }}</p>
+        </button>
+        <div class="last-5-plays">
+          <p>{{ numbers[0] }}</p>
+          <p>{{ numbers[1] }}</p>
+          <p>{{ numbers[2] }}</p>
+          <p>{{ numbers[3] }}</p>
+          <p>{{ numbers[4] }}</p>
+        </div>
+      </div>
       <section class="cards">
         <div class="card-cardboard" *ngFor="let item of items">
           <div class="top-content">
@@ -34,40 +50,186 @@
               </thead>
               <tbody>
                 <tr class="t-body">
-                  <td [ngClass]="{'td-color' : item.row1[0].selected}">{{ item.row1[0].number }}</td>
-                  <td [ngClass]="{'td-color' : item.row2[0].selected}">{{ item.row2[0].number }}</td>
-                  <td [ngClass]="{'td-color' : item.row3[0].selected}">{{ item.row3[0].number }}</td>
-                  <td [ngClass]="{'td-color' : item.row4[0].selected}">{{ item.row4[0].number }}</td>
-                  <td [ngClass]="{'td-color' : item.row5[0].selected}">{{ item.row5[0].number }}</td>
+                  <td>
+                    {{ item.row1[0].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row1[0].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row2[0].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row2[0].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row3[0].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row3[0].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row4[0].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row4[0].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row5[0].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row5[0].selected"
+                    ></span>
+                  </td>
                 </tr>
                 <tr class="t-body">
-                  <td [ngClass]="{'td-color' : item.row1[1].selected}">{{ item.row1[1].number }}</td>
-                  <td [ngClass]="{'td-color' : item.row2[1].selected}">{{ item.row2[1].number }}</td>
-                  <td [ngClass]="{'td-color' : item.row3[1].selected}">{{ item.row3[1].number }}</td>
-                  <td [ngClass]="{'td-color' : item.row4[1].selected}">{{ item.row4[1].number }}</td>
-                  <td [ngClass]="{'td-color' : item.row5[1].selected}">{{ item.row5[1].number }}</td>
+                  <td>
+                    {{ item.row1[1].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row1[1].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row2[1].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row2[1].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row3[1].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row3[1].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row4[1].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row4[1].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row5[1].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row5[1].selected"
+                    ></span>
+                  </td>
                 </tr>
-                 <tr class="t-body middle-row">
-                  <td [ngClass]="{'td-color' : item.row1[2].selected}">{{ item.row1[2].number }}</td>
-                  <td [ngClass]="{'td-color' : item.row2[2].selected}">{{ item.row2[2].number }}</td>
-                  <td [ngClass]="{'td-color' : item.row3[2].selected}"><img [src]="item.row3[2].image"></td>
-                  <td [ngClass]="{'td-color' : item.row4[2].selected}">{{ item.row4[2].number }}</td>
-                  <td [ngClass]="{'td-color' : item.row5[2].selected}">{{ item.row5[2].number }}</td>
+                <tr class="t-body middle-row">
+                  <td>
+                    {{ item.row1[2].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row1[2].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row2[2].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row2[2].selected"
+                    ></span>
+                  </td>
+                  <td [ngClass]="{ 'td-color': item.row3[2].selected }">
+                    <img [src]="item.row3[2].image" />
+                  </td>
+                  <td>
+                    {{ item.row4[2].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row5[2].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row5[2].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row5[2].selected"
+                    ></span>
+                  </td>
                 </tr>
                 <tr class="t-body">
-                  <td [ngClass]="{'td-color' : item.row1[3].selected}">{{ item.row1[3].number }}</td>
-                  <td [ngClass]="{'td-color' : item.row2[3].selected}">{{ item.row2[3].number }}</td>
-                  <td [ngClass]="{'td-color' : item.row3[3].selected}">{{ item.row3[3].number }}</td>
-                  <td [ngClass]="{'td-color' : item.row4[3].selected}">{{ item.row4[3].number }}</td>
-                  <td [ngClass]="{'td-color' : item.row5[3].selected}">{{ item.row5[3].number }}</td>
+                  <td>
+                    {{ item.row1[3].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row1[3].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row2[3].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row2[3].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row3[3].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row3[3].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row4[3].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row4[3].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row5[3].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row5[3].selected"
+                    ></span>
+                  </td>
                 </tr>
                 <tr class="t-body last-row">
-                  <td [ngClass]="{'td-color' : item.row1[4].selected}">{{ item.row1[4].number }}</td>
-                  <td [ngClass]="{'td-color' : item.row2[4].selected}">{{ item.row2[4].number }}</td>
-                  <td [ngClass]="{'td-color' : item.row3[4].selected}">{{ item.row3[4].number }}</td>
-                  <td [ngClass]="{'td-color' : item.row4[4].selected}">{{ item.row4[4].number }}</td>
-                  <td [ngClass]="{'td-color' : item.row5[4].selected}">{{ item.row5[4].number }}</td>
-                </tr> 
+                  <td>
+                    {{ item.row1[4].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row1[4].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row2[4].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row2[4].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row3[4].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row3[4].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row4[4].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row4[4].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row5[4].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row5[4].selected"
+                    ></span>
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>
