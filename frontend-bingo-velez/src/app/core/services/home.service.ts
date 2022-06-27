@@ -29,7 +29,6 @@ export class HomeService {
     localStorage.setItem('CantidadDeCartones', String(cartonesQuantity));
 
     for (let i = 0; i < cartonesQuantity; i++) {
-
       var content = {
         title: {
           B: 'B',
@@ -43,120 +42,122 @@ export class HomeService {
         row3: [],
         row4: [],
         row5: [],
-        index: i
+        index: i,
       } as any;
 
       //generar primera columna aleatoria
-      for(let i = 0; i < Infinity; i++){
-        let randomNumber = this.getRandomInt(1,15);
+      for (let i = 0; i < Infinity; i++) {
+        let randomNumber = this.getRandomInt(1, 15);
 
-        if(this.column1.length == 5) break;
+        if (this.column1.length == 5) break;
 
-        var same = this.column1.some(element => element === randomNumber);
+        var same = this.column1.some((element) => element === randomNumber);
 
-        if(!same){
+        if (!same) {
           this.column1.push(randomNumber);
         }
       }
-      for(let i = 0; i < Infinity; i++){
-        let randomNumber = this.getRandomInt(16,30);
+      for (let i = 0; i < Infinity; i++) {
+        let randomNumber = this.getRandomInt(16, 30);
 
-        if(this.column2.length == 5) break;
+        if (this.column2.length == 5) break;
 
-        var same = this.column2.some(element => element === randomNumber);
+        var same = this.column2.some((element) => element === randomNumber);
 
-        if(!same){
+        if (!same) {
           this.column2.push(randomNumber);
         }
-
       }
-      for(let i = 0; i < Infinity; i++){
-        let randomNumber = this.getRandomInt(31,45);
-        
-        if(this.column3.length == 5) break;
+      for (let i = 0; i < Infinity; i++) {
+        let randomNumber = this.getRandomInt(31, 45);
 
-        var same = this.column3.some(element => element === randomNumber);
+        if (this.column3.length == 5) break;
 
-        if(!same){
+        var same = this.column3.some((element) => element === randomNumber);
+
+        if (!same) {
           this.column3.push(randomNumber);
         }
       }
-      for(let i = 0; i < Infinity; i++){
-        let randomNumber = this.getRandomInt(46,60);
-        
-        if(this.column4.length == 5) break;
+      for (let i = 0; i < Infinity; i++) {
+        let randomNumber = this.getRandomInt(46, 60);
 
-        var same = this.column4.some(element => element === randomNumber);
+        if (this.column4.length == 5) break;
 
-        if(!same){
+        var same = this.column4.some((element) => element === randomNumber);
+
+        if (!same) {
           this.column4.push(randomNumber);
         }
       }
-      for(let i = 0; i < Infinity; i++){
-        let randomNumber = this.getRandomInt(61,75);
-        
-        if(this.column5.length == 5) break;
+      for (let i = 0; i < Infinity; i++) {
+        let randomNumber = this.getRandomInt(61, 75);
 
-        var same = this.column5.some(element => element === randomNumber);
+        if (this.column5.length == 5) break;
 
-        if(!same){
+        var same = this.column5.some((element) => element === randomNumber);
+
+        if (!same) {
           this.column5.push(randomNumber);
         }
       }
 
       this.column1.forEach((element, index) => {
-        if(content.row1.length >= 5){
-          return
+        if (content.row1.length >= 5) {
+          return;
         }
-        content.row1.push({index, number: element, selected: false});
+        content.row1.push({ index, number: element, selected: false });
       });
 
       this.column2.forEach((element, index) => {
-        if(content.row2.length >= 5){
-          return
+        if (content.row2.length >= 5) {
+          return;
         }
-        content.row2.push({index, number: element, selected: false});
+        content.row2.push({ index, number: element, selected: false });
       });
 
       this.column3.forEach((element, index) => {
-        if(content.row3.length >= 5){
-          return
+        if (content.row3.length >= 5) {
+          return;
         }
-        if(content.row3.length == 2){
-          content.row3.push({index, image: "../../../assets/img/logos/dollar.svg"})
+        if (content.row3.length == 2) {
+          content.row3.push({
+            index,
+            image: '../../../assets/img/logos/dollar.svg',
+          });
         }
-        content.row3.push({index, number: element, selected: false});
+        content.row3.push({ index, number: element, selected: false });
       });
 
       this.column4.forEach((element, index) => {
-        if(content.row4.length >= 5){
-          return
+        if (content.row4.length >= 5) {
+          return;
         }
-        content.row4.push({index, number: element, selected: false});
+        content.row4.push({ index, number: element, selected: false });
       });
 
       this.column5.forEach((element, index) => {
-        if(content.row5.length >= 5){
-          return
+        if (content.row5.length >= 5) {
+          return;
         }
-        content.row5.push({index, number: element, selected: false});
+        content.row5.push({ index, number: element, selected: false });
       });
-      
+
       this.column1 = [];
       this.column2 = [];
       this.column3 = [];
       this.column4 = [];
       this.column5 = [];
-      
+
       this.cartones.push(content);
       content = {};
     }
-    
+
     console.log(this.cartones);
     return this.cartones;
   }
 
-  nuevoCarton(cartonesQuantity: number) {
+  newCarton(cartonesQuantity: number) {
     this.cartones = [];
 
     if (cartonesQuantity == 0) {
@@ -164,7 +165,6 @@ export class HomeService {
     }
 
     for (let i = 0; i < cartonesQuantity; i++) {
-
       var content = {
         title: {
           B: 'B',
@@ -178,115 +178,245 @@ export class HomeService {
         row3: [],
         row4: [],
         row5: [],
-        index: i
+        index: i,
       } as any;
 
       //generar primera columna aleatoria
-      for(let i = 0; i < Infinity; i++){
-        let randomNumber = this.getRandomInt(1,15);
+      for (let i = 0; i < Infinity; i++) {
+        let randomNumber = this.getRandomInt(1, 15);
 
-        if(this.column1.length == 5) break;
+        if (this.column1.length == 5) break;
 
-        var same = this.column1.some(element => element === randomNumber);
+        var same = this.column1.some((element) => element === randomNumber);
 
-        if(!same){
+        if (!same) {
           this.column1.push(randomNumber);
         }
       }
-      for(let i = 0; i < Infinity; i++){
-        let randomNumber = this.getRandomInt(16,30);
+      for (let i = 0; i < Infinity; i++) {
+        let randomNumber = this.getRandomInt(16, 30);
 
-        if(this.column2.length == 5) break;
+        if (this.column2.length == 5) break;
 
-        var same = this.column2.some(element => element === randomNumber);
+        var same = this.column2.some((element) => element === randomNumber);
 
-        if(!same){
+        if (!same) {
           this.column2.push(randomNumber);
         }
-
       }
-      for(let i = 0; i < Infinity; i++){
-        let randomNumber = this.getRandomInt(31,45);
-        
-        if(this.column3.length == 5) break;
+      for (let i = 0; i < Infinity; i++) {
+        let randomNumber = this.getRandomInt(31, 45);
 
-        var same = this.column3.some(element => element === randomNumber);
+        if (this.column3.length == 5) break;
 
-        if(!same){
+        var same = this.column3.some((element) => element === randomNumber);
+
+        if (!same) {
           this.column3.push(randomNumber);
         }
       }
-      for(let i = 0; i < Infinity; i++){
-        let randomNumber = this.getRandomInt(46,60);
-        
-        if(this.column4.length == 5) break;
+      for (let i = 0; i < Infinity; i++) {
+        let randomNumber = this.getRandomInt(46, 60);
 
-        var same = this.column4.some(element => element === randomNumber);
+        if (this.column4.length == 5) break;
 
-        if(!same){
+        var same = this.column4.some((element) => element === randomNumber);
+
+        if (!same) {
           this.column4.push(randomNumber);
         }
       }
-      for(let i = 0; i < Infinity; i++){
-        let randomNumber = this.getRandomInt(61,75);
-        
-        if(this.column5.length == 5) break;
+      for (let i = 0; i < Infinity; i++) {
+        let randomNumber = this.getRandomInt(61, 75);
 
-        var same = this.column5.some(element => element === randomNumber);
+        if (this.column5.length == 5) break;
 
-        if(!same){
+        var same = this.column5.some((element) => element === randomNumber);
+
+        if (!same) {
           this.column5.push(randomNumber);
         }
       }
 
       this.column1.forEach((element, index) => {
-        if(content.row1.length >= 5){
-          return
+        if (content.row1.length >= 5) {
+          return;
         }
-        content.row1.push({index, number: element, selected: true});
+        content.row1.push({ index, number: element, selected: false });
       });
 
       this.column2.forEach((element, index) => {
-        if(content.row2.length >= 5){
-          return
+        if (content.row2.length >= 5) {
+          return;
         }
-        content.row2.push({index, number: element, selected: false});
+        content.row2.push({ index, number: element, selected: false });
       });
 
       this.column3.forEach((element, index) => {
-        if(content.row3.length >= 5){
-          return
+        if (content.row3.length >= 5) {
+          return;
         }
-        if(content.row3.length == 2){
-          content.row3.push({index, image: "../../../assets/img/logos/dollar.svg"})
+        if (content.row3.length == 2) {
+          content.row3.push({
+            index,
+            image: '../../../assets/img/logos/dollar.svg',
+          });
         }
-        content.row3.push({index, number: element, selected: false});
+        content.row3.push({ index, number: element, selected: false });
       });
 
       this.column4.forEach((element, index) => {
-        if(content.row4.length >= 5){
-          return
+        if (content.row4.length >= 5) {
+          return;
         }
-        content.row4.push({index, number: element, selected: false});
+        content.row4.push({ index, number: element, selected: false });
       });
 
       this.column5.forEach((element, index) => {
-        if(content.row5.length >= 5){
-          return
+        if (content.row5.length >= 5) {
+          return;
         }
-        content.row5.push({index, number: element, selected: false});
+        content.row5.push({ index, number: element, selected: false });
       });
-      
+
       this.column1 = [];
       this.column2 = [];
       this.column3 = [];
       this.column4 = [];
       this.column5 = [];
-      
+
       this.cartones.push(content);
       content = {};
     }
     console.log(this.cartones[0]);
     return this.cartones;
+  }
+
+  searchThroughCartonesToSetNumber(items: any) {
+    var newItems: any[] = [];
+
+    var randomNumber = Number(localStorage.getItem('RandomNumber'));
+
+    if (randomNumber == null) return;
+
+    for (let i = 0; i < items.length; i++) {
+      var carton = items[i];
+      var indexOf: any;
+
+      if (randomNumber >= 1 && randomNumber <= 15) {
+        indexOf = carton.row1[0].number == randomNumber;
+        if (indexOf) {
+          carton.row1[0].selected = true;
+        }
+        indexOf = carton.row1[1].number == randomNumber;
+        if (indexOf) {
+          carton.row1[1].selected = true;
+        }
+        indexOf = carton.row1[2].number == randomNumber;
+        if (indexOf) {
+          carton.row1[2].selected = true;
+        }
+        indexOf = carton.row1[3].number == randomNumber;
+        if (indexOf) {
+          carton.row1[3].selected = true;
+        }
+        indexOf = carton.row1[4].number == randomNumber;
+        if (indexOf) {
+          carton.row1[4].selected = true;
+        }
+      }
+      if (randomNumber >= 16 && randomNumber <= 30) {
+        indexOf = carton.row2[0].number == randomNumber;
+        if (indexOf) {
+          carton.row2[0].selected = true;
+        }
+        indexOf = carton.row2[1].number == randomNumber;
+        if (indexOf) {
+          carton.row2[1].selected = true;
+        }
+        indexOf = carton.row2[2].number == randomNumber;
+        if (indexOf) {
+          carton.row2[2].selected = true;
+        }
+        indexOf = carton.row2[3].number == randomNumber;
+        if (indexOf) {
+          carton.row2[3].selected = true;
+        }
+        indexOf = carton.row2[4].number == randomNumber;
+        if (indexOf) {
+          carton.row2[4].selected = true;
+        }
+      }
+      if (randomNumber >= 31 && randomNumber <= 45) {
+        indexOf = carton.row3[0].number == randomNumber;
+        if (indexOf) {
+          carton.row3[0].selected = true;
+        }
+        indexOf = carton.row3[1].number == randomNumber;
+        if (indexOf) {
+          carton.row3[1].selected = true;
+        }
+        indexOf = carton.row3[2].number == randomNumber;
+        if (indexOf) {
+          carton.row3[2].selected = true;
+        }
+        indexOf = carton.row3[3].number == randomNumber;
+        if (indexOf) {
+          carton.row3[3].selected = true;
+        }
+        indexOf = carton.row3[4].number == randomNumber;
+        if (indexOf) {
+          carton.row3[4].selected = true;
+        }
+      }
+      if (randomNumber >= 46 && randomNumber <= 60) {
+        indexOf = carton.row4[0].number == randomNumber;
+        if (indexOf) {
+          carton.row4[0].selected = true;
+        }
+        indexOf = carton.row4[1].number == randomNumber;
+        if (indexOf) {
+          carton.row4[1].selected = true;
+        }
+        indexOf = carton.row4[2].number == randomNumber;
+        if (indexOf) {
+          carton.row4[2].selected = true;
+        }
+        indexOf = carton.row4[3].number == randomNumber;
+        if (indexOf) {
+          carton.row4[3].selected = true;
+        }
+        indexOf = carton.row4[4].number == randomNumber;
+        if (indexOf) {
+          carton.row4[4].selected = true;
+        }
+      }
+      if (randomNumber >= 61 && randomNumber <= 75) {
+        indexOf = carton.row5[0].number == randomNumber;
+        if (indexOf) {
+          carton.row5[0].selected = true;
+        }
+        indexOf = carton.row5[1].number == randomNumber;
+        if (indexOf) {
+          carton.row5[1].selected = true;
+        }
+        indexOf = carton.row5[2].number == randomNumber;
+        if (indexOf) {
+          carton.row5[2].selected = true;
+        }
+        indexOf = carton.row5[3].number == randomNumber;
+        if (indexOf) {
+          carton.row5[3].selected = true;
+        }
+        indexOf = carton.row5[4].number == randomNumber;
+        if (indexOf) {
+          carton.row5[4].selected = true;
+        }
+      }
+
+      newItems.push(carton);
+    }
+
+    return newItems;
   }
 }

@@ -3,6 +3,47 @@
   //   border: 3px solid #000;
   margin: 0 10px;
   border-radius: 15px;
+  .generate-random-number {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 36px;
+    bottom: 77px;
+    z-index: 9999;
+    margin: 20px 0;
+    button {
+      border-radius: 50%;
+      padding: 20px;
+      height: 100px;
+      width: 100px;
+      border: 1px solid #3f51b5;
+      background-color: transparent;
+      font-weight: bold;
+      font-size: 18px;
+      p {
+        margin: 0;
+      }
+    }
+
+    .last-5-plays {
+      display: flex;
+      gap: 10px;
+      p {
+        border: 1px solid #3f51b5;
+        height: 25px;
+        text-align: center;
+        display: flex;
+        border-radius: 50%;
+        margin: 0;
+        width: 25px;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
   .cards {
     display: flex;
     justify-content: flex-start;
@@ -75,6 +116,13 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                .circle-cover {
+                  width: 20px;
+                  height: 20px;
+                  background-color: #ff1111;
+                  position: absolute;
+                  border-radius: 50%;
+                }
               }
               .td-color {
                 background-color: #ddd !important;

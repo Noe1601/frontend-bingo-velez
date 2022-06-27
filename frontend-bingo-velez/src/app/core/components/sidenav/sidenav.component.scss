@@ -1,56 +1,52 @@
-.page-body{
-    position: inherit !important
+.page-body {
+  position: inherit !important;
 }
 
-.menu-title{
-    width: 100%;
-    text-align: center;
-    height: 3.2%;
-    font-size: 18pt;
-    padding: 17px 0;
-    color: #FFF;
-    background-color: #2a3b98;
+.menu-title {
+  width: 100%;
+  text-align: center;
+  height: 3.2%;
+  font-size: 18pt;
+  padding: 17px 0;
+  color: #fff;
+  background-color: #2a3b98;
 }
 
-
-.menu-content{
-    padding-top: 10px
+.menu-content {
+  padding-top: 10px;
 }
 
-.menu-content .menu-item{
-    padding: 10px 10px;
-    cursor: pointer;
-    outline: none;
+.menu-content .menu-item {
+  padding: 10px 10px;
+  cursor: pointer;
+  outline: none;
 }
 
-.menu-item:hover{
-    background-color: #EEE;
+.menu-item:hover {
+  background-color: #eee;
 }
 
-.menu-item .text{
-    padding-left: 10px;
+.menu-item .text {
+  padding-left: 10px;
 }
 
-
-
-section{
-    height: 100vh
+section {
+  height: 100vh;
 }
 
-.active{
-    background-color: rgba($color: #3f51b5, $alpha: 0.3)
+.active {
+  background-color: rgba($color: #3f51b5, $alpha: 0.3);
 }
 
-.active:hover{
-    background-color: rgba($color: #3f51b5, $alpha: 0.3) !important
+.active:hover {
+  background-color: rgba($color: #3f51b5, $alpha: 0.3) !important;
 }
-
 
 .example-radio-group {
-    display: inline-flex;
-    flex-direction: column;
-  }
-  
-  .example-radio-button {
-    margin: 5px;
-  }
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
