@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HomeService } from 'src/app/core/services/home.service';
+import { SettingsService } from 'src/app/core/services/settings.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-settings',
@@ -8,39 +9,68 @@ import { HomeService } from 'src/app/core/services/home.service';
   styleUrls: ['./settings.component.scss'],
 })
 export class SettingsComponent implements OnInit {
-  switch: boolean = false;
   form: FormGroup;
+  form2: FormGroup;
   quantity: number = 0;
+  value: any;
+  cartonesIdSettings: any;
+  priceIdSettings: any;
+  priceValue: any;
 
-  constructor(private _homeService: HomeService, private _fb: FormBuilder) {
+  constructor(private _fb: FormBuilder,
+    private _settingsService: SettingsService) {
+
+    this._settingsService.getAllSettings().subscribe(setting => {
+      setting.settings.forEach((s: any) => {
+
+        if (s.name.toLowerCase() === 'cartones') {
+          this.value = s.value;
+          this.cartonesIdSettings = s.id;
+
+          this.form.patchValue({
+            cartonesNo: this.value
+          });
+        }
+
+        if (s.name.toLowerCase() === 'precio') {
+          this.priceValue = s.value;
+          this.priceIdSettings = s.id;
+
+          this.form2.patchValue({
+            priceValue: this.priceValue
+          });
+        }
+
+      })
+    })
+
     this.form = this._fb.group({
-      switch: [this.switch, Validators.required],
+      cartonesNo: ['', Validators.required]
+    });
+
+    this.form2 = this._fb.group({
+      priceValue: ['', Validators.required]
     });
   }
 
-  ngOnInit(): void {
-    if(localStorage.getItem('SwitchState') === "true"){
-      this.form.setValue({
-        switch: true
-      })
-    }
+  ngOnInit(): void { }
+
+  updateSettings() {
+    const { cartonesNo } = this.form.value;
+    this._settingsService.updateSettings(this.cartonesIdSettings, { value: cartonesNo }).subscribe(data => {
+      Swal.fire('Cantidad cartones', `Se actualizo la cantidad de cartones a ${data.value}`, 'success');
+    }, err => {
+      Swal.fire('Cantidad cartones', 'Ocurrio un error en la actualizacion de los cartones', 'error');
+    })
   }
 
-
-  setCartonesQuantity() {
-    this.switch = !this.form.value.switch;
-
-    localStorage.setItem("SwitchState", this.switch as any);
-    
-    if (this.form.value.switch) {
-      this.quantity = 21;
-    }
-    else{
-      this.quantity = 30;
-    }
-
-    localStorage.setItem('CantidadDeCartones', String(this.quantity));
-
-    this._homeService.items(this.quantity);
+  updatePriceSettings(){
+    const { priceValue } = this.form2.value;
+    this._settingsService.updateSettings(this.priceIdSettings, { value: priceValue }).subscribe(data => {
+      Swal.fire('Precio por partida', `Se actualizo el monto por partida: ${data.value}`, 'success');
+    }, err => {
+      Swal.fire('Precio por partida', 'Ocurrio un error en la actualizacion del monto por partida', 'error');
+    })
   }
+
 }

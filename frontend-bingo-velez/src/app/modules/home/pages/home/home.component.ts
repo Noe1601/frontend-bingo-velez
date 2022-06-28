@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from 'src/app/core/services/home.service';
 import { PlayersService } from 'src/app/core/services/players.service';
+import { SettingsService } from 'src/app/core/services/settings.service';
 
 @Component({
   selector: 'app-home',
@@ -21,14 +22,24 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private _homeService: HomeService,
-    private _playerService: PlayersService
+    private _playerService: PlayersService,
+    private _settingsService: SettingsService
   ) {}
 
   ngOnInit(): void {
-    var cartonesQuantity = localStorage.getItem('CantidadDeCartones');
-    this.items = this._homeService.items(
-      cartonesQuantity ? Number(cartonesQuantity) : 30
-    );
+
+    this._settingsService.getAllSettings().subscribe(setting => {
+      setting.settings.forEach((s: any) => {
+
+        if(s.name.toLowerCase() === 'cartones'){
+          this.items = this._homeService.items(
+            s.value ? Number(s.value) : 30
+          );
+        }else{
+          this.items = this._homeService.items(30);
+        }
+      })
+    })
 
     this._playerService.getPlayers().subscribe((data) => {
       this.players = data.list;
