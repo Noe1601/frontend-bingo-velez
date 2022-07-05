@@ -48,8 +48,15 @@ export class LoginComponent implements OnInit {
       });
      }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.autoLogin();
+   }
 
+   autoLogin(){
+    if(localStorage.getItem('token') && localStorage.getItem('user')) {
+      this._router.navigateByUrl('/pages/home');
+    }
+   }
 
   isValid(value: string) {
     return this.sinupForm.get(value)?.invalid && this.sinupForm.get(value)?.touched

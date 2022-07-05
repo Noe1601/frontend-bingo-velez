@@ -22,12 +22,6 @@ export class HomeService {
   items(cartonesQuantity: number) {
     this.cartones = [];
 
-    if (cartonesQuantity == 0) {
-      cartonesQuantity = Number(localStorage.getItem('CantidadDeCartones'));
-    }
-
-    localStorage.setItem('CantidadDeCartones', String(cartonesQuantity));
-
     for (let i = 0; i < cartonesQuantity; i++) {
       var content = {
         title: {
@@ -124,6 +118,7 @@ export class HomeService {
           content.row3.push({
             index,
             image: '../../../assets/img/logos/dollar.svg',
+            selected: false
           });
         }
         content.row3.push({ index, number: element, selected: false });
@@ -153,17 +148,12 @@ export class HomeService {
       content = {};
     }
 
-    console.log(this.cartones);
     return this.cartones;
   }
 
   newCarton(cartonesQuantity: number) {
     this.cartones = [];
 
-    if (cartonesQuantity == 0) {
-      cartonesQuantity = Number(localStorage.getItem('CantidadDeCartones'));
-    }
-
     for (let i = 0; i < cartonesQuantity; i++) {
       var content = {
         title: {
@@ -288,7 +278,7 @@ export class HomeService {
       this.cartones.push(content);
       content = {};
     }
-    console.log(this.cartones[0]);
+
     return this.cartones;
   }
 
@@ -419,4 +409,5 @@ export class HomeService {
 
     return newItems;
   }
+
 }
