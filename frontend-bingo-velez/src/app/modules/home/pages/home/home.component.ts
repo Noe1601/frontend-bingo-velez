@@ -65,14 +65,14 @@ export class HomeComponent implements OnInit {
       this.items
     );
     this.items = newItems;
-    //this.getPlayLaCosita(this.items);
+    this.getPlayLaCosita(this.items);
     //this.getPlayMedio(this.items);
     //this.getPlaySumita(this.items);
     //this.getPlayLetraT(this.items);
     //this.getPlayBingoRegular(this.items);
     //this.getPlay4Esquinas(this.items);
     //this.getPlayX(this.items);
-    this.getPlayWholeCarton(this.items);
+    //this.getPlayWholeCarton(this.items);
     //this.getPlayLetraL(this.items);
   }
 
@@ -90,19 +90,37 @@ export class HomeComponent implements OnInit {
     carton.forEach((c: any) => {
 
       if (c.row1[0].selected && c.row2[0].selected) {
-        console.log('La cosita')
+
+        if (!c.row1[4].selected && !c.row2[4].selected
+          && !c.row4[4].selected && !c.row5[4].selected && c.cosita) {
+          return;
+        }
+
+        alert('La cosita')
       }
 
       if (c.row1[4].selected && c.row2[4].selected) {
-        console.log('La cosita')
+
+        if (!c.row1[0].selected && !c.row2[0].selected
+          && !c.row4[4].selected && !c.row5[4].selected && c.cosita) {
+          return;
+        }
+
+        alert('La cosita')
       }
 
       if (c.row4[0].selected && c.row5[0].selected) {
-        console.log('La cosita')
+        alert('La cosita')
       }
 
       if (c.row4[4].selected && c.row5[4].selected) {
-        console.log('La cosita')
+
+        if (!c.row1[0].selected && !c.row2[0].selected &&
+          !c.row1[4].selected && !c.row2[4].selected && c.cosita) {
+          return;
+        }
+
+        alert('La cosita')
       }
 
     })
@@ -244,41 +262,41 @@ export class HomeComponent implements OnInit {
 
   getPlay4Esquinas(carton: any) {
     carton.forEach((c: any) => {
-      if(c.row1[0].selected && c.row5[0].selected
-        && c.row1[4].selected && c.row5[4].selected){
-          alert('4 esquinas');
-        }
+      if (c.row1[0].selected && c.row5[0].selected
+        && c.row1[4].selected && c.row5[4].selected) {
+        alert('4 esquinas');
+      }
     })
   }
 
   getPlayX(carton: any) {
     carton.forEach((c: any) => {
 
-      if(c.row2[1].selected && c.row2[3].selected
-        && c.row4[1].selected && c.row4[3].selected){
-          alert('X');
-        }
+      if (c.row2[1].selected && c.row2[3].selected
+        && c.row4[1].selected && c.row4[3].selected) {
+        alert('X');
+      }
 
     });
   }
 
   getPlayWholeCarton(carton: any) {
-    const isWhole = carton.every((c: any) => c.selected === true );
-    if(isWhole){
+    const isWhole = carton.every((c: any) => c.selected === true);
+    if (isWhole) {
       alert('Carton lleno');
     }
   }
 
   getPlayLetraL(carton: any) {
     carton.forEach((c: any) => {
-      if(c.row1[0].selected && c.row1[1].selected
+      if (c.row1[0].selected && c.row1[1].selected
         && c.row1[2].selected && c.row1[3].selected
         && c.row1[4].selected && c.row2[4].selected
         && c.row3[4].selected && c.row4[4].selected
-        && c.row5[4].selected){
-          alert('Letra L');
-        }
+        && c.row5[4].selected) {
+        alert('Letra L');
+      }
     })
   }
-  
+
 }

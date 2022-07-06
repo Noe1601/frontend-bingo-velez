@@ -100,14 +100,32 @@ export class HomeService {
         if (content.row1.length >= 5) {
           return;
         }
-        content.row1.push({ index, number: element, selected: false });
+        content.row1.push({ 
+            index, number: element, 
+            selected: false,
+            cosita: false,
+            medio: false,
+            sumita: false,
+            letraT: false,
+            regular: false,
+            esquinas: false,
+            deldia: false,
+            x: false,
+            l: false,
+            lleno: false,
+            mediaC: false,
+            cometa: false
+          });
       });
 
       this.column2.forEach((element, index) => {
         if (content.row2.length >= 5) {
           return;
         }
-        content.row2.push({ index, number: element, selected: false });
+        content.row2.push({ 
+          index, number: element, 
+          selected: false
+        });
       });
 
       this.column3.forEach((element, index) => {
@@ -121,21 +139,30 @@ export class HomeService {
             selected: false
           });
         }
-        content.row3.push({ index, number: element, selected: false });
+        content.row3.push({ 
+          index, number: element, 
+          selected: false,
+         });
       });
 
       this.column4.forEach((element, index) => {
         if (content.row4.length >= 5) {
           return;
         }
-        content.row4.push({ index, number: element, selected: false });
+        content.row4.push({ 
+          index, number: element, 
+          selected: false,
+        });
       });
 
       this.column5.forEach((element, index) => {
         if (content.row5.length >= 5) {
           return;
         }
-        content.row5.push({ index, number: element, selected: false });
+        content.row5.push({ 
+          index, number: element, 
+          selected: false,
+        });
       });
 
       this.column1 = [];
