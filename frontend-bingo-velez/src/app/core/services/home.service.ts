@@ -114,7 +114,8 @@ export class HomeService {
             l: false,
             lleno: false,
             mediaC: false,
-            cometa: false
+            cometa: false,
+            class: ''
           });
       });
 
@@ -124,7 +125,8 @@ export class HomeService {
         }
         content.row2.push({ 
           index, number: element, 
-          selected: false
+          selected: false,
+          class: ''
         });
       });
 
@@ -136,12 +138,13 @@ export class HomeService {
           content.row3.push({
             index,
             image: '../../../assets/img/logos/dollar.svg',
-            selected: false
+            selected: true
           });
         }
         content.row3.push({ 
           index, number: element, 
           selected: false,
+          class: ''
          });
       });
 
@@ -152,6 +155,7 @@ export class HomeService {
         content.row4.push({ 
           index, number: element, 
           selected: false,
+          class: ''
         });
       });
 
@@ -162,6 +166,7 @@ export class HomeService {
         content.row5.push({ 
           index, number: element, 
           selected: false,
+          class: ''
         });
       });
 
