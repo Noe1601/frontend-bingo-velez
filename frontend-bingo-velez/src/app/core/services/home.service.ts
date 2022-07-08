@@ -115,7 +115,9 @@ export class HomeService {
             lleno: false,
             mediaC: false,
             cometa: false,
-            class: ''
+            class: '',
+            isPlayerSelected: false,
+            playerSelected: null
           });
       });
 

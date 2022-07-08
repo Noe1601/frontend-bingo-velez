@@ -16,4 +16,8 @@ export class PlayWinnerService {
         return this._http.get(`${ base_url }/playwinners/${ id }`);
     }
 
+    createPlayWinner(object: any): Observable<any> {
+      return this._http.post<any>(`${ base_url }/playwinners`, object);
+    }
+
 }

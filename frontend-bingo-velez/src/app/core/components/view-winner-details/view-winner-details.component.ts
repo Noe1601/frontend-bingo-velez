@@ -45,7 +45,7 @@ export class ViewWinnerDetailsComponent implements OnInit {
             this.details.push({       
               winnerName: winner.listById.name,
               playName: play.listById.name,
-              amount: play.listById.monto,
+              amount: winner.listById.monto,
               createdAt: winner.listById.createdAt
             })
     

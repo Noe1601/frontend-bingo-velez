@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from 'src/app/core/services/home.service';
+import { PlayWinnerService } from 'src/app/core/services/play-winners.service';
 import { PlayersService } from 'src/app/core/services/players.service';
 import { SettingsService } from 'src/app/core/services/settings.service';
+import { WinnersService } from 'src/app/core/services/winners.service';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +25,9 @@ export class HomeComponent implements OnInit {
   constructor(
     private _homeService: HomeService,
     private _playerService: PlayersService,
-    private _settingsService: SettingsService
+    private _settingsService: SettingsService,
+    private _winnerService: WinnersService,
+    private _playWinnerService: PlayWinnerService
   ) { }
 
   ngOnInit(): void {
@@ -45,6 +49,11 @@ export class HomeComponent implements OnInit {
     });
 
     localStorage.removeItem('RandomNumber');
+  }
+
+  selectPlayer(carton: any, event: any) {
+    carton.row1.isPlayerSelected = true;
+    carton.row1.playerSelected = Number(event.target.value);
   }
 
   resetCarton(carton: any) {
@@ -92,31 +101,51 @@ export class HomeComponent implements OnInit {
   getPlayLaCosita(carton: any) {
     carton.forEach((c: any) => {
 
-      if (c.row1[0].selected && c.row2[0].selected) {
+      if (
+        (c.row1[0].selected && c.row2[0].selected)
+        || (c.row1[4].selected && c.row2[4].selected)
+        || (c.row4[0].selected && c.row5[0].selected)
+        || (c.row4[4].selected && c.row5[4].selected)
+      ) {
         if (!c.row1.cosita) {
           c.row1.cosita = true;
-          alert('La cosita')
-        }
-      }
 
-      if (c.row1[4].selected && c.row2[4].selected) {
-        if (!c.row1.cosita) {
-          c.row1.cosita = true;
-          alert('La cosita')
-        }
-      }
+          if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
 
-      if (c.row4[0].selected && c.row5[0].selected) {
-        if (!c.row1.cosita) {
-          c.row1.cosita = true;
-          alert('La cosita')
-        }
-      }
+            let playerName;
+            this._playerService.getPlayer(c.row1.playerSelected).subscribe(data => {
+              playerName = data.listById.name;
 
-      if (c.row4[4].selected && c.row5[4].selected) {
-        if (!c.row1.cosita) {
-          c.row1.cosita = true;
-          alert('La cosita')
+              const buildWinner = {
+                name: playerName,
+                jugada_id: 210777,
+                jugador_id: c.row1.playerSelected,
+                monto: 25
+              }
+
+              this._winnerService.createWinner(buildWinner).subscribe(data => {
+
+                console.log('Se creo winner - cosita');
+
+                const buildPlayWinner = {
+                  jugada_id: 210777,
+                  jugador_id: c.row1.playerSelected,
+                }
+
+                this._playWinnerService.createPlayWinner(buildPlayWinner).subscribe(data => {
+                  console.log('Se creo play-winner');
+                }, err => {
+                  console.log(err);
+                });
+
+
+              }, err => {
+                console.log(err)
+              })
+            })
+
+          }
+
         }
       }
 
@@ -126,31 +155,51 @@ export class HomeComponent implements OnInit {
   getPlayMedio(carton: any) {
     carton.forEach((c: any) => {
 
-      if (c.row1[2].selected && c.row5[2].selected) {
-        if (!c.row1.medio) {
-          c.row1.medio = true;
-          alert('El medio')
-        }
-      }
+      if (
+        (c.row1[2].selected && c.row5[2].selected)
+        || (c.row1[2].selected && c.row2[2].selected)
+        || (c.row4[2].selected && c.row5[2].selected)
+        || (c.row2[2].selected && c.row4[2].selected)
+      ) {
 
-      if (c.row1[2].selected && c.row2[2].selected) {
         if (!c.row1.medio) {
           c.row1.medio = true;
-          alert('El medio')
-        }
-      }
 
-      if (c.row4[2].selected && c.row5[2].selected) {
-        if (!c.row1.medio) {
-          c.row1.medio = true;
-          alert('El medio')
-        }
-      }
+          if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
 
-      if (c.row2[2].selected && c.row4[2].selected) {
-        if (!c.row1.medio) {
-          c.row1.medio = true;
-          alert('El medio')
+            let playerName;
+            this._playerService.getPlayer(c.row1.playerSelected).subscribe(data => {
+              playerName = data.listById.name;
+
+              const buildWinner = {
+                name: playerName,
+                jugada_id: 693521,
+                jugador_id: c.row1.playerSelected,
+                monto: 25
+              }
+
+              this._winnerService.createWinner(buildWinner).subscribe(data => {
+
+                console.log('Se creo winner - medio');
+
+                const buildPlayWinner = {
+                  jugada_id: 693521,
+                  jugador_id: c.row1.playerSelected,
+                }
+
+                this._playWinnerService.createPlayWinner(buildPlayWinner).subscribe(data => {
+                  console.log('Se creo play-winner');
+                }, err => {
+                  console.log(err);
+                });
+
+
+              }, err => {
+                console.log(err)
+              })
+            })
+
+          }
         }
       }
 
@@ -168,6 +217,42 @@ export class HomeComponent implements OnInit {
           c.row3[1].class = 'circle-sumita';
           c.row3[3].class = 'circle-sumita';
           c.row4[2].class = 'circle-sumita';
+
+          if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
+
+            let playerName;
+            this._playerService.getPlayer(c.row1.playerSelected).subscribe(data => {
+              playerName = data.listById.name;
+
+              const buildWinner = {
+                name: playerName,
+                jugada_id: 174477,
+                jugador_id: c.row1.playerSelected,
+                monto: 25
+              }
+
+              this._winnerService.createWinner(buildWinner).subscribe(data => {
+
+                console.log('Se creo winner - sumita');
+
+                const buildPlayWinner = {
+                  jugada_id: 174477,
+                  jugador_id: c.row1.playerSelected,
+                }
+
+                this._playWinnerService.createPlayWinner(buildPlayWinner).subscribe(data => {
+                  console.log('Se creo play-winner');
+                }, err => {
+                  console.log(err);
+                });
+
+
+              }, err => {
+                console.log(err)
+              })
+            })
+
+          }
         }
       }
     });
@@ -191,6 +276,42 @@ export class HomeComponent implements OnInit {
           c.row3[1].class = 'circle-t';
           c.row3[3].class = 'circle-t';
           c.row3[4].class = 'circle-t';
+
+          if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
+
+            let playerName;
+            this._playerService.getPlayer(c.row1.playerSelected).subscribe(data => {
+              playerName = data.listById.name;
+
+              const buildWinner = {
+                name: playerName,
+                jugada_id: 669740,
+                jugador_id: c.row1.playerSelected,
+                monto: 30
+              }
+
+              this._winnerService.createWinner(buildWinner).subscribe(data => {
+
+                console.log('Se creo winner - letra t');
+
+                const buildPlayWinner = {
+                  jugada_id: 669740,
+                  jugador_id: c.row1.playerSelected,
+                }
+
+                this._playWinnerService.createPlayWinner(buildPlayWinner).subscribe(data => {
+                  console.log('Se creo play-winner');
+                }, err => {
+                  console.log(err);
+                });
+
+
+              }, err => {
+                console.log(err)
+              })
+            })
+
+          }
         }
       }
     });
@@ -199,9 +320,54 @@ export class HomeComponent implements OnInit {
   getPlayBingoRegular(carton: any) {
     carton.forEach((c: any) => {
 
-      if (c.row1[0].selected && c.row2[0].selected
-        && c.row3[0].selected && c.row4[0].selected
-        && c.row5[0].selected) {
+      if (
+        (c.row1[0].selected && c.row2[0].selected
+          && c.row3[0].selected && c.row4[0].selected
+          && c.row5[0].selected)
+        ||
+        (c.row1[0].selected && c.row1[1].selected
+          && c.row1[2].selected && c.row1[3].selected
+          && c.row1[4].selected)
+        ||
+        (c.row2[0].selected && c.row2[1].selected
+          && c.row2[2].selected && c.row2[3].selected
+          && c.row2[4].selected)
+        ||
+        (c.row3[0].selected && c.row3[1].selected
+          && c.row3[3].selected && c.row3[4].selected)
+        ||
+        (c.row4[0].selected && c.row4[1].selected
+          && c.row4[2].selected && c.row4[3].selected
+          && c.row4[4].selected)
+        ||
+        (c.row5[0].selected && c.row5[1].selected
+          && c.row5[2].selected && c.row5[3].selected
+          && c.row5[4].selected)
+        ||
+        (c.row1[1].selected && c.row2[1].selected
+          && c.row3[1].selected && c.row4[1].selected
+          && c.row5[1].selected)
+        ||
+        (c.row1[2].selected && c.row2[2].selected
+          && c.row4[2].selected
+          && c.row5[2].selected)
+        ||
+        (c.row1[3].selected && c.row2[3].selected
+          && c.row3[3].selected && c.row4[3].selected
+          && c.row5[3].selected)
+        ||
+        (c.row1[4].selected && c.row2[4].selected
+          && c.row3[4].selected && c.row4[4].selected
+          && c.row5[4].selected)
+        ||
+        (c.row1[0].selected && c.row2[1].selected
+          && c.row4[3].selected
+          && c.row5[4].selected)
+        ||
+        (c.row1[4].selected && c.row2[3].selected
+          && c.row4[1].selected
+          && c.row5[0].selected)
+      ) {
 
         if (!c.row1.regular) {
           c.row1.regular = true;
@@ -210,76 +376,45 @@ export class HomeComponent implements OnInit {
           c.row3[0].class = 'circle-bingo';
           c.row4[0].class = 'circle-bingo';
           c.row5[0].class = 'circle-bingo';
+
+          if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
+
+            let playerName;
+            this._playerService.getPlayer(c.row1.playerSelected).subscribe(data => {
+              playerName = data.listById.name;
+
+              const buildWinner = {
+                name: playerName,
+                jugada_id: 731245,
+                jugador_id: c.row1.playerSelected,
+                monto: 80
+              }
+
+              this._winnerService.createWinner(buildWinner).subscribe(data => {
+
+                console.log('Se creo winner - letra t');
+
+                const buildPlayWinner = {
+                  jugada_id: 731245,
+                  jugador_id: c.row1.playerSelected,
+                }
+
+                this._playWinnerService.createPlayWinner(buildPlayWinner).subscribe(data => {
+                  console.log('Se creo play-winner');
+                }, err => {
+                  console.log(err);
+                });
+
+
+              }, err => {
+                console.log(err)
+              })
+            })
+
+          }
         }
       }
 
-      if (c.row1[0].selected && c.row1[1].selected
-        && c.row1[2].selected && c.row1[3].selected
-        && c.row1[4].selected) {
-
-        if (!c.row1.regular) {
-          c.row1.regular = true;
-          c.row1[0].class = 'circle-bingo';
-          c.row1[1].class = 'circle-bingo';
-          c.row1[2].class = 'circle-bingo';
-          c.row1[3].class = 'circle-bingo';
-          c.row1[4].class = 'circle-bingo';
-        }
-      }
-
-      if (c.row2[0].selected && c.row2[1].selected
-        && c.row2[2].selected && c.row2[3].selected
-        && c.row2[4].selected) {
-
-        if (!c.row1.regular) {
-          c.row1.regular = true;
-          c.row2[0].class = 'circle-bingo';
-          c.row2[1].class = 'circle-bingo';
-          c.row2[2].class = 'circle-bingo';
-          c.row2[3].class = 'circle-bingo';
-          c.row2[5].class = 'circle-bingo';
-        }
-      }
-
-      if (c.row3[0].selected && c.row3[1].selected
-        && c.row3[3].selected && c.row3[4].selected) {
-
-        if (!c.row1.regular) {
-          c.row1.regular = true;
-          c.row3[0].class = 'circle-bingo';
-          c.row3[1].class = 'circle-bingo';
-          c.row3[3].class = 'circle-bingo';
-          c.row3[4].class = 'circle-bingo';
-        }
-      }
-
-      if (c.row4[0].selected && c.row4[1].selected
-        && c.row4[2].selected && c.row4[3].selected
-        && c.row4[4].selected) {
-
-        if (!c.row1.regular) {
-          c.row1.regular = true;
-          c.row4[0].class = 'circle-bingo';
-          c.row4[1].class = 'circle-bingo';
-          c.row4[2].class = 'circle-bingo';
-          c.row4[3].class = 'circle-bingo';
-          c.row4[4].class = 'circle-bingo';
-        }
-      }
-
-      if (c.row5[0].selected && c.row5[1].selected
-        && c.row5[2].selected && c.row5[3].selected
-        && c.row5[4].selected) {
-
-        if (!c.row1.regular) {
-          c.row1.regular = true;
-          c.row5[0].class = 'circle-bingo';
-          c.row5[1].class = 'circle-bingo';
-          c.row5[2].class = 'circle-bingo';
-          c.row5[3].class = 'circle-bingo';
-          c.row5[4].class = 'circle-bingo';
-        }
-      }
 
       // if (c.row1[0].selected && c.row2[0].selected
       //   && c.row3[0].selected && c.row4[0].selected
@@ -305,87 +440,6 @@ export class HomeComponent implements OnInit {
       //   }
       // }
 
-      if (c.row1[1].selected && c.row2[1].selected
-        && c.row3[1].selected && c.row4[1].selected
-        && c.row5[1].selected) {
-
-        if (!c.row1.regular) {
-          c.row1.regular = true;
-          c.row1[1].class = 'circle-bingo';
-          c.row2[1].class = 'circle-bingo';
-          c.row3[1].class = 'circle-bingo';
-          c.row4[1].class = 'circle-bingo';
-          c.row5[1].class = 'circle-bingo';
-        }
-      }
-
-      if (c.row1[2].selected && c.row2[2].selected
-        && c.row4[2].selected
-        && c.row5[2].selected) {
-
-        if (!c.row1.regular) {
-          c.row1.regular = true;
-          c.row1[2].class = 'circle-bingo';
-          c.row2[2].class = 'circle-bingo';
-          c.row4[2].class = 'circle-bingo';
-          c.row5[2].class = 'circle-bingo';
-        }
-      }
-
-      if (c.row1[3].selected && c.row2[3].selected
-        && c.row3[3].selected && c.row4[3].selected
-        && c.row5[3].selected) {
-
-        if (!c.row1.regular) {
-          c.row1.regular = true;
-          c.row1[3].class = 'circle-bingo';
-          c.row2[3].class = 'circle-bingo';
-          c.row3[3].class = 'circle-bingo';
-          c.row4[3].class = 'circle-bingo';
-          c.row5[3].class = 'circle-bingo';
-        }
-      }
-
-      if (c.row1[4].selected && c.row2[4].selected
-        && c.row3[4].selected && c.row4[4].selected
-        && c.row5[4].selected) {
-
-        if (!c.row1.regular) {
-          c.row1.regular = true;
-          c.row1[4].class = 'circle-bingo';
-          c.row2[4].class = 'circle-bingo';
-          c.row3[4].class = 'circle-bingo';
-          c.row4[4].class = 'circle-bingo';
-          c.row5[4].class = 'circle-bingo';
-        }
-      }
-
-      if (c.row1[0].selected && c.row2[1].selected
-        && c.row4[3].selected
-        && c.row5[4].selected) {
-
-        if (!c.row1.regular) {
-          c.row1.regular = true;
-          c.row1[0].class = 'circle-bingo';
-          c.row2[1].class = 'circle-bingo';
-          c.row4[3].class = 'circle-bingo';
-          c.row5[4].class = 'circle-bingo';
-        }
-      }
-
-      if (c.row1[4].selected && c.row2[3].selected
-        && c.row4[1].selected
-        && c.row5[0].selected) {
-
-        if (!c.row1.regular) {
-          c.row1.regular = true;
-          c.row1[4].class = 'circle-bingo';
-          c.row2[3].class = 'circle-bingo';
-          c.row4[1].class = 'circle-bingo';
-          c.row5[0].class = 'circle-bingo';
-        }
-      }
-
     });
   }
 
@@ -400,6 +454,42 @@ export class HomeComponent implements OnInit {
           c.row1[4].class = 'circle-bingo';
           c.row5[4].class = 'circle-bingo';
           c.row5[0].class = 'circle-bingo';
+
+          if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
+
+            let playerName;
+            this._playerService.getPlayer(c.row1.playerSelected).subscribe(data => {
+              playerName = data.listById.name;
+
+              const buildWinner = {
+                name: playerName,
+                jugada_id: 170564,
+                jugador_id: c.row1.playerSelected,
+                monto: 100
+              }
+
+              this._winnerService.createWinner(buildWinner).subscribe(data => {
+
+                console.log('Se creo winner - cuatro esquinas');
+
+                const buildPlayWinner = {
+                  jugada_id: 170564,
+                  jugador_id: c.row1.playerSelected,
+                }
+
+                this._playWinnerService.createPlayWinner(buildPlayWinner).subscribe(data => {
+                  console.log('Se creo play-winner');
+                }, err => {
+                  console.log(err);
+                });
+
+
+              }, err => {
+                console.log(err)
+              })
+            })
+
+          }
         }
       }
     })
@@ -417,6 +507,42 @@ export class HomeComponent implements OnInit {
           c.row2[3].class = 'circle-x';
           c.row4[1].class = 'circle-x';
           c.row4[3].class = 'circle-x';
+
+          if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
+
+            let playerName;
+            this._playerService.getPlayer(c.row1.playerSelected).subscribe(data => {
+              playerName = data.listById.name;
+
+              const buildWinner = {
+                name: playerName,
+                jugada_id: 325808,
+                jugador_id: c.row1.playerSelected,
+                monto: 25
+              }
+
+              this._winnerService.createWinner(buildWinner).subscribe(data => {
+
+                console.log('Se creo winner - x');
+
+                const buildPlayWinner = {
+                  jugada_id: 325808,
+                  jugador_id: c.row1.playerSelected,
+                }
+
+                this._playWinnerService.createPlayWinner(buildPlayWinner).subscribe(data => {
+                  console.log('Se creo play-winner');
+                }, err => {
+                  console.log(err);
+                });
+
+
+              }, err => {
+                console.log(err)
+              })
+            })
+
+          }
         }
       }
 
@@ -442,6 +568,42 @@ export class HomeComponent implements OnInit {
           c.row3[4].class = 'circle-l';
           c.row4[4].class = 'circle-l';
           c.row5[4].class = 'circle-l';
+
+          if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
+
+            let playerName;
+            this._playerService.getPlayer(c.row1.playerSelected).subscribe(data => {
+              playerName = data.listById.name;
+
+              const buildWinner = {
+                name: playerName,
+                jugada_id: 232422,
+                jugador_id: c.row1.playerSelected,
+                monto: 25
+              }
+
+              this._winnerService.createWinner(buildWinner).subscribe(data => {
+
+                console.log('Se creo winner - L');
+
+                const buildPlayWinner = {
+                  jugada_id: 232422,
+                  jugador_id: c.row1.playerSelected,
+                }
+
+                this._playWinnerService.createPlayWinner(buildPlayWinner).subscribe(data => {
+                  console.log('Se creo play-winner');
+                }, err => {
+                  console.log(err);
+                });
+
+
+              }, err => {
+                console.log(err)
+              })
+            })
+
+          }
         }
       }
     })
@@ -492,7 +654,42 @@ export class HomeComponent implements OnInit {
         && isRow4Whole && isRow5Whole) {
         if (!c.row1.lleno) {
           c.row1.lleno = true;
-          alert('Carton lleno');
+
+          if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
+
+            let playerName;
+            this._playerService.getPlayer(c.row1.playerSelected).subscribe(data => {
+              playerName = data.listById.name;
+
+              const buildWinner = {
+                name: playerName,
+                jugada_id: 263903,
+                jugador_id: c.row1.playerSelected,
+                monto: 25
+              }
+
+              this._winnerService.createWinner(buildWinner).subscribe(data => {
+
+                console.log('Se creo winner - lleno');
+
+                const buildPlayWinner = {
+                  jugada_id: 263903,
+                  jugador_id: c.row1.playerSelected,
+                }
+
+                this._playWinnerService.createPlayWinner(buildPlayWinner).subscribe(data => {
+                  console.log('Se creo play-winner');
+                }, err => {
+                  console.log(err);
+                });
+
+
+              }, err => {
+                console.log(err)
+              })
+            })
+
+          }
         }
       }
     })

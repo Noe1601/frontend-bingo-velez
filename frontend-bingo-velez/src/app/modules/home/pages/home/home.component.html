@@ -24,10 +24,10 @@
       </div>
     </div>
     <section class="cards">
-      <div class="card-cardboard" *ngFor="let item of items">
+      <div class="card-cardboard" *ngFor="let item of items; let i = index">
         <div class="top-content">
-          <select type="text" class="input-name">
-            <option [value]="">Jugadores</option>
+          <select type="text" (change)="selectPlayer(item, $event)" class="input-name">
+            <option>Jugadores</option>
             <option [value]="player.id" *ngFor="let player of players">
               {{ player.name }}
             </option>
