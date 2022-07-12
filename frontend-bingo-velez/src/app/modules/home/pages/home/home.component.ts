@@ -320,125 +320,235 @@ export class HomeComponent implements OnInit {
   getPlayBingoRegular(carton: any) {
     carton.forEach((c: any) => {
 
-      if (
-        (c.row1[0].selected && c.row2[0].selected
-          && c.row3[0].selected && c.row4[0].selected
-          && c.row5[0].selected)
-        ||
-        (c.row1[0].selected && c.row1[1].selected
-          && c.row1[2].selected && c.row1[3].selected
-          && c.row1[4].selected)
-        ||
-        (c.row2[0].selected && c.row2[1].selected
-          && c.row2[2].selected && c.row2[3].selected
-          && c.row2[4].selected)
-        ||
-        (c.row3[0].selected && c.row3[1].selected
-          && c.row3[3].selected && c.row3[4].selected)
-        ||
-        (c.row4[0].selected && c.row4[1].selected
-          && c.row4[2].selected && c.row4[3].selected
-          && c.row4[4].selected)
-        ||
-        (c.row5[0].selected && c.row5[1].selected
-          && c.row5[2].selected && c.row5[3].selected
-          && c.row5[4].selected)
-        ||
-        (c.row1[1].selected && c.row2[1].selected
-          && c.row3[1].selected && c.row4[1].selected
-          && c.row5[1].selected)
-        ||
-        (c.row1[2].selected && c.row2[2].selected
-          && c.row4[2].selected
-          && c.row5[2].selected)
-        ||
-        (c.row1[3].selected && c.row2[3].selected
-          && c.row3[3].selected && c.row4[3].selected
-          && c.row5[3].selected)
-        ||
-        (c.row1[4].selected && c.row2[4].selected
-          && c.row3[4].selected && c.row4[4].selected
-          && c.row5[4].selected)
-        ||
-        (c.row1[0].selected && c.row2[1].selected
-          && c.row4[3].selected
-          && c.row5[4].selected)
-        ||
-        (c.row1[4].selected && c.row2[3].selected
-          && c.row4[1].selected
-          && c.row5[0].selected)
+      if (c.row1[0].selected && c.row2[0].selected
+        && c.row3[0].selected && c.row4[0].selected
+        && c.row5[0].selected) {
+          if (!c.row1.regular) {
+            c.row1.regular = true;
+            c.row1[0].class = 'circle-bingo';
+            c.row2[0].class = 'circle-bingo';
+            c.row3[0].class = 'circle-bingo';
+            c.row4[0].class = 'circle-bingo';
+            c.row5[0].class = 'circle-bingo';
+  
+            if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
+  
+              this.createWinnerBingoRegular(c);
+  
+            }
+          }
+      }
+
+      if (c.row1[0].selected && c.row1[1].selected
+        && c.row1[2].selected && c.row1[3].selected
+        && c.row1[4].selected) {
+          if (!c.row1.regular) {
+            c.row1.regular = true;
+            c.row1[0].class = 'circle-bingo';
+            c.row1[1].class = 'circle-bingo';
+            c.row1[2].class = 'circle-bingo';
+            c.row1[3].class = 'circle-bingo';
+            c.row1[4].class = 'circle-bingo';
+  
+            if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
+  
+              this.createWinnerBingoRegular(c);
+  
+            }
+          }
+      }
+
+      if (c.row2[0].selected && c.row2[1].selected
+        && c.row2[2].selected && c.row2[3].selected
+        && c.row2[4].selected) {
+          if (!c.row1.regular) {
+            c.row1.regular = true;
+            c.row2[0].class = 'circle-bingo';
+            c.row2[1].class = 'circle-bingo';
+            c.row2[2].class = 'circle-bingo';
+            c.row2[3].class = 'circle-bingo';
+            c.row2[4].class = 'circle-bingo';
+  
+            if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
+  
+              this.createWinnerBingoRegular(c);
+  
+            }
+          }
+      }
+
+      if (c.row3[0].selected && c.row3[1].selected
+        && c.row3[3].selected && c.row3[4].selected) {
+          if (!c.row1.regular) {
+            c.row1.regular = true;
+            c.row1[4].class = 'circle-bingo';
+            c.row2[4].class = 'circle-bingo';
+            c.row3[4].class = 'circle-bingo';
+            c.row4[4].class = 'circle-bingo';
+            c.row5[4].class = 'circle-bingo';
+  
+            if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
+  
+              this.createWinnerBingoRegular(c);
+  
+            }
+          }
+      }
+
+      if (c.row4[0].selected && c.row4[1].selected
+        && c.row4[2].selected && c.row4[3].selected
+        && c.row4[4].selected) {
+          if (!c.row1.regular) {
+            c.row1.regular = true;
+            c.row4[0].class = 'circle-bingo';
+            c.row4[1].class = 'circle-bingo';
+            c.row4[2].class = 'circle-bingo';
+            c.row4[3].class = 'circle-bingo';
+            c.row4[4].class = 'circle-bingo';
+  
+            if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
+  
+              this.createWinnerBingoRegular(c);
+  
+            }
+          }
+      }
+
+
+      if (c.row5[0].selected && c.row5[1].selected
+        && c.row5[2].selected && c.row5[3].selected
+        && c.row5[4].selected) {
+          if (!c.row1.regular) {
+            c.row1.regular = true;
+            c.row5[4].class = 'circle-bingo';
+            c.row5[3].class = 'circle-bingo';
+            c.row5[2].class = 'circle-bingo';
+            c.row5[1].class = 'circle-bingo';
+            c.row5[0].class = 'circle-bingo';
+  
+            if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
+  
+              this.createWinnerBingoRegular(c);
+  
+            }
+          }
+      }
+
+      if (c.row1[1].selected && c.row2[1].selected
+        && c.row3[1].selected && c.row4[1].selected
+        && c.row5[1].selected) {
+          if (!c.row1.regular) {
+            c.row1.regular = true;
+            c.row1[1].class = 'circle-bingo';
+            c.row2[1].class = 'circle-bingo';
+            c.row3[1].class = 'circle-bingo';
+            c.row4[1].class = 'circle-bingo';
+            c.row5[1].class = 'circle-bingo';
+  
+            if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
+  
+              this.createWinnerBingoRegular(c);
+  
+            }
+          }
+      }
+
+      if (c.row1[2].selected && c.row2[2].selected
+        && c.row4[2].selected
+        && c.row5[2].selected) {
+          if (!c.row1.regular) {
+            c.row1.regular = true;
+            c.row1[2].class = 'circle-bingo';
+            c.row2[2].class = 'circle-bingo';
+            c.row4[2].class = 'circle-bingo';
+            c.row5[2].class = 'circle-bingo';
+  
+            if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
+  
+              this.createWinnerBingoRegular(c);
+  
+            }
+          }
+      }
+
+      if (c.row1[3].selected && c.row2[3].selected
+        && c.row3[3].selected && c.row4[3].selected
+        && c.row5[3].selected) {
+          if (!c.row1.regular) {
+            c.row1.regular = true;
+            c.row1[3].class = 'circle-bingo';
+            c.row2[3].class = 'circle-bingo';
+            c.row3[3].class = 'circle-bingo';
+            c.row4[3].class = 'circle-bingo';
+            c.row5[3].class = 'circle-bingo';
+  
+            if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
+  
+              this.createWinnerBingoRegular(c);
+  
+            }
+          }
+      }
+
+      if (c.row1[4].selected && c.row2[4].selected
+        && c.row3[4].selected && c.row4[4].selected
+        && c.row5[4].selected) {
+
+          if (!c.row1.regular) {
+            c.row1.regular = true;
+            c.row1[4].class = 'circle-bingo';
+            c.row2[4].class = 'circle-bingo';
+            c.row3[4].class = 'circle-bingo';
+            c.row4[4].class = 'circle-bingo';
+            c.row5[4].class = 'circle-bingo';
+  
+            if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
+  
+              this.createWinnerBingoRegular(c);
+  
+            }
+          }
+      }
+
+
+      if (c.row1[0].selected && c.row2[1].selected
+        && c.row4[3].selected
+        && c.row5[4].selected) {
+
+          if (!c.row1.regular) {
+            c.row1.regular = true;
+            c.row1[0].class = 'circle-bingo';
+            c.row2[1].class = 'circle-bingo';
+            c.row4[3].class = 'circle-bingo';
+            c.row5[4].class = 'circle-bingo';
+  
+            if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
+  
+              this.createWinnerBingoRegular(c);
+  
+            }
+          }
+      }
+
+      if (c.row1[4].selected && c.row2[3].selected
+        && c.row4[1].selected
+        && c.row5[0].selected
       ) {
 
         if (!c.row1.regular) {
           c.row1.regular = true;
-          c.row1[0].class = 'circle-bingo';
-          c.row2[0].class = 'circle-bingo';
-          c.row3[0].class = 'circle-bingo';
-          c.row4[0].class = 'circle-bingo';
+          c.row1[4].class = 'circle-bingo';
+          c.row2[3].class = 'circle-bingo';
+          c.row3[1].class = 'circle-bingo';
           c.row5[0].class = 'circle-bingo';
 
           if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
 
-            let playerName;
-            this._playerService.getPlayer(c.row1.playerSelected).subscribe(data => {
-              playerName = data.listById.name;
-
-              const buildWinner = {
-                name: playerName,
-                jugada_id: 731245,
-                jugador_id: c.row1.playerSelected,
-                monto: 80
-              }
-
-              this._winnerService.createWinner(buildWinner).subscribe(data => {
-
-                console.log('Se creo winner - letra t');
-
-                const buildPlayWinner = {
-                  jugada_id: 731245,
-                  jugador_id: c.row1.playerSelected,
-                }
-
-                this._playWinnerService.createPlayWinner(buildPlayWinner).subscribe(data => {
-                  console.log('Se creo play-winner');
-                }, err => {
-                  console.log(err);
-                });
-
-
-              }, err => {
-                console.log(err)
-              })
-            })
+            this.createWinnerBingoRegular(c);
 
           }
         }
       }
-
-
-      // if (c.row1[0].selected && c.row2[0].selected
-      //   && c.row3[0].selected && c.row4[0].selected
-      //   && c.row5[0].selected) {
-
-      //   if (!c.row1.regular) {
-      //     c.row1.regular = true;
-      //     c.row1[0].class = 'circle-bingo';
-      //     c.row2[0].class = 'circle-bingo';
-      //     c.row3[0].class = 'circle-bingo';
-      //     c.row4[0].class = 'circle-bingo';
-      //     c.row5[0].class = 'circle-bingo';
-      //   }
-      // }
-
-      // if (c.row1[0].selected && c.row2[0].selected
-      //   && c.row3[0].selected && c.row4[0].selected
-      //   && c.row5[0].selected) {
-
-      //   if (!c.row1.regular) {
-      //     c.row1.regular = true;
-      //     alert('Bingo regular')
-      //   }
-      // }
 
     });
   }
@@ -558,7 +668,7 @@ export class HomeComponent implements OnInit {
         && c.row5[4].selected) {
 
         if (!c.row1.l) {
-          c.row.l = true;
+          c.row1.l = true;
           c.row1[0].class = 'circle-l';
           c.row1[1].class = 'circle-l';
           c.row1[2].class = 'circle-l';
@@ -665,7 +775,7 @@ export class HomeComponent implements OnInit {
                 name: playerName,
                 jugada_id: 263903,
                 jugador_id: c.row1.playerSelected,
-                monto: 25
+                monto: 30
               }
 
               this._winnerService.createWinner(buildWinner).subscribe(data => {
@@ -695,4 +805,42 @@ export class HomeComponent implements OnInit {
     })
 
   }
+
+
+  createWinnerBingoRegular(c: any) {
+    let playerName;
+    this._playerService.getPlayer(c.row1.playerSelected).subscribe(data => {
+      playerName = data.listById.name;
+
+      const buildWinner = {
+        name: playerName,
+        jugada_id: 731245,
+        jugador_id: c.row1.playerSelected,
+        monto: 80
+      }
+
+      this._winnerService.createWinner(buildWinner).subscribe(data => {
+
+        console.log('Se creo winner - bingo regular');
+
+        const buildPlayWinner = {
+          jugada_id: 731245,
+          jugador_id: c.row1.playerSelected,
+        }
+
+        this._playWinnerService.createPlayWinner(buildPlayWinner).subscribe(data => {
+          console.log('Se creo play-winner');
+        }, err => {
+          console.log(err);
+        });
+
+
+      }, err => {
+        console.log(err)
+      })
+    })
+  }
 }
+
+
+
