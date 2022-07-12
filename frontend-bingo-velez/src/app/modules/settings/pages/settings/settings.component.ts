@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HomeService } from 'src/app/core/services/home.service';
+import { CardBoard } from 'src/app/modules/enums/cardboard.enum';
 
 @Component({
   selector: 'app-settings',
@@ -41,6 +42,6 @@ export class SettingsComponent implements OnInit {
 
     localStorage.setItem('CantidadDeCartones', String(this.quantity));
 
-    this._homeService.items(this.quantity);
+    this._homeService.items(this.quantity, CardBoard.Default);
   }
 }

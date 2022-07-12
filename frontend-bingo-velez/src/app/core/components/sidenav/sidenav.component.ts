@@ -46,9 +46,4 @@ export class SidenavComponent implements OnInit {
     this._sharedService.removeItemFromLocalStorage('id');
   }
 
-  // generateRandomNumber(){
-  //   this.randomNumber = this._homeService.getRandomInt(1,75);
-  //   localStorage.setItem('RandomNumber', String(this.randomNumber));
-  // }
-
 }

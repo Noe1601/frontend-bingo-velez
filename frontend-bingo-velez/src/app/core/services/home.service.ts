@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { CardBoard } from '../../modules/enums/cardboard.enum';
 
 @Injectable({
   providedIn: 'root',
@@ -12,6 +13,7 @@ export class HomeService {
   column3: number[] = [];
   column4: number[] = [];
   column5: number[] = [];
+  cartonType: number = 0;
 
   getRandomInt(min: number, max: number): number {
     min = Math.ceil(min);
@@ -19,12 +21,32 @@ export class HomeService {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  items(cartonesQuantity: number) {
+  items(cartonesQuantity: number, cartonType: string) {
     this.cartones = [];
-
+    var quantity: number = 0;
+    var carton: any;
     if (cartonesQuantity == 0) {
       cartonesQuantity = Number(localStorage.getItem('CantidadDeCartones'));
     }
+    //validate if 
+    // if(Number(localStorage.getItem("diamante")) != 0){
+    //   quantity = cartonesQuantity - Number(localStorage.getItem("diamante"));
+    //   carton = this.newCarton(Number(localStorage.getItem("diamante")), CardBoard.Diamond);
+    //   this.cartones.push(carton);
+    //   carton = [];
+    // }
+    // if(Number(localStorage.getItem("diamanteNegro")) != 0){
+    //   quantity = cartonesQuantity - Number(localStorage.getItem("diamanteNegro"));
+    //   carton = this.newCarton(Number(localStorage.getItem("diamanteNegro")), CardBoard.DarkDiamond);
+    //   this.cartones.push(carton); 
+    //   carton = [];   
+    // }
+    // if(Number(localStorage.getItem("ruby")) != 0){
+    //   quantity = cartonesQuantity - Number(localStorage.getItem("ruby"));
+    //   carton = this.newCarton(Number(localStorage.getItem("ruby")), CardBoard.Ruby);
+    //   this.cartones.push(carton);
+    //   carton = [];    
+    // }
 
     localStorage.setItem('CantidadDeCartones', String(cartonesQuantity));
 
@@ -43,6 +65,7 @@ export class HomeService {
         row4: [],
         row5: [],
         index: i,
+        type: cartonType,
       } as any;
 
       //generar primera columna aleatoria
@@ -120,10 +143,26 @@ export class HomeService {
         if (content.row3.length >= 5) {
           return;
         }
+
+        let Image;
+
+        if (cartonType == CardBoard.Default) {
+          Image = '../../../assets/img/logos/dollar.svg';
+        }
+        if (cartonType == CardBoard.Diamond) {
+          Image = '../../../assets/img/logos/diamond.svg';
+        }
+        if (cartonType == CardBoard.DarkDiamond) {
+          Image = '../../../assets/img/logos/diamondDark.svg';
+        }
+        if (cartonType == CardBoard.Ruby) {
+          Image = '../../../assets/img/logos/jewel.svg';
+        }
+
         if (content.row3.length == 2) {
           content.row3.push({
             index,
-            image: '../../../assets/img/logos/dollar.svg',
+            image: Image,
           });
         }
         content.row3.push({ index, number: element, selected: false });
@@ -148,8 +187,9 @@ export class HomeService {
       this.column3 = [];
       this.column4 = [];
       this.column5 = [];
+      
+      this.cartones.unshift(content);
 
-      this.cartones.push(content);
       content = {};
     }
 
@@ -157,7 +197,7 @@ export class HomeService {
     return this.cartones;
   }
 
-  newCarton(cartonesQuantity: number) {
+  newCarton(cartonesQuantity: number, cartonType: string) {
     this.cartones = [];
 
     if (cartonesQuantity == 0) {
@@ -179,6 +219,7 @@ export class HomeService {
         row4: [],
         row5: [],
         index: i,
+        type: cartonType,
       } as any;
 
       //generar primera columna aleatoria
@@ -256,10 +297,26 @@ export class HomeService {
         if (content.row3.length >= 5) {
           return;
         }
+
+        let Image;
+
+        if (cartonType == CardBoard.Default) {
+          Image = '../../../assets/img/logos/dollar.svg';
+        }
+        if (cartonType == CardBoard.Diamond) {
+          Image = '../../../assets/img/logos/diamond.svg';
+        }
+        if (cartonType == CardBoard.DarkDiamond) {
+          Image = '../../../assets/img/logos/diamondDark.svg';
+        }
+        if (cartonType == CardBoard.Ruby) {
+          Image = '../../../assets/img/logos/jewel.svg';
+        }
+
         if (content.row3.length == 2) {
           content.row3.push({
             index,
-            image: '../../../assets/img/logos/dollar.svg',
+            image: Image,
           });
         }
         content.row3.push({ index, number: element, selected: false });
@@ -284,11 +341,11 @@ export class HomeService {
       this.column3 = [];
       this.column4 = [];
       this.column5 = [];
-
+      
       this.cartones.push(content);
       content = {};
     }
-    console.log(this.cartones[0]);
+    console.log(this.cartones);
     return this.cartones;
   }
 
