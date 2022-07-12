@@ -129,14 +129,36 @@ export class HomeService {
         if (content.row1.length >= 5) {
           return;
         }
-        content.row1.push({ index, number: element, selected: false });
+        content.row1.push({ 
+            index, number: element, 
+            selected: false,
+            cosita: false,
+            medio: false,
+            sumita: false,
+            letraT: false,
+            regular: false,
+            esquinas: false,
+            deldia: false,
+            x: false,
+            l: false,
+            lleno: false,
+            mediaC: false,
+            cometa: false,
+            class: '',
+            isPlayerSelected: false,
+            playerSelected: null
+          });
       });
 
       this.column2.forEach((element, index) => {
         if (content.row2.length >= 5) {
           return;
         }
-        content.row2.push({ index, number: element, selected: false });
+        content.row2.push({ 
+          index, number: element, 
+          selected: false,
+          class: ''
+        });
       });
 
       this.column3.forEach((element, index) => {
@@ -162,24 +184,37 @@ export class HomeService {
         if (content.row3.length == 2) {
           content.row3.push({
             index,
-            image: Image,
+            image: '../../../assets/img/logos/dollar.svg',
+            selected: true
           });
         }
-        content.row3.push({ index, number: element, selected: false });
+        content.row3.push({ 
+          index, number: element, 
+          selected: false,
+          class: ''
+         });
       });
 
       this.column4.forEach((element, index) => {
         if (content.row4.length >= 5) {
           return;
         }
-        content.row4.push({ index, number: element, selected: false });
+        content.row4.push({ 
+          index, number: element, 
+          selected: false,
+          class: ''
+        });
       });
 
       this.column5.forEach((element, index) => {
         if (content.row5.length >= 5) {
           return;
         }
-        content.row5.push({ index, number: element, selected: false });
+        content.row5.push({ 
+          index, number: element, 
+          selected: false,
+          class: ''
+        });
       });
 
       this.column1 = [];
@@ -193,16 +228,11 @@ export class HomeService {
       content = {};
     }
 
-    console.log(this.cartones);
     return this.cartones;
   }
 
   newCarton(cartonesQuantity: number, cartonType: string) {
     this.cartones = [];
-
-    if (cartonesQuantity == 0) {
-      cartonesQuantity = Number(localStorage.getItem('CantidadDeCartones'));
-    }
 
     for (let i = 0; i < cartonesQuantity; i++) {
       var content = {
@@ -345,7 +375,6 @@ export class HomeService {
       this.cartones.push(content);
       content = {};
     }
-    console.log(this.cartones);
     return this.cartones;
   }
 
@@ -476,4 +505,5 @@ export class HomeService {
 
     return newItems;
   }
+
 }

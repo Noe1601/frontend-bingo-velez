@@ -1,10 +1,5 @@
 <mat-card style="margin-top: 30px; width: 90%; text-align: center;">
 
-    <mat-form-field style="width: 90%;" class="example-form-field" appearance="outline">
-        <mat-label>Search</mat-label>
-        <input matInput type="text">
-    </mat-form-field>
-
     <mat-form-field style="width: 90%;" appearance="outline">
         <mat-label>Ingresa un rango de fecha</mat-label>
         <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
@@ -16,11 +11,13 @@
 
     </mat-form-field>
 
-    <button style="width: 90%;" mat-raised-button color="primary">Buscar por fechas</button>
+    <button style="width: 90%;" mat-raised-button color="primary" (click)="searchByDates()">
+        Buscar por fechas
+    </button>
 
 </mat-card>
 
-<mat-card style="margin-top: 60px; width: 90%; text-align: center;">
+<mat-card style="margin-top: 60px; width: 90%; text-align: center;" *ngIf="!canShowNotificationToUser">
     <div class="table-responsive">
         <table class="table">
             <caption>Listado de ganadores</caption>
@@ -28,7 +25,7 @@
                 <tr>
                     <th scope="col">Nombre ganador</th>
                     <th scope="col">Nombre jugada</th>
-                    <th scope="col">Monto jugada</th>
+                    <th scope="col">Monto ganado</th>
                     <th scope="col">Fecha</th>
                 </tr>
             </thead>
@@ -42,4 +39,10 @@
             </tbody>
         </table>
     </div>
+</mat-card>
+
+<mat-card style="margin-top: 60px; width: 90%; text-align: center;" *ngIf="canShowNotificationToUser">
+    <p class="text-danger">
+        {{ notExistsWinners }}
+    </p>
 </mat-card>

@@ -22,12 +22,8 @@ export class SidenavComponent implements OnInit {
     private _sharedService: SharedService,
     private _validateRoleService: ValidateRoleService,
     private _homeService: HomeService) {
-    this.prices = [15, 20, 30];
   }
 
-  changePrice(price: any) {
-   this._sharedService.setLocalStorage('price', price);
-  }
 
   ngOnInit(): void {
     this.isAdmin = this._validateRoleService.validationRole;
@@ -45,5 +41,4 @@ export class SidenavComponent implements OnInit {
     this._sharedService.removeItemFromLocalStorage('token');
     this._sharedService.removeItemFromLocalStorage('id');
   }
-
 }
