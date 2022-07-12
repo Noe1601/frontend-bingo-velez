@@ -45,6 +45,7 @@ import { RecuperatePasswordComponent } from './components/recuperate-password/re
   exports: [
     NavbarComponent,
     SidenavComponent,
+    FooterComponent
   ]
 })
 export class CoreModule { }

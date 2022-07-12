@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HomeService } from 'src/app/core/services/home.service';
+import { CardBoard } from 'src/app/modules/enums/cardboard.enum';
 import { ImagesService } from 'src/app/core/services/images.service';
 import { SettingsService } from 'src/app/core/services/settings.service';
 import Swal from 'sweetalert2';
