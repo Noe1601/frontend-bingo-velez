@@ -86,18 +86,6 @@ export class HomeComponent implements OnInit {
       this.items
     );
     this.items = newItems;
-    this.getPlayLaCosita(this.items);
-    this.getPlayMedio(this.items);
-    this.getPlaySumita(this.items);
-    this.getPlayLetraT(this.items);
-    this.getPlayBingoRegular(this.items);
-    this.getPlay4Esquinas(this.items);
-    this.getPlayX(this.items);
-    this.getPlayLetraL(this.items);
-    this.getPlayMediaC(this.items);
-    this.getPlayCometa(this.items);
-    this.getPlayWholeCarton(this.items);
-
   }
 
   lastFivePlays(play: number) {
@@ -114,6 +102,18 @@ export class HomeComponent implements OnInit {
     localStorage.setItem('RandomNumber', String(number));
     this.lastFivePlays(number);
     this._homeService.searchThroughCartonesToSetNumber(this.items);
+
+    this.getPlayLaCosita(this.items);
+    this.getPlayMedio(this.items);
+    this.getPlaySumita(this.items);
+    this.getPlayLetraT(this.items);
+    this.getPlayBingoRegular(this.items);
+    this.getPlay4Esquinas(this.items);
+    this.getPlayX(this.items);
+    this.getPlayLetraL(this.items);
+    this.getPlayMediaC(this.items);
+    this.getPlayCometa(this.items);
+    this.getPlayWholeCarton(this.items);
   }
 
   genericTableLeft() {
@@ -224,6 +224,9 @@ export class HomeComponent implements OnInit {
     
     this.genericTable.push(table);
   }
+
+
+
   getPlayLaCosita(carton: any) {
     carton.forEach((c: any) => {
 
