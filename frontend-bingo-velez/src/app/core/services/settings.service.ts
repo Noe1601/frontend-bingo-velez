@@ -38,4 +38,59 @@ export class SettingsService {
                 })
             )
     }
+
+
+    getPartidas(): Observable<any> {
+        return this._http.get<any>(`${base_url}/partidas`)
+            .pipe(
+                catchError(err => {
+                    throw err;
+                })
+            )
+    }
+
+    createPartida(body: any): Observable<any> {
+        return this._http.post<any>(`${base_url}/partidas`, body)
+            .pipe(
+                catchError(err => {
+                    throw err;
+                })
+            )
+    }
+
+    updatePartida(body: any, id: any): Observable<any> {
+        return this._http.put<any>(`${base_url}/partidas/${id}`, body)
+            .pipe(
+                catchError(err => {
+                    throw err;
+                })
+            )
+    }
+
+    getJugadorPartida(): Observable<any> {
+        return this._http.get<any>(`${base_url}/partida-jugador`)
+            .pipe(
+                catchError(err => {
+                    throw err;
+                })
+            )
+    }
+
+    createJugadorPartida(body: any): Observable<any> {
+        return this._http.post<any>(`${base_url}/partida-jugador`, body)
+            .pipe(
+                catchError(err => {
+                    throw err;
+                })
+            )
+    }
+
+    updateJugadorPartida(body: any, id: any): Observable<any> {
+        return this._http.put<any>(`${base_url}/partida-jugador/${ id }`, body)
+            .pipe(
+                catchError(err => {
+                    throw err;
+                })
+            )
+    }
 }

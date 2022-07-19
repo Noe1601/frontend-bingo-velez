@@ -8,15 +8,6 @@
   </head>
   <body>
     <main class="main-container">
-      <!-- <div class="generate-random-number">
-        <button
-          class="random-number-generator"
-          (click)="setColorToCellNumber()"
-        >
-          <p *ngIf="randomNumber == 0">Generar número</p>
-          <p *ngIf="randomNumber > 0">{{ randomNumber }}</p>
-        </button>
-      </div> -->
       <div class="last-5-plays">
         <p>{{ numbers[0] }}</p>
         <p>{{ numbers[1] }}</p>
@@ -151,6 +142,17 @@
       </section>
 
       <section class="cards">
+
+        <form [formGroup]="partidasForm">
+          <mat-form-field style="width: 90%;" appearance="outline">
+            <mat-select placeholder="Partidas" formControlName="partida_id">
+              <mat-option [value]="partida.id" *ngFor="let partida of partidas">
+                {{ partida.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </form>
+
         <div class="card-cardboard" *ngFor="let item of items">
           <div class="top-content">
             <p class="carton-number">{{ item.index + 1 }}</p>

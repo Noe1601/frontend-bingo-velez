@@ -5,6 +5,7 @@ import { PlayersService } from 'src/app/core/services/players.service';
 import { CardBoard } from '../../../enums/cardboard.enum';
 import { SettingsService } from 'src/app/core/services/settings.service';
 import { WinnersService } from 'src/app/core/services/winners.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -24,16 +25,26 @@ export class HomeComponent implements OnInit {
   numbers: number[] = [];
   genericTable: any[] = [];
   cartonesQuantity: string = String(localStorage.getItem('CantidadDeCartones'));
+  partidas: any;
+
+  partidasForm: FormGroup;
 
   constructor(
     private _homeService: HomeService,
     private _playerService: PlayersService,
     private _settingsService: SettingsService,
     private _winnerService: WinnersService,
-    private _playWinnerService: PlayWinnerService
-  ) { }
+    private _playWinnerService: PlayWinnerService,
+    private _fb: FormBuilder
+  ) {
+    this.partidasForm = this._fb.group({
+      partida: ['', Validators.required]
+    })
+   }
 
   ngOnInit(): void {
+
+    this.getPartidas();
 
     this._settingsService.getAllSettings().subscribe((setting: any) => {
       setting.settings.forEach((s: any) => {
@@ -54,6 +65,12 @@ export class HomeComponent implements OnInit {
     this.genericTableLeft();
 
     localStorage.removeItem('RandomNumber');
+  }
+
+  getPartidas() {
+    this._settingsService.getPartidas().subscribe(data => {
+      this.partidas = data.list;
+    })
   }
 
   selectPlayer(carton: any, event: any) {

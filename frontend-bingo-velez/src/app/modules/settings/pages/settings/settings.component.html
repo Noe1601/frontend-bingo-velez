@@ -1,49 +1,49 @@
 <mat-tab-group>
 
   <mat-tab label="Cartones">
-    <br><br><br>
-    <mat-card style="width: 40%;">
-      <form [formGroup]="form">
+    <div class="contenedor">
+      <mat-card style="width: 40%; margin-top: 15px;">
+        <form [formGroup]="form">
 
-        <mat-form-field style="width: 90%;" appearance="outline">
-          <mat-label>Numeros de cartones</mat-label>
-          <input formControlName="cartonesNo" matInput placeholder="Placeholder">
-        </mat-form-field>
-      </form>
+          <mat-form-field style="width: 90%;" appearance="outline">
+            <mat-label>Numeros de cartones</mat-label>
+            <input formControlName="cartonesNo" matInput placeholder="Placeholder">
+          </mat-form-field>
+        </form>
 
-      <button style="width: 90%;" mat-raised-button color="primary" (click)="updateSettings('cardboard')">
-        Guardar cambios
-      </button>
-    </mat-card>
+        <button style="width: 90%;" mat-raised-button color="primary" (click)="updateSettings('cardboard')">
+          Guardar cambios
+        </button>
+      </mat-card>
 
-    <br><br>
-    <mat-card style="width: 40%;">
-      <form [formGroup]="cartonesSpecials">
+      <mat-card style="width: 40%;  margin-top: 15px; margin-left: 10px;">
+        <form [formGroup]="cartonesSpecials">
 
-        <mat-form-field style="width: 90%;" appearance="outline">
-          <mat-select formControlName="option" placeholder="Cartones especiales" (selectionChange)="changeSettingSelection()">
-            <mat-option *ngFor="let setting of settings" [value]="setting.id" >
-              {{ setting.name }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
+          <mat-form-field style="width: 90%;" appearance="outline">
+            <mat-select formControlName="option" placeholder="Cartones especiales"
+              (selectionChange)="changeSettingSelection()">
+              <mat-option *ngFor="let setting of settings" [value]="setting.id">
+                {{ setting.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
 
-        <mat-form-field [hidden]="!canShowValueField" style="width: 90%;" appearance="outline">
-          <mat-label>Valor del carton</mat-label>
-          <input formControlName="value" matInput placeholder="Placeholder">
-        </mat-form-field>
+          <mat-form-field [hidden]="!canShowValueField" style="width: 90%;" appearance="outline">
+            <mat-label>Valor del carton</mat-label>
+            <input formControlName="value" matInput placeholder="Placeholder">
+          </mat-form-field>
 
-      </form>
+        </form>
 
-      <button style="width: 90%;" mat-raised-button color="primary" (click)="updateSettings('specialCardboard')">
-        Guardar cambios
-      </button>
-    </mat-card>
+        <button style="width: 90%;" mat-raised-button color="primary" (click)="updateSettings('specialCardboard')">
+          Guardar cambios
+        </button>
+      </mat-card>
+    </div>
   </mat-tab>
 
   <mat-tab label="Precio partidas">
-    <br><br><br>
-    <mat-card style="width: 90%;">
+    <mat-card style="width: 90%;  margin-top: 5px;">
       <form [formGroup]="form2">
         <mat-form-field style="width: 90%;" appearance="outline">
           <mat-label>Precios de partidas</mat-label>
@@ -57,8 +57,92 @@
     </mat-card>
   </mat-tab>
 
-  <mat-tab label="Imagenes">
-    <img [src]="image">
+  <mat-tab label="Partidas">
+    <div class="contenedor">
+      <mat-card style="width: 30%; margin-top: 10px;">
+        <form [formGroup]="formPartidas">
+
+          <mat-form-field style="width: 90%;" appearance="outline">
+            <mat-label>Nombre de partida</mat-label>
+            <input formControlName="name" matInput placeholder="Placeholder">
+          </mat-form-field>
+
+          <mat-form-field style="width: 90%;" appearance="outline">
+            <mat-label>Precio de partida</mat-label>
+            <input formControlName="precio" matInput placeholder="Placeholder">
+          </mat-form-field>
+        </form>
+
+        <button (click)="createPartida()" style="width: 90%;" mat-raised-button color="primary">
+          Guardar cambios
+        </button>
+      </mat-card>
+
+      <mat-card style="width: 65%; margin-top: 10px; margin-left: 20px;">
+        <div class="table-responsive">
+          <table class="table">
+            <caption>Listado de jugadores</caption>
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of partidas">
+                <th scope="row"> {{ item.id }} </th>
+                <td> {{ item.name }} </td>
+                <td> {{ item.precio }} </td>
+                <td>
+                  <button class="btn btn-warning" style="margin-right: 5px;"
+                    (click)="setToUpdate(item)">Actualizar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </mat-card>
+
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Asignar jugadores">
+    <div class="contenedor">
+      <mat-card style="width: 50%; margin-top: 10px;">
+        <form [formGroup]="formJugadoresPartidas">
+  
+          <mat-form-field style="width: 90%;" appearance="outline">
+            <mat-select placeholder="Partidas" formControlName="partida_id">
+              <mat-option [value]="partida.id" *ngFor="let partida of partidas">
+                {{ partida.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+          <mat-form-field style="width: 90%;" appearance="outline">
+            <mat-select placeholder="Jugadores" formControlName="jugador_id">
+              <mat-option [value]="jugador.id" *ngFor="let jugador of players">
+                {{ jugador.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+        </form>
+  
+        <button (click)="createJugadorPartida()" style="width: 90%;" mat-raised-button color="primary">
+          Guardar cambios
+        </button>
+      </mat-card>
+
+      <mat-card style="width: 30%; margin-left: 10px;">
+        <button mat-raised-button color="primary" (click)="openCreatePlayerDialog()">Crear jugador</button>
+      </mat-card>
+    </div>
+
+
+
   </mat-tab>
 
 </mat-tab-group>
