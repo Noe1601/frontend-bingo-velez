@@ -38,111 +38,866 @@
                   <th>{{ generic.title.O }}</th>
                 </tr>
               </thead>
-              <tbody>
+              <!-- <tbody>
                 <tr class="t-body">
-                  <td (click)="getSelectedNumber(generic.row1[0].uno)">{{ generic.row1[0].uno }}</td>
-                  <td (click)="getSelectedNumber(generic.row2[0].diezyseis)">{{ generic.row2[0].diezyseis }}</td>
-                  <td (click)="getSelectedNumber(generic.row3[0].treintiuno)">{{ generic.row3[0].treintiuno }}</td>
-                  <td (click)="getSelectedNumber(generic.row4[0].cuarentayseis)">{{ generic.row4[0].cuarentayseis }}</td>
-                  <td (click)="getSelectedNumber(generic.row5[0].sesentayuno)">{{ generic.row5[0].sesentayuno }}</td>
+                  <td (click)="getSelectedNumber(generic.row1[0].uno.uno)">
+                    {{ generic.row1[0].uno.uno }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[0].diezyseis)">
+                    {{ generic.row2[0].diezyseis }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[0].treintiuno)">
+                    {{ generic.row3[0].treintiuno }}
+                  </td>
+                  <td
+                    (click)="getSelectedNumber(generic.row4[0].cuarentayseis)"
+                  >
+                    {{ generic.row4[0].cuarentayseis }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[0].sesentayuno)">
+                    {{ generic.row5[0].sesentayuno }}
+                  </td>
                 </tr>
                 <tr class="t-body">
-                  <td (click)="getSelectedNumber(generic.row1[0].dos)">{{ generic.row1[0].dos }}</td>
-                  <td (click)="getSelectedNumber(generic.row2[0].diesisiete)">{{ generic.row2[0].diesisiete }}</td>
-                  <td (click)="getSelectedNumber(generic.row3[0].treintidos)">{{ generic.row3[0].treintidos }}</td>
-                  <td (click)="getSelectedNumber(generic.row4[0].cuarentaysiete)">{{ generic.row4[0].cuarentaysiete }}</td>
-                  <td (click)="getSelectedNumber(generic.row5[0].sesentaydos)">{{ generic.row5[0].sesentaydos }}</td>
+                  <td (click)="getSelectedNumber(generic.row1[0].dos)">
+                    {{ generic.row1[0].dos }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[0].diesisiete)">
+                    {{ generic.row2[0].diesisiete }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[0].treintidos)">
+                    {{ generic.row3[0].treintidos }}
+                  </td>
+                  <td
+                    (click)="getSelectedNumber(generic.row4[0].cuarentaysiete)"
+                  >
+                    {{ generic.row4[0].cuarentaysiete }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[0].sesentaydos)">
+                    {{ generic.row5[0].sesentaydos }}
+                  </td>
                 </tr>
                 <tr class="t-body">
-                  <td (click)="getSelectedNumber(generic.row1[0].tres)">{{ generic.row1[0].tres }}</td>
-                  <td (click)="getSelectedNumber(generic.row2[0].diezyocho)">{{ generic.row2[0].diezyocho }}</td>
-                  <td (click)="getSelectedNumber(generic.row3[0].treintitres)">{{ generic.row3[0].treintitres }}</td>
-                  <td (click)="getSelectedNumber(generic.row4[0].cuarentayocho)">{{ generic.row4[0].cuarentayocho }}</td>
-                  <td (click)="getSelectedNumber(generic.row5[0].sesentaytres)">{{ generic.row5[0].sesentaytres }}</td>
+                  <td (click)="getSelectedNumber(generic.row1[0].tres)">
+                    {{ generic.row1[0].tres }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[0].diezyocho)">
+                    {{ generic.row2[0].diezyocho }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[0].treintitres)">
+                    {{ generic.row3[0].treintitres }}
+                  </td>
+                  <td
+                    (click)="getSelectedNumber(generic.row4[0].cuarentayocho)"
+                  >
+                    {{ generic.row4[0].cuarentayocho }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[0].sesentaytres)">
+                    {{ generic.row5[0].sesentaytres }}
+                  </td>
                 </tr>
                 <tr class="t-body">
-                  <td (click)="getSelectedNumber(generic.row1[0].cuatro)">{{ generic.row1[0].cuatro }}</td>
-                  <td (click)="getSelectedNumber(generic.row2[0].diezynueve)">{{ generic.row2[0].diezynueve }}</td>
-                  <td (click)="getSelectedNumber(generic.row3[0].treinticuatro)">{{ generic.row3[0].treinticuatro }}</td>
-                  <td (click)="getSelectedNumber(generic.row4[0].cuarentaynueve)">{{ generic.row4[0].cuarentaynueve }}</td>
-                  <td (click)="getSelectedNumber(generic.row5[0].sesentaycuatro)">{{ generic.row5[0].sesentaycuatro }}</td>
+                  <td (click)="getSelectedNumber(generic.row1[0].cuatro)">
+                    {{ generic.row1[0].cuatro }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[0].diezynueve)">
+                    {{ generic.row2[0].diezynueve }}
+                  </td>
+                  <td
+                    (click)="getSelectedNumber(generic.row3[0].treinticuatro)"
+                  >
+                    {{ generic.row3[0].treinticuatro }}
+                  </td>
+                  <td
+                    (click)="getSelectedNumber(generic.row4[0].cuarentaynueve)"
+                  >
+                    {{ generic.row4[0].cuarentaynueve }}
+                  </td>
+                  <td
+                    (click)="getSelectedNumber(generic.row5[0].sesentaycuatro)"
+                  >
+                    {{ generic.row5[0].sesentaycuatro }}
+                  </td>
                 </tr>
                 <tr class="t-body">
-                  <td (click)="getSelectedNumber(generic.row1[0].cinco)">{{ generic.row1[0].cinco }}</td>
-                  <td (click)="getSelectedNumber(generic.row2[0].veinte)">{{ generic.row2[0].veinte }}</td>
-                  <td (click)="getSelectedNumber(generic.row3[0].treinticinco)">{{ generic.row3[0].treinticinco }}</td>
-                  <td (click)="getSelectedNumber(generic.row4[0].cincuenta)">{{ generic.row4[0].cincuenta }}</td>
-                  <td (click)="getSelectedNumber(generic.row5[0].sesentaycinco)">{{ generic.row5[0].sesentaycinco }}</td>
+                  <td (click)="getSelectedNumber(generic.row1[0].cinco)">
+                    {{ generic.row1[0].cinco }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[0].veinte)">
+                    {{ generic.row2[0].veinte }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[0].treinticinco)">
+                    {{ generic.row3[0].treinticinco }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row4[0].cincuenta)">
+                    {{ generic.row4[0].cincuenta }}
+                  </td>
+                  <td
+                    (click)="getSelectedNumber(generic.row5[0].sesentaycinco)"
+                  >
+                    {{ generic.row5[0].sesentaycinco }}
+                  </td>
                 </tr>
                 <tr class="t-body">
-                  <td (click)="getSelectedNumber(generic.row1[0].seis)">{{ generic.row1[0].seis }}</td>
-                  <td (click)="getSelectedNumber(generic.row2[0].veintiuno)">{{ generic.row2[0].veintiuno }}</td>
-                  <td (click)="getSelectedNumber(generic.row3[0].treintiseis)">{{ generic.row3[0].treintiseis }}</td>
-                  <td (click)="getSelectedNumber(generic.row4[0].cincuentayuno)">{{ generic.row4[0].cincuentayuno }}</td>
-                  <td (click)="getSelectedNumber(generic.row5[0].sesentayseis)">{{ generic.row5[0].sesentayseis }}</td>
+                  <td (click)="getSelectedNumber(generic.row1[0].seis)">
+                    {{ generic.row1[0].seis }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[0].veintiuno)">
+                    {{ generic.row2[0].veintiuno }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[0].treintiseis)">
+                    {{ generic.row3[0].treintiseis }}
+                  </td>
+                  <td
+                    (click)="getSelectedNumber(generic.row4[0].cincuentayuno)"
+                  >
+                    {{ generic.row4[0].cincuentayuno }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[0].sesentayseis)">
+                    {{ generic.row5[0].sesentayseis }}
+                  </td>
                 </tr>
                 <tr class="t-body">
-                  <td (click)="getSelectedNumber(generic.row1[0].siete)">{{ generic.row1[0].siete }}</td>
-                  <td (click)="getSelectedNumber(generic.row2[0].veintidos)">{{ generic.row2[0].veintidos }}</td>
-                  <td (click)="getSelectedNumber(generic.row3[0].treintisiete)">{{ generic.row3[0].treintisiete }}</td>
-                  <td (click)="getSelectedNumber(generic.row4[0].cincuentaydos)">{{ generic.row4[0].cincuentaydos }}</td>
-                  <td (click)="getSelectedNumber(generic.row5[0].sesentaysiete)">{{ generic.row5[0].sesentaysiete }}</td>
+                  <td (click)="getSelectedNumber(generic.row1[0].siete)">
+                    {{ generic.row1[0].siete }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[0].veintidos)">
+                    {{ generic.row2[0].veintidos }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[0].treintisiete)">
+                    {{ generic.row3[0].treintisiete }}
+                  </td>
+                  <td
+                    (click)="getSelectedNumber(generic.row4[0].cincuentaydos)"
+                  >
+                    {{ generic.row4[0].cincuentaydos }}
+                  </td>
+                  <td
+                    (click)="getSelectedNumber(generic.row5[0].sesentaysiete)"
+                  >
+                    {{ generic.row5[0].sesentaysiete }}
+                  </td>
                 </tr>
                 <tr class="t-body">
-                  <td (click)="getSelectedNumber(generic.row1[0].ocho)">{{ generic.row1[0].ocho }}</td>
-                  <td (click)="getSelectedNumber(generic.row2[0].veintitres)">{{ generic.row2[0].veintitres }}</td>
-                  <td (click)="getSelectedNumber(generic.row3[0].treintiocho)">{{ generic.row3[0].treintiocho }}</td>
-                  <td (click)="getSelectedNumber(generic.row4[0].cincuentaytres)">{{ generic.row4[0].cincuentaytres }}</td>
-                  <td (click)="getSelectedNumber(generic.row5[0].sesentayocho)">{{ generic.row5[0].sesentayocho }}</td>
+                  <td (click)="getSelectedNumber(generic.row1[0].ocho)">
+                    {{ generic.row1[0].ocho }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[0].veintitres)">
+                    {{ generic.row2[0].veintitres }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[0].treintiocho)">
+                    {{ generic.row3[0].treintiocho }}
+                  </td>
+                  <td
+                    (click)="getSelectedNumber(generic.row4[0].cincuentaytres)"
+                  >
+                    {{ generic.row4[0].cincuentaytres }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[0].sesentayocho)">
+                    {{ generic.row5[0].sesentayocho }}
+                  </td>
                 </tr>
                 <tr class="t-body">
-                  <td (click)="getSelectedNumber(generic.row1[0].nueve)">{{ generic.row1[0].nueve }}</td>
-                  <td (click)="getSelectedNumber(generic.row2[0].veinticuatro)">{{ generic.row2[0].veinticuatro }}</td>
-                  <td (click)="getSelectedNumber(generic.row3[0].treintinueve)">{{ generic.row3[0].treintinueve }}</td>
-                  <td (click)="getSelectedNumber(generic.row4[0].cincuentaycuatro)">{{ generic.row4[0].cincuentaycuatro }}</td>
-                  <td (click)="getSelectedNumber(generic.row5[0].sesentaynueve)">{{ generic.row5[0].sesentaynueve }}</td>
+                  <td (click)="getSelectedNumber(generic.row1[0].nueve)">
+                    {{ generic.row1[0].nueve }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[0].veinticuatro)">
+                    {{ generic.row2[0].veinticuatro }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[0].treintinueve)">
+                    {{ generic.row3[0].treintinueve }}
+                  </td>
+                  <td
+                    (click)="
+                      getSelectedNumber(generic.row4[0].cincuentaycuatro)
+                    "
+                  >
+                    {{ generic.row4[0].cincuentaycuatro }}
+                  </td>
+                  <td
+                    (click)="getSelectedNumber(generic.row5[0].sesentaynueve)"
+                  >
+                    {{ generic.row5[0].sesentaynueve }}
+                  </td>
                 </tr>
                 <tr class="t-body">
-                  <td (click)="getSelectedNumber(generic.row1[0].diez)">{{ generic.row1[0].diez }}</td>
-                  <td (click)="getSelectedNumber(generic.row2[0].veinticinco)">{{ generic.row2[0].veinticinco }}</td>
-                  <td (click)="getSelectedNumber(generic.row3[0].cuarenta)">{{ generic.row3[0].cuarenta }}</td>
-                  <td (click)="getSelectedNumber(generic.row4[0].cincuentaycinco)">{{ generic.row4[0].cincuentaycinco }}</td>
-                  <td (click)="getSelectedNumber(generic.row5[0].setenta)">{{ generic.row5[0].setenta }}</td>
+                  <td (click)="getSelectedNumber(generic.row1[0].diez)">
+                    {{ generic.row1[0].diez }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[0].veinticinco)">
+                    {{ generic.row2[0].veinticinco }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[0].cuarenta)">
+                    {{ generic.row3[0].cuarenta }}
+                  </td>
+                  <td
+                    (click)="getSelectedNumber(generic.row4[0].cincuentaycinco)"
+                  >
+                    {{ generic.row4[0].cincuentaycinco }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[0].setenta)">
+                    {{ generic.row5[0].setenta }}
+                  </td>
                 </tr>
                 <tr class="t-body">
-                  <td (click)="getSelectedNumber(generic.row1[0].once)">{{ generic.row1[0].once }}</td>
-                  <td (click)="getSelectedNumber(generic.row2[0].veintiseis)">{{ generic.row2[0].veintiseis }}</td>
-                  <td (click)="getSelectedNumber(generic.row3[0].cuarentayuno)">{{ generic.row3[0].cuarentayuno }}</td>
-                  <td (click)="getSelectedNumber(generic.row4[0].cincuentayseis)">{{ generic.row4[0].cincuentayseis }}</td>
-                  <td (click)="getSelectedNumber(generic.row5[0].setentayuno)">{{ generic.row5[0].setentayuno }}</td>
+                  <td (click)="getSelectedNumber(generic.row1[0].once)">
+                    {{ generic.row1[0].once }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[0].veintiseis)">
+                    {{ generic.row2[0].veintiseis }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[0].cuarentayuno)">
+                    {{ generic.row3[0].cuarentayuno }}
+                  </td>
+                  <td
+                    (click)="getSelectedNumber(generic.row4[0].cincuentayseis)"
+                  >
+                    {{ generic.row4[0].cincuentayseis }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[0].setentayuno)">
+                    {{ generic.row5[0].setentayuno }}
+                  </td>
                 </tr>
                 <tr class="t-body">
-                  <td (click)="getSelectedNumber(generic.row1[0].doce)">{{ generic.row1[0].doce }}</td>
-                  <td (click)="getSelectedNumber(generic.row2[0].veintisiete)">{{ generic.row2[0].veintisiete }}</td>
-                  <td (click)="getSelectedNumber(generic.row3[0].cuarentaydos)">{{ generic.row3[0].cuarentaydos }}</td>
-                  <td (click)="getSelectedNumber(generic.row4[0].cincuentaysiete)">{{ generic.row4[0].cincuentaysiete }}</td>
-                  <td (click)="getSelectedNumber(generic.row5[0].setentaydos)">{{ generic.row5[0].setentaydos }}</td>
+                  <td (click)="getSelectedNumber(generic.row1[0].doce)">
+                    {{ generic.row1[0].doce }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[0].veintisiete)">
+                    {{ generic.row2[0].veintisiete }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[0].cuarentaydos)">
+                    {{ generic.row3[0].cuarentaydos }}
+                  </td>
+                  <td
+                    (click)="getSelectedNumber(generic.row4[0].cincuentaysiete)"
+                  >
+                    {{ generic.row4[0].cincuentaysiete }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[0].setentaydos)">
+                    {{ generic.row5[0].setentaydos }}
+                  </td>
                 </tr>
                 <tr class="t-body">
-                  <td (click)="getSelectedNumber(generic.row1[0].trece)">{{ generic.row1[0].trece }}</td>
-                  <td (click)="getSelectedNumber(generic.row2[0].veintiocho)">{{ generic.row2[0].veintiocho }}</td>
-                  <td (click)="getSelectedNumber(generic.row3[0].cuarentaytres)">{{ generic.row3[0].cuarentaytres }}</td>
-                  <td (click)="getSelectedNumber(generic.row4[0].cincuentayocho)">{{ generic.row4[0].cincuentayocho }}</td>
-                  <td (click)="getSelectedNumber(generic.row5[0].setentaytres)">{{ generic.row5[0].setentaytres }}</td>
+                  <td (click)="getSelectedNumber(generic.row1[0].trece)">
+                    {{ generic.row1[0].trece }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[0].veintiocho)">
+                    {{ generic.row2[0].veintiocho }}
+                  </td>
+                  <td
+                    (click)="getSelectedNumber(generic.row3[0].cuarentaytres)"
+                  >
+                    {{ generic.row3[0].cuarentaytres }}
+                  </td>
+                  <td
+                    (click)="getSelectedNumber(generic.row4[0].cincuentayocho)"
+                  >
+                    {{ generic.row4[0].cincuentayocho }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[0].setentaytres)">
+                    {{ generic.row5[0].setentaytres }}
+                  </td>
                 </tr>
                 <tr class="t-body">
-                  <td (click)="getSelectedNumber(generic.row1[0].catorce)">{{ generic.row1[0].catorce }}</td>
-                  <td (click)="getSelectedNumber(generic.row2[0].veintinueve)">{{ generic.row2[0].veintinueve }}</td>
-                  <td (click)="getSelectedNumber(generic.row3[0].cuarentaycuatro)">{{ generic.row3[0].cuarentaycuatro }}</td>
-                  <td (click)="getSelectedNumber(generic.row4[0].cincuentaynueve)">{{ generic.row4[0].cincuentaynueve }}</td>
-                  <td (click)="getSelectedNumber(generic.row5[0].setentaycuatro)">{{ generic.row5[0].setentaycuatro }}</td>
+                  <td (click)="getSelectedNumber(generic.row1[0].catorce)">
+                    {{ generic.row1[0].catorce }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[0].veintinueve)">
+                    {{ generic.row2[0].veintinueve }}
+                  </td>
+                  <td
+                    (click)="getSelectedNumber(generic.row3[0].cuarentaycuatro)"
+                  >
+                    {{ generic.row3[0].cuarentaycuatro }}
+                  </td>
+                  <td
+                    (click)="getSelectedNumber(generic.row4[0].cincuentaynueve)"
+                  >
+                    {{ generic.row4[0].cincuentaynueve }}
+                  </td>
+                  <td
+                    (click)="getSelectedNumber(generic.row5[0].setentaycuatro)"
+                  >
+                    {{ generic.row5[0].setentaycuatro }}
+                  </td>
                 </tr>
                 <tr class="t-body last-row">
-                  <td (click)="getSelectedNumber(generic.row1[0].quince)">{{ generic.row1[0].quince }}</td>
-                  <td (click)="getSelectedNumber(generic.row2[0].treinta)">{{ generic.row2[0].treinta }}</td>
-                  <td (click)="getSelectedNumber(generic.row3[0].cuarentaycinco)">{{ generic.row3[0].cuarentaycinco }}</td>
-                  <td (click)="getSelectedNumber(generic.row4[0].sesenta)">{{ generic.row4[0].sesenta }}</td>
-                  <td (click)="getSelectedNumber(generic.row5[0].setentaycinco)">{{ generic.row5[0].setentaycinco }}</td>
+                  <td (click)="getSelectedNumber(generic.row1[0].quince)">
+                    {{ generic.row1[0].quince }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[0].treinta)">
+                    {{ generic.row2[0].treinta }}
+                  </td>
+                  <td
+                    (click)="getSelectedNumber(generic.row3[0].cuarentaycinco)"
+                  >
+                    {{ generic.row3[0].cuarentaycinco }}
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row4[0].sesenta)">
+                    {{ generic.row4[0].sesenta }}
+                  </td>
+                  <td
+                    (click)="getSelectedNumber(generic.row5[0].setentaycinco)"
+                  >
+                    {{ generic.row5[0].setentaycinco }}
+                  </td>
+                </tr> -->
+              <!-- </tbody> -->
+              <tbody>
+                <tr class="t-body">
+                  <td (click)="getSelectedNumber(generic.row1[0].number)">
+                    {{ generic.row1[0].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row1[0].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[0].number)">
+                    {{ generic.row2[0].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row2[0].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[0].number)">
+                    {{ generic.row3[0].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row3[0].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row4[0].number)">
+                    {{ generic.row4[0].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row4[0].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[0].number)">
+                    {{ generic.row5[0].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row5[0].selected"
+                    ></span>
+                  </td>
+                </tr>
+                <tr class="t-body">
+                  <td (click)="getSelectedNumber(generic.row1[1].number)">
+                    {{ generic.row1[1].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row1[1].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[1].number)">
+                    {{ generic.row2[1].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row2[1].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[1].number)">
+                    {{ generic.row3[1].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row3[1].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row4[1].number)">
+                    {{ generic.row4[1].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row4[1].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[1].number)">
+                    {{ generic.row5[1].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row5[1].selected"
+                    ></span>
+                  </td>
+                </tr>
+                <tr class="t-body">
+                  <td (click)="getSelectedNumber(generic.row1[2].number)">
+                    {{ generic.row1[2].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row1[2].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[2].number)">
+                    {{ generic.row2[2].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row2[2].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[2].number)">
+                    {{ generic.row3[2].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row3[2].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row4[2].number)">
+                    {{ generic.row4[2].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row4[2].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[2].number)">
+                    {{ generic.row5[2].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row5[2].selected"
+                    ></span>
+                  </td>
+                </tr>
+                <tr class="t-body">
+                  <td (click)="getSelectedNumber(generic.row1[3].number)">
+                    {{ generic.row1[3].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row1[3].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[3].number)">
+                    {{ generic.row2[3].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row2[3].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[3].number)">
+                    {{ generic.row3[3].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row3[3].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row4[3].number)">
+                    {{ generic.row4[3].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row4[3].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[3].number)">
+                    {{ generic.row5[3].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row5[3].selected"
+                    ></span>
+                  </td>
+                </tr>
+                <tr class="t-body">
+                  <td (click)="getSelectedNumber(generic.row1[4].number)">
+                    {{ generic.row1[4].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row1[4].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[4].number)">
+                    {{ generic.row2[4].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row2[4].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[4].number)">
+                    {{ generic.row3[4].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row3[4].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row4[4].number)">
+                    {{ generic.row4[4].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row4[4].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[4].number)">
+                    {{ generic.row5[4].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row5[4].selected"
+                    ></span>
+                  </td>
+                </tr>
+                <tr class="t-body">
+                  <td (click)="getSelectedNumber(generic.row1[5].number)">
+                    {{ generic.row1[5].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row1[5].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[5].number)">
+                    {{ generic.row2[5].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row2[5].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[5].number)">
+                    {{ generic.row3[5].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row3[5].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row4[5].number)">
+                    {{ generic.row4[5].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row4[5].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[5].number)">
+                    {{ generic.row5[5].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row5[5].selected"
+                    ></span>
+                  </td>
+                </tr>
+                <tr class="t-body">
+                  <td (click)="getSelectedNumber(generic.row1[6].number)">
+                    {{ generic.row1[6].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row1[6].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[6].number)">
+                    {{ generic.row2[6].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row2[6].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[6].number)">
+                    {{ generic.row3[6].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row3[6].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row4[6].number)">
+                    {{ generic.row4[6].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row4[6].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[6].number)">
+                    {{ generic.row5[6].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row5[6].selected"
+                    ></span>
+                  </td>
+                </tr>
+                <tr class="t-body">
+                  <td (click)="getSelectedNumber(generic.row1[7].number)">
+                    {{ generic.row1[7].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row1[7].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[7].number)">
+                    {{ generic.row2[7].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row2[7].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[7].number)">
+                    {{ generic.row3[7].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row3[7].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row4[7].number)">
+                    {{ generic.row4[7].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row4[7].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[7].number)">
+                    {{ generic.row5[7].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row5[7].selected"
+                    ></span>
+                  </td>
+                </tr>
+                <tr class="t-body">
+                  <td (click)="getSelectedNumber(generic.row1[8].number)">
+                    {{ generic.row1[8].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row1[8].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[8].number)">
+                    {{ generic.row2[8].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row2[8].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[8].number)">
+                    {{ generic.row3[8].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row3[8].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row4[8].number)">
+                    {{ generic.row4[8].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row4[8].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[8].number)">
+                    {{ generic.row5[8].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row5[8].selected"
+                    ></span>
+                  </td>
+                </tr>
+                <tr class="t-body">
+                  <td (click)="getSelectedNumber(generic.row1[9].number)">
+                    {{ generic.row1[9].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row1[9].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[9].number)">
+                    {{ generic.row2[9].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row2[9].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[9].number)">
+                    {{ generic.row3[9].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row3[9].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row4[9].number)">
+                    {{ generic.row4[9].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row4[9].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[9].number)">
+                    {{ generic.row5[9].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row5[9].selected"
+                    ></span>
+                  </td>
+                </tr>
+                <tr class="t-body">
+                  <td (click)="getSelectedNumber(generic.row1[10].number)">
+                    {{ generic.row1[10].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row1[10].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[10].number)">
+                    {{ generic.row2[10].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row2[10].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[10].number)">
+                    {{ generic.row3[10].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row3[10].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row4[10].number)">
+                    {{ generic.row4[10].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row4[10].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[10].number)">
+                    {{ generic.row5[10].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row5[10].selected"
+                    ></span>
+                  </td>
+                </tr>
+                <tr class="t-body">
+                  <td (click)="getSelectedNumber(generic.row1[11].number)">
+                    {{ generic.row1[11].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row1[11].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[11].number)">
+                    {{ generic.row2[11].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row2[11].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[11].number)">
+                    {{ generic.row3[11].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row3[11].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row4[11].number)">
+                    {{ generic.row4[11].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row4[11].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[11].number)">
+                    {{ generic.row5[11].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row5[11].selected"
+                    ></span>
+                  </td>
+                </tr>
+                <tr class="t-body">
+                  <td (click)="getSelectedNumber(generic.row1[12].number)">
+                    {{ generic.row1[12].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row1[12].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[12].number)">
+                    {{ generic.row2[12].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row2[12].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[12].number)">
+                    {{ generic.row3[12].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row3[12].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row4[12].number)">
+                    {{ generic.row4[12].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row4[12].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[12].number)">
+                    {{ generic.row5[12].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row5[12].selected"
+                    ></span>
+                  </td>
+                </tr>
+                <tr class="t-body">
+                  <td (click)="getSelectedNumber(generic.row1[13].number)">
+                    {{ generic.row1[13].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row1[13].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[13].number)">
+                    {{ generic.row2[13].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row2[13].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[13].number)">
+                    {{ generic.row3[13].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row3[13].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row4[13].number)">
+                    {{ generic.row4[13].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row4[13].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[13].number)">
+                    {{ generic.row5[13].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row5[13].selected"
+                    ></span>
+                  </td>
+                </tr>
+                <tr class="t-body last-row">
+                  <td (click)="getSelectedNumber(generic.row1[14].number)">
+                    {{ generic.row1[14].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row1[14].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[14].number)">
+                    {{ generic.row2[14].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row2[14].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[14].number)">
+                    {{ generic.row3[14].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row3[14].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row4[14].number)">
+                    {{ generic.row4[14].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row4[14].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[14].number)">
+                    {{ generic.row5[14].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row5[14].selected"
+                    ></span>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -361,9 +1116,7 @@
             </table>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
-</body>
-
+      </section>
+    </main>
+  </body>
 </html>
