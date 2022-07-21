@@ -46,17 +46,19 @@ export class HomeComponent implements OnInit {
 
     this.getPartidas();
 
-    this._settingsService.getAllSettings().subscribe((setting: any) => {
-      setting.settings.forEach((s: any) => {
+    // this._settingsService.getAllSettings().subscribe((setting: any) => {
+    //   setting.settings.forEach((s: any) => {
 
-        if (s.name.toLowerCase() === 'cartones') {
-          this.items = this._homeService.items(
-            s.value ? Number(s.value) : 30, CardBoard.Default
-          );
-        }
+    //     if (s.name.toLowerCase() === 'cartones') {
+    //       this.items = this._homeService.items(
+    //         s.value ? Number(s.value) : 30, CardBoard.Default
+    //       );
+    //     }
 
-      })
-    })
+    //   })
+    // })
+
+    this.items = this._homeService.items(18, CardBoard.Default).reverse();
 
     let diamondCardboard = this._homeService.items(1, CardBoard.Diamond);
     let rubyCardboard = this._homeService.items(1, CardBoard.DarkDiamond);
@@ -138,6 +140,7 @@ export class HomeComponent implements OnInit {
     localStorage.setItem('RandomNumber', String(number));
     this.lastFivePlays(number);
     this._homeService.searchThroughCartonesToSetNumber(this.items);
+    this._homeService.searchThroughLeftCartonToSetNumber(this.genericTable[0]);
 
     this.getPlayLaCosita(this.items);
     this.getPlayMedio(this.items);
@@ -181,7 +184,6 @@ export class HomeComponent implements OnInit {
         content.row5.push({ number: i, selected: false });
       }
     }
-
     this.genericTable.push(content);
   }
 
