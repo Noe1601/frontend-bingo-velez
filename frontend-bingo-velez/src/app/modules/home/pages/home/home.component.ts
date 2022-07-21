@@ -46,19 +46,17 @@ export class HomeComponent implements OnInit {
 
     this.getPartidas();
 
-    // this._settingsService.getAllSettings().subscribe((setting: any) => {
-    //   setting.settings.forEach((s: any) => {
+    this._settingsService.getAllSettings().subscribe((setting: any) => {
+      setting.settings.forEach((s: any) => {
 
-    //     if (s.name.toLowerCase() === 'cartones') {
-    //       this.items = this._homeService.items(
-    //         s.value ? Number(s.value) : 30, CardBoard.Default
-    //       );
-    //     }
+        if (s.name.toLowerCase() === 'cartones') {
+          this.items = this._homeService.items(
+            s.value ? Number(s.value) : 30, CardBoard.Default
+          );
+        }
 
-    //   })
-    // })
-
-    this.items = this._homeService.items(18, CardBoard.Default).reverse();
+      })
+    })
 
     let diamondCardboard = this._homeService.items(1, CardBoard.Diamond);
     let rubyCardboard = this._homeService.items(1, CardBoard.DarkDiamond);
