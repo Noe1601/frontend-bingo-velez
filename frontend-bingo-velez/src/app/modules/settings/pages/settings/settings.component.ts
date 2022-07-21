@@ -5,6 +5,9 @@ import { CardBoard } from 'src/app/modules/enums/cardboard.enum';
 import { ImagesService } from 'src/app/core/services/images.service';
 import { SettingsService } from 'src/app/core/services/settings.service';
 import Swal from 'sweetalert2';
+import { PlayersService } from 'src/app/core/services/players.service';
+import { CreatePlayerComponent } from 'src/app/core/components/create-player/create-player.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-settings',
@@ -14,6 +17,8 @@ import Swal from 'sweetalert2';
 export class SettingsComponent implements OnInit {
   form: FormGroup;
   form2: FormGroup;
+  formPartidas: FormGroup;
+  formJugadoresPartidas: FormGroup;
   quantity: number = 0;
   value: any;
   cartonesIdSettings: any;
@@ -23,10 +28,15 @@ export class SettingsComponent implements OnInit {
   cartonesSpecials: FormGroup;
   canShowValueField: boolean = false;
   image: any;
+  partidas: any;
+  isToUpdate: boolean = false;
+  idPartida: any;
+  players: any;
 
   constructor(private _fb: FormBuilder,
     private _settingsService: SettingsService,
-    private _imageService: ImagesService) {
+    private _playerService: PlayersService,
+    private _dialog: MatDialog) {
 
     this._settingsService.getAllSettings().subscribe(setting => {
 
@@ -70,16 +80,22 @@ export class SettingsComponent implements OnInit {
       option: ['', Validators.required],
       value: ['', Validators.required]
     });
+
+    this.formPartidas = this._fb.group({
+      name: ['', Validators.required],
+      precio: ['', Validators.required]
+    });
+
+    this.formJugadoresPartidas = this._fb.group({
+      partida_id: ['', Validators.required],
+      jugador_id: ['', Validators.required],
+    })
   }
 
   ngOnInit(): void {
-    this._imageService.getImages().subscribe(image => {
-     image.filesObject.forEach((x: any) => {
-      
-     });
-
-    })
-   }
+    this.getPartidas();
+    this.getPlayers();
+  }
 
   updateSettings(option: string) {
 
@@ -103,7 +119,7 @@ export class SettingsComponent implements OnInit {
         })
         break;
 
-        case 'specialCardboard':
+      case 'specialCardboard':
         const { option, value } = this.cartonesSpecials.value;
         this._settingsService.updateSettings(option, { value }).subscribe(data => {
           this.canShowValueField = false;
@@ -127,5 +143,81 @@ export class SettingsComponent implements OnInit {
       });
     })
   }
+
+  setToUpdate(value: any) {
+    this.isToUpdate = true;
+    this.idPartida = value.id;
+
+    this.formPartidas.patchValue({
+      name: value.name,
+      precio: value.precio
+    })
+  }
+
+  createPartida() {
+    const request = {
+      ...this.formPartidas.value,
+      state: true
+    }
+
+    if (!this.isToUpdate) {
+      this._settingsService.createPartida(request).subscribe(data => {
+        Swal.fire('Creacion de partida', 'Se creo la partida exitosamente.', 'success');
+        this.formPartidas.reset();
+      }, err => {
+        Swal.fire('Creacion de partida', 'Hubo un error en la creacion de la partida.', 'error')
+      })
+    }
+    else {
+      this.updatePartida(this.idPartida);
+    }
+
+  }
+
+  getPartidas() {
+    this._settingsService.getPartidas().subscribe(data => {
+      this.partidas = data.list;
+    })
+  }
+
+  updatePartida(id: any) {
+
+    const request = {
+      ...this.formPartidas.value
+    }
+
+    this._settingsService.updatePartida(request, id).subscribe(data => {
+      Swal.fire('Actualizacion de partida', 'Se actualizo la partida.', 'success');
+      this.formPartidas.reset();
+      this.isToUpdate = false;
+      this.idPartida = null;
+      this.getPartidas();
+    }, err => {
+      Swal.fire('Actualizacion de partida', 'Hubo un error en la actualizacion de la partida.', 'error');
+    })
+  }
+
+
+  getPlayers() {
+    this._playerService.getPlayers().subscribe(data => {
+      this.players = data.list;
+    });
+  }
+
+
+  createJugadorPartida() {
+    this._settingsService.createJugadorPartida(this.formJugadoresPartidas.value).subscribe(data => {
+      Swal.fire('Agregando jugador en partida', 'Se agrego jugador a la partida.', 'success');
+      this.formJugadoresPartidas.reset();
+    }, err => {
+      Swal.fire('Agregando jugador en partida', err.message, 'error');
+    })
+  }
+
+    openCreatePlayerDialog(){
+      this._dialog.open(CreatePlayerComponent, {
+        width: '500px'
+      })
+    }
 
 }

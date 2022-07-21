@@ -5,6 +5,7 @@ import { PlayersService } from 'src/app/core/services/players.service';
 import { CardBoard } from '../../../enums/cardboard.enum';
 import { SettingsService } from 'src/app/core/services/settings.service';
 import { WinnersService } from 'src/app/core/services/winners.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -24,16 +25,27 @@ export class HomeComponent implements OnInit {
   numbers: number[] = [];
   genericTable: any[] = [];
   cartonesQuantity: string = String(localStorage.getItem('CantidadDeCartones'));
+  partidas: any;
+
+  partidasForm: FormGroup;
 
   constructor(
     private _homeService: HomeService,
     private _playerService: PlayersService,
     private _settingsService: SettingsService,
     private _winnerService: WinnersService,
-    private _playWinnerService: PlayWinnerService
-  ) {}
+    private _playWinnerService: PlayWinnerService,
+    private _fb: FormBuilder
+  ) {
+    this.partidasForm = this._fb.group({
+      partida: ['', Validators.required]
+    })
+   }
 
   ngOnInit(): void {
+
+    this.getPartidas();
+
     this._settingsService.getAllSettings().subscribe((setting: any) => {
       setting.settings.forEach((s: any) => {
 
@@ -74,6 +86,12 @@ export class HomeComponent implements OnInit {
     localStorage.removeItem('RandomNumber');
   }
 
+  getPartidas() {
+    this._settingsService.getPartidas().subscribe(data => {
+      this.partidas = data.list;
+    })
+  }
+
   selectPlayer(carton: any, event: any) {
     carton.row1.isPlayerSelected = true;
     carton.row1.playerSelected = Number(event.target.value);
@@ -104,17 +122,6 @@ export class HomeComponent implements OnInit {
       this.items
     );
     this.items = newItems;
-    this.getPlayLaCosita(this.items);
-    this.getPlayMedio(this.items);
-    this.getPlaySumita(this.items);
-    this.getPlayLetraT(this.items);
-    this.getPlayBingoRegular(this.items);
-    this.getPlay4Esquinas(this.items);
-    this.getPlayX(this.items);
-    this.getPlayLetraL(this.items);
-    this.getPlayMediaC(this.items);
-    this.getPlayCometa(this.items);
-    this.getPlayWholeCarton(this.items);
   }
 
   lastFivePlays(play: number) {
@@ -131,7 +138,18 @@ export class HomeComponent implements OnInit {
     localStorage.setItem('RandomNumber', String(number));
     this.lastFivePlays(number);
     this._homeService.searchThroughCartonesToSetNumber(this.items);
-    this._homeService.searchThroughLeftCartonToSetNumber(this.genericTable[0]);
+
+    this.getPlayLaCosita(this.items);
+    this.getPlayMedio(this.items);
+    this.getPlaySumita(this.items);
+    this.getPlayLetraT(this.items);
+    this.getPlayBingoRegular(this.items);
+    this.getPlay4Esquinas(this.items);
+    this.getPlayX(this.items);
+    this.getPlayLetraL(this.items);
+    this.getPlayMediaC(this.items);
+    this.getPlayCometa(this.items);
+    this.getPlayWholeCarton(this.items);
   }
 
   genericTableLeft() {
