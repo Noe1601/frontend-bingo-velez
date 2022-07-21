@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
     private _fb: FormBuilder
   ) {
     this.partidasForm = this._fb.group({
-      partida: ['', Validators.required]
+      partida_id: ['', Validators.required]
     })
    }
 
@@ -58,28 +58,28 @@ export class HomeComponent implements OnInit {
       })
     })
 
-    let diamondCardboard = this._homeService.items(1, CardBoard.Diamond);
-    let rubyCardboard = this._homeService.items(1, CardBoard.DarkDiamond);
-    let diamondDarkCardboard = this._homeService.items(1, CardBoard.Ruby);
+    // let diamondCardboard = this._homeService.items(1, CardBoard.Diamond);
+    // let rubyCardboard = this._homeService.items(1, CardBoard.DarkDiamond);
+    // let diamondDarkCardboard = this._homeService.items(1, CardBoard.Ruby);
 
-    diamondCardboard.forEach((element: any) => {
-      element.index = this.items.length;
-      this.items.push(element);
-    })
+    // diamondCardboard.forEach((element: any) => {
+    //   element.index = this.items.length;
+    //   this.items.push(element);
+    // })
 
-    rubyCardboard.forEach((element: any) => {
-      element.index = this.items.length;
-      this.items.push(element);
-    })
+    // rubyCardboard.forEach((element: any) => {
+    //   element.index = this.items.length;
+    //   this.items.push(element);
+    // })
 
-    diamondDarkCardboard.forEach((element: any) => {
-      element.index = this.items.length;
-      this.items.push(element);
-    })
+    // diamondDarkCardboard.forEach((element: any) => {
+    //   element.index = this.items.length;
+    //   this.items.push(element);
+    // })
 
-    this._playerService.getPlayers().subscribe((data) => {
-      this.players = data.list;
-    });
+    // this._playerService.getPlayers().subscribe((data) => {
+    //   this.players = data.list;
+    // });
 
     this.genericTableLeft();
 
@@ -90,6 +90,14 @@ export class HomeComponent implements OnInit {
     this._settingsService.getPartidas().subscribe(data => {
       this.partidas = data.list;
     })
+  }
+
+  selectPartida(event: any) {
+   const partida = event.value;
+
+   this._settingsService.getPlayersByPartida(partida).subscribe(data => {
+    this.players = data.jugadores;
+   })
   }
 
   selectPlayer(carton: any, event: any) {
