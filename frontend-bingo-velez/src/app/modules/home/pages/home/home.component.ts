@@ -112,7 +112,6 @@ export class HomeComponent implements OnInit {
 
   resetCarton(carton: any) {
     var newCarton = this._homeService.newCarton(1, carton.type);
-    debugger;
     for (var key in newCarton) {
       var value = newCarton[key];
       value.index = carton.index;
@@ -134,7 +133,6 @@ export class HomeComponent implements OnInit {
     toSave: boolean
   ) {
     newNumber = Number(newNumber);
-
     if (newNumber == number) {
       alert(`El nuevo número es el mismo que el anterior`);
       return;
@@ -179,6 +177,10 @@ export class HomeComponent implements OnInit {
             alert('El número ya existe en la columna');
             return;
           }
+          if (newNumber > 15) {
+            alert('No se aceptan números mayores de 15');
+            return;
+          }
           carton.row1[1].editMode = false;
           carton.row1[1].selected = false;
           carton.row1[1].number =
@@ -197,6 +199,10 @@ export class HomeComponent implements OnInit {
             newNumber == carton.row1[4].number
           ) {
             alert('El número ya existe en la columna');
+            return;
+          }
+          if (newNumber > 15) {
+            alert('No se aceptan números mayores de 15');
             return;
           }
           carton.row1[2].editMode = false;
@@ -219,6 +225,10 @@ export class HomeComponent implements OnInit {
             alert('El número ya existe en la columna');
             return;
           }
+          if (newNumber > 15) {
+            alert('No se aceptan números mayores de 15');
+            return;
+          }
           carton.row1[3].editMode = false;
           carton.row1[3].selected = false;
           carton.row1[3].number =
@@ -237,6 +247,10 @@ export class HomeComponent implements OnInit {
             newNumber == carton.row1[3].number
           ) {
             alert('El número ya existe en la columna');
+            return;
+          }
+          if (newNumber > 15) {
+            alert('No se aceptan números mayores de 15');
             return;
           }
           carton.row1[4].editMode = false;
@@ -285,6 +299,10 @@ export class HomeComponent implements OnInit {
             alert('El número ya existe en la columna');
             return;
           }
+          if (newNumber > 30 || newNumber < 16) {
+            alert('No se aceptan números menores de 16 ni mayores de 30');
+            return;
+          }
           carton.row2[1].editMode = false;
           carton.row2[1].selected = false;
           carton.row2[1].number =
@@ -303,6 +321,10 @@ export class HomeComponent implements OnInit {
             newNumber == carton.row2[4].number
           ) {
             alert('El número ya existe en la columna');
+            return;
+          }
+          if (newNumber > 30 || newNumber < 16) {
+            alert('No se aceptan números menores de 16 ni mayores de 30');
             return;
           }
           carton.row2[2].editMode = false;
@@ -325,6 +347,10 @@ export class HomeComponent implements OnInit {
             alert('El número ya existe en la columna');
             return;
           }
+          if (newNumber > 30 || newNumber < 16) {
+            alert('No se aceptan números menores de 16 ni mayores de 30');
+            return;
+          }
           carton.row2[3].editMode = false;
           carton.row2[3].selected = false;
           carton.row2[3].number =
@@ -343,6 +369,10 @@ export class HomeComponent implements OnInit {
             newNumber == carton.row2[3].number
           ) {
             alert('El número ya existe en la columna');
+            return;
+          }
+          if (newNumber > 30 || newNumber < 16) {
+            alert('No se aceptan números menores de 16 ni mayores de 30');
             return;
           }
           carton.row2[4].editMode = false;
@@ -391,6 +421,10 @@ export class HomeComponent implements OnInit {
             alert('El número ya existe en la columna');
             return;
           }
+          if (newNumber > 45 || newNumber < 31) {
+            alert('No se aceptan números menores de 31 ni mayores de 45');
+            return;
+          }
           carton.row3[1].editMode = false;
           carton.row3[1].selected = false;
           carton.row3[1].number =
@@ -409,6 +443,10 @@ export class HomeComponent implements OnInit {
             newNumber == carton.row3[4].number
           ) {
             alert('El número ya existe en la columna');
+            return;
+          }
+          if (newNumber > 45 || newNumber < 31) {
+            alert('No se aceptan números menores de 31 ni mayores de 45');
             return;
           }
           carton.row3[2].editMode = false;
@@ -431,6 +469,10 @@ export class HomeComponent implements OnInit {
             alert('El número ya existe en la columna');
             return;
           }
+          if (newNumber > 45 || newNumber < 31) {
+            alert('No se aceptan números menores de 31 ni mayores de 45');
+            return;
+          }
           carton.row3[3].editMode = false;
           carton.row3[3].selected = false;
           carton.row3[3].number =
@@ -449,6 +491,10 @@ export class HomeComponent implements OnInit {
             newNumber == carton.row3[4].number
           ) {
             alert('El número ya existe en la columna');
+            return;
+          }
+          if (newNumber > 45 || newNumber < 31) {
+            alert('No se aceptan números menores de 31 ni mayores de 45');
             return;
           }
           carton.row3[4].editMode = false;
@@ -497,6 +543,10 @@ export class HomeComponent implements OnInit {
             alert('El número ya existe en la columna');
             return;
           }
+          if (newNumber > 60 || newNumber < 46) {
+            alert('No se aceptan números menores de 46 ni mayores de 60');
+            return;
+          }
           carton.row4[1].editMode = false;
           carton.row4[1].selected = false;
           carton.row4[1].number =
@@ -515,6 +565,10 @@ export class HomeComponent implements OnInit {
             newNumber == carton.row4[4].number
           ) {
             alert('El número ya existe en la columna');
+            return;
+          }
+          if (newNumber > 60 || newNumber < 46) {
+            alert('No se aceptan números menores de 46 ni mayores de 60');
             return;
           }
           carton.row4[2].editMode = false;
@@ -537,6 +591,10 @@ export class HomeComponent implements OnInit {
             alert('El número ya existe en la columna');
             return;
           }
+          if (newNumber > 60 || newNumber < 46) {
+            alert('No se aceptan números menores de 46 ni mayores de 60');
+            return;
+          }
           carton.row4[3].editMode = false;
           carton.row4[3].selected = false;
           carton.row4[3].number =
@@ -555,6 +613,10 @@ export class HomeComponent implements OnInit {
             newNumber == carton.row4[3].number
           ) {
             alert('El número ya existe en la columna');
+            return;
+          }
+          if (newNumber > 60 || newNumber < 46) {
+            alert('No se aceptan números menores de 46 ni mayores de 60');
             return;
           }
           carton.row4[4].editMode = false;
@@ -603,6 +665,10 @@ export class HomeComponent implements OnInit {
             alert('El número ya existe en la columna');
             return;
           }
+          if (newNumber > 75 || newNumber < 61) {
+            alert('No se aceptan números menores de 61 ni mayores de 75');
+            return;
+          }
           carton.row5[1].editMode = false;
           carton.row5[1].selected = false;
           carton.row5[1].number =
@@ -621,6 +687,10 @@ export class HomeComponent implements OnInit {
             newNumber == carton.row5[4].number
           ) {
             alert('El número ya existe en la columna');
+            return;
+          }
+          if (newNumber > 75 || newNumber < 61) {
+            alert('No se aceptan números menores de 61 ni mayores de 75');
             return;
           }
           carton.row5[2].editMode = false;
@@ -643,6 +713,10 @@ export class HomeComponent implements OnInit {
             alert('El número ya existe en la columna');
             return;
           }
+          if (newNumber > 75 || newNumber < 61) {
+            alert('No se aceptan números menores de 61 ni mayores de 75');
+            return;
+          }
           carton.row5[3].editMode = false;
           carton.row5[3].selected = false;
           carton.row5[3].number =
@@ -661,6 +735,10 @@ export class HomeComponent implements OnInit {
             newNumber == carton.row5[3].number
           ) {
             alert('El número ya existe en la columna');
+            return;
+          }
+          if (newNumber > 75 || newNumber < 61) {
+            alert('No se aceptan números menores de 61 ni mayores de 75');
             return;
           }
           carton.row5[4].editMode = false;
