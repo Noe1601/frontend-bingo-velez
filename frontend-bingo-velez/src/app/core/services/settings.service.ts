@@ -86,7 +86,16 @@ export class SettingsService {
     }
 
     updateJugadorPartida(body: any, id: any): Observable<any> {
-        return this._http.put<any>(`${base_url}/partida-jugador/${ id }`, body)
+        return this._http.put<any>(`${base_url}/partida-jugador/${id}`, body)
+            .pipe(
+                catchError(err => {
+                    throw err;
+                })
+            )
+    }
+
+    getPlayersByPartida(id: any): Observable<any> {
+        return this._http.get<any>(`${base_url}/partida-jugador/partidas/${id}`)
             .pipe(
                 catchError(err => {
                     throw err;
