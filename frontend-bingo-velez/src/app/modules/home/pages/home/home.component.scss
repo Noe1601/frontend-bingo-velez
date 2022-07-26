@@ -5,7 +5,7 @@ body {
   position: fixed;
   left: 15px;
   z-index: 9999;
-  bottom: 125px;
+  bottom: 10px;
   .card-cardboard {
     .cuadriculas {
       .table-cardboard {
@@ -23,9 +23,25 @@ body {
 .main-container {
   padding: 15px 0;
   position: relative;
-  //   border: 3px solid #000;
   margin: 0 10px;
   border-radius: 15px;
+  .erase-all-button {
+    justify-content: center;
+    display: flex;
+    position: fixed;
+    gap: 10px;
+    z-index: 999;
+    left: auto;
+    right: 20px;
+    bottom: 13px;
+    button {
+      border: 2px solid #3f51b5;
+      border-radius: 5px;
+      background-color: transparent;
+      padding: 10px;
+      font-weight: bold;
+    }
+  }
   .generate-random-number {
     display: flex;
     flex-direction: column;
@@ -167,41 +183,47 @@ body {
                   position: absolute;
                   border-radius: 50%;
                 }
-                .circle-sumita{
+                .circle-sumita {
                   width: 20px;
                   height: 20px;
                   background-color: green;
                   position: absolute;
                   border-radius: 50%;
                 }
-                .circle-t{
+                .circle-t {
                   width: 20px;
                   height: 20px;
                   background-color: violet;
                   position: absolute;
                   border-radius: 50%;
                 }
-                .circle-bingo{
+                .circle-bingo {
                   width: 20px;
                   height: 20px;
                   background-color: yellow;
                   position: absolute;
                   border-radius: 50%;
                 }
-                .circle-x{
+                .circle-x {
                   width: 20px;
                   height: 20px;
                   background-color: orange;
                   position: absolute;
                   border-radius: 50%;
                 }
-                .circle-l{
+                .circle-l {
                   width: 20px;
                   height: 20px;
                   background-color: blue;
                   position: absolute;
                   border-radius: 50%;
                 }
+              }
+              .cell-input-edit{
+                @extend td;
+                width: 39px !important;
+                text-align: center;
+                font-weight: bold;
               }
               .td-color {
                 background-color: #ddd !important;

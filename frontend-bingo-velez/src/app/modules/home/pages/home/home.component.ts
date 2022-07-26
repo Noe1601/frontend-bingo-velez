@@ -26,6 +26,8 @@ export class HomeComponent implements OnInit {
   genericTable: any[] = [];
   cartonesQuantity: string = String(localStorage.getItem('CantidadDeCartones'));
   partidas: any;
+  preventSimpleClick: boolean = false;
+  newNumber: number = 0;
 
   partidasForm: FormGroup;
 
@@ -43,20 +45,21 @@ export class HomeComponent implements OnInit {
    }
 
   ngOnInit(): void {
-
     this.getPartidas();
 
-    this._settingsService.getAllSettings().subscribe((setting: any) => {
-      setting.settings.forEach((s: any) => {
+    // this._settingsService.getAllSettings().subscribe((setting: any) => {
+    //   setting.settings.forEach((s: any) => {
 
-        if (s.name.toLowerCase() === 'cartones') {
-          this.items = this._homeService.items(
-            s.value ? Number(s.value) : 30, CardBoard.Default
-          );
-        }
+    //     if (s.name.toLowerCase() === 'cartones') {
+    //       this.items = this._homeService.items(
+    //         s.value ? Number(s.value) : 30, CardBoard.Default
+    //       );
+    //     }
 
-      })
-    })
+    //   })
+    // })
+
+    this.items = this._homeService.items(18, CardBoard.Default).reverse();
 
     // let diamondCardboard = this._homeService.items(1, CardBoard.Diamond);
     // let rubyCardboard = this._homeService.items(1, CardBoard.DarkDiamond);
@@ -83,13 +86,46 @@ export class HomeComponent implements OnInit {
 
     this.genericTableLeft();
 
+    console.log(this.items);
+
     localStorage.removeItem('RandomNumber');
   }
 
+  EraseAll() {
+    this.items = this._homeService.items(18, CardBoard.Default).reverse();
+
+    let diamondCardboard = this._homeService.items(1, CardBoard.Diamond);
+    let rubyCardboard = this._homeService.items(1, CardBoard.DarkDiamond);
+    let diamondDarkCardboard = this._homeService.items(1, CardBoard.Ruby);
+
+    diamondCardboard.forEach((element: any) => {
+      element.index = this.items.length;
+      this.items.push(element);
+    });
+
+    rubyCardboard.forEach((element: any) => {
+      element.index = this.items.length;
+      this.items.push(element);
+    });
+
+    diamondDarkCardboard.forEach((element: any) => {
+      element.index = this.items.length;
+      this.items.push(element);
+    });
+
+    this._playerService.getPlayers().subscribe((data) => {
+      this.players = data.list;
+    });
+
+    this.genericTable = [];
+    this.numbers = [];
+    this.genericTableLeft();
+  }
+
   getPartidas() {
-    this._settingsService.getPartidas().subscribe(data => {
+    this._settingsService.getPartidas().subscribe((data) => {
       this.partidas = data.list;
-    })
+    });
   }
 
   selectPartida(event: any) {
@@ -107,7 +143,7 @@ export class HomeComponent implements OnInit {
 
   resetCarton(carton: any) {
     var newCarton = this._homeService.newCarton(1, carton.type);
-
+    debugger;
     for (var key in newCarton) {
       var value = newCarton[key];
       value.index = carton.index;
@@ -120,6 +156,558 @@ export class HomeComponent implements OnInit {
       this.cartonesQuantity ? Number(this.cartonesQuantity) : 30,
       CardBoard.Default
     );
+  }
+
+  changeCellToEditMode(
+    carton: any,
+    number: number,
+    newNumber: number,
+    toSave: boolean
+  ) {
+    newNumber = Number(newNumber);
+
+    if (newNumber == number) {
+      alert(`El nuevo número es el mismo que el anterior`);
+      return;
+    }
+    if(newNumber > 75 || newNumber < 0){
+      alert(`El nuevo número no puede ser mayor de 75 ni menor de 0`);
+      return;
+    }
+    if (number <= 15) {
+      if (carton.row1[0].number == number) {
+        if (toSave) {
+          if (
+            newNumber == carton.row1[1].number ||
+            newNumber == carton.row1[2].number ||
+            newNumber == carton.row1[3].number ||
+            newNumber == carton.row1[4].number
+          ) {
+            alert('El número ya existe en la columna');
+            return;
+          }
+          if (newNumber > 15) {
+            alert('No se aceptan números mayores de 15');
+            return;
+          }
+          carton.row1[0].editMode = false;
+          carton.row1[0].selected = false;
+          carton.row1[0].number =
+            newNumber == 0 ? carton.row1[0].number : newNumber;
+          this.newNumber = 0;
+        } else {
+          carton.row1[0].editMode = true;
+        }
+      }
+      if (carton.row1[1].number == number) {
+        if (toSave) {
+          if (
+            newNumber == carton.row1[0].number ||
+            newNumber == carton.row1[2].number ||
+            newNumber == carton.row1[3].number ||
+            newNumber == carton.row1[4].number
+          ) {
+            alert('El número ya existe en la columna');
+            return;
+          }
+          carton.row1[1].editMode = false;
+          carton.row1[1].selected = false;
+          carton.row1[1].number =
+            newNumber == 0 ? carton.row1[1].number : newNumber;
+          this.newNumber = 0;
+        } else {
+          carton.row1[1].editMode = true;
+        }
+      }
+      if (carton.row1[2].number == number) {
+        if (toSave) {
+          if (
+            newNumber == carton.row1[0].number ||
+            newNumber == carton.row1[1].number ||
+            newNumber == carton.row1[3].number ||
+            newNumber == carton.row1[4].number
+          ) {
+            alert('El número ya existe en la columna');
+            return;
+          }
+          carton.row1[2].editMode = false;
+          carton.row1[2].selected = false;
+          carton.row1[2].number =
+            newNumber == 0 ? carton.row1[2].number : newNumber;
+          this.newNumber = 0;
+        } else {
+          carton.row1[2].editMode = true;
+        }
+      }
+      if (carton.row1[3].number == number) {
+        if (toSave) {
+          if (
+            newNumber == carton.row1[0].number ||
+            newNumber == carton.row1[1].number ||
+            newNumber == carton.row1[2].number ||
+            newNumber == carton.row1[4].number
+          ) {
+            alert('El número ya existe en la columna');
+            return;
+          }
+          carton.row1[3].editMode = false;
+          carton.row1[3].selected = false;
+          carton.row1[3].number =
+            newNumber == 0 ? carton.row1[3].number : newNumber;
+          this.newNumber = 0;
+        } else {
+          carton.row1[3].editMode = true;
+        }
+      }
+      if (carton.row1[4].number == number) {
+        if (toSave) {
+          if (
+            newNumber == carton.row1[0].number ||
+            newNumber == carton.row1[1].number ||
+            newNumber == carton.row1[2].number ||
+            newNumber == carton.row1[3].number
+          ) {
+            alert('El número ya existe en la columna');
+            return;
+          }
+          carton.row1[4].editMode = false;
+          carton.row1[4].selected = false;
+          carton.row1[4].number =
+            newNumber == 0 ? carton.row1[4].number : newNumber;
+          this.newNumber = 0;
+        } else {
+          carton.row1[4].editMode = true;
+        }
+      }
+      this.items[carton.index] = carton;
+    } else if (number <= 30) {
+      if (carton.row2[0].number == number) {
+        if (toSave) {
+          if (
+            newNumber == carton.row2[1].number ||
+            newNumber == carton.row2[2].number ||
+            newNumber == carton.row2[3].number ||
+            newNumber == carton.row2[4].number
+          ) {
+            alert('El número ya existe en la columna');
+            return;
+          }
+          if (newNumber > 30 || newNumber < 16) {
+            alert('No se aceptan números menores de 16 ni mayores de 30');
+            return;
+          }
+          carton.row2[0].editMode = false;
+          carton.row2[0].selected = false;
+          carton.row2[0].number =
+            newNumber == 0 ? carton.row2[0].number : newNumber;
+          this.newNumber = 0;
+        } else {
+          carton.row2[0].editMode = true;
+        }
+      }
+      if (carton.row2[1].number == number) {
+        if (toSave) {
+          if (
+            newNumber == carton.row2[0].number ||
+            newNumber == carton.row2[2].number ||
+            newNumber == carton.row2[3].number ||
+            newNumber == carton.row2[4].number
+          ) {
+            alert('El número ya existe en la columna');
+            return;
+          }
+          carton.row2[1].editMode = false;
+          carton.row2[1].selected = false;
+          carton.row2[1].number =
+            newNumber == 0 ? carton.row2[1].number : newNumber;
+          this.newNumber = 0;
+        } else {
+          carton.row2[1].editMode = true;
+        }
+      }
+      if (carton.row2[2].number == number) {
+        if (toSave) {
+          if (
+            newNumber == carton.row2[0].number ||
+            newNumber == carton.row2[1].number ||
+            newNumber == carton.row2[3].number ||
+            newNumber == carton.row2[4].number
+          ) {
+            alert('El número ya existe en la columna');
+            return;
+          }
+          carton.row2[2].editMode = false;
+          carton.row2[2].selected = false;
+          carton.row2[2].number =
+            newNumber == 0 ? carton.row2[2].number : newNumber;
+          this.newNumber = 0;
+        } else {
+          carton.row2[2].editMode = true;
+        }
+      }
+      if (carton.row2[3].number == number) {
+        if (toSave) {
+          if (
+            newNumber == carton.row2[0].number ||
+            newNumber == carton.row2[1].number ||
+            newNumber == carton.row2[2].number ||
+            newNumber == carton.row2[4].number
+          ) {
+            alert('El número ya existe en la columna');
+            return;
+          }
+          carton.row2[3].editMode = false;
+          carton.row2[3].selected = false;
+          carton.row2[3].number =
+            newNumber == 0 ? carton.row2[3].number : newNumber;
+          this.newNumber = 0;
+        } else {
+          carton.row2[3].editMode = true;
+        }
+      }
+      if (carton.row2[4].number == number) {
+        if (toSave) {
+          if (
+            newNumber == carton.row2[0].number ||
+            newNumber == carton.row2[1].number ||
+            newNumber == carton.row2[2].number ||
+            newNumber == carton.row2[3].number
+          ) {
+            alert('El número ya existe en la columna');
+            return;
+          }
+          carton.row2[4].editMode = false;
+          carton.row2[4].selected = false;
+          carton.row2[4].number =
+            newNumber == 0 ? carton.row2[4].number : newNumber;
+          this.newNumber = 0;
+        } else {
+          carton.row2[4].editMode = true;
+        }
+      }
+      this.items[carton.index] = carton;
+    } else if (number <= 45) {
+      if (carton.row3[0].number == number) {
+        if (toSave) {
+          if (
+            newNumber == carton.row3[1].number ||
+            newNumber == carton.row3[2].number ||
+            newNumber == carton.row3[3].number ||
+            newNumber == carton.row3[4].number
+          ) {
+            alert('El número ya existe en la columna');
+            return;
+          }
+          if (newNumber > 45 || newNumber < 31) {
+            alert('No se aceptan números menores de 31 ni mayores de 45');
+            return;
+          }
+          carton.row3[0].editMode = false;
+          carton.row3[0].selected = false;
+          carton.row3[0].number =
+            newNumber == 0 ? carton.row3[0].number : newNumber;
+          this.newNumber = 0;
+        } else {
+          carton.row3[0].editMode = true;
+        }
+      }
+      if (carton.row3[1].number == number) {
+        if (toSave) {
+          if (
+            newNumber == carton.row3[0].number ||
+            newNumber == carton.row3[2].number ||
+            newNumber == carton.row3[3].number ||
+            newNumber == carton.row3[4].number
+          ) {
+            alert('El número ya existe en la columna');
+            return;
+          }
+          carton.row3[1].editMode = false;
+          carton.row3[1].selected = false;
+          carton.row3[1].number =
+            newNumber == 0 ? carton.row3[1].number : newNumber;
+          this.newNumber = 0;
+        } else {
+          carton.row3[1].editMode = true;
+        }
+      }
+      if (carton.row3[2].number == number) {
+        if (toSave) {
+          if (
+            newNumber == carton.row3[0].number ||
+            newNumber == carton.row3[1].number ||
+            newNumber == carton.row3[3].number ||
+            newNumber == carton.row3[4].number
+          ) {
+            alert('El número ya existe en la columna');
+            return;
+          }
+          carton.row3[2].editMode = false;
+          carton.row3[2].selected = false;
+          carton.row3[2].number =
+            newNumber == 0 ? carton.row3[2].number : newNumber;
+          this.newNumber = 0;
+        } else {
+          carton.row3[2].editMode = true;
+        }
+      }
+      if (carton.row3[3].number == number) {
+        if (toSave) {
+          if (
+            newNumber == carton.row3[0].number ||
+            newNumber == carton.row3[1].number ||
+            newNumber == carton.row3[2].number ||
+            newNumber == carton.row3[4].number
+          ) {
+            alert('El número ya existe en la columna');
+            return;
+          }
+          carton.row3[3].editMode = false;
+          carton.row3[3].selected = false;
+          carton.row3[3].number =
+            newNumber == 0 ? carton.row3[3].number : newNumber;
+          this.newNumber = 0;
+        } else {
+          carton.row3[3].editMode = true;
+        }
+      }
+      if (carton.row3[4].number == number) {
+        if (toSave) {
+          if (
+            newNumber == carton.row3[0].number ||
+            newNumber == carton.row3[1].number ||
+            newNumber == carton.row3[2].number ||
+            newNumber == carton.row3[4].number
+          ) {
+            alert('El número ya existe en la columna');
+            return;
+          }
+          carton.row3[4].editMode = false;
+          carton.row3[4].selected = false;
+          carton.row3[4].number =
+            newNumber == 0 ? carton.row3[4].number : newNumber;
+          this.newNumber = 0;
+        } else {
+          carton.row3[4].editMode = true;
+        }
+      }
+      this.items[carton.index] = carton;
+    } else if (number <= 60) {
+      if (carton.row4[0].number == number) {
+        if (toSave) {
+          if (
+            newNumber == carton.row4[1].number ||
+            newNumber == carton.row4[2].number ||
+            newNumber == carton.row4[3].number ||
+            newNumber == carton.row4[4].number
+          ) {
+            alert('El número ya existe en la columna');
+            return;
+          }
+          if (newNumber > 60 || newNumber < 46) {
+            alert('No se aceptan números menores de 46 ni mayores de 60');
+            return;
+          }
+          carton.row4[0].editMode = false;
+          carton.row4[0].selected = false;
+          carton.row4[0].number =
+            newNumber == 0 ? carton.row4[0].number : newNumber;
+          this.newNumber = 0;
+        } else {
+          carton.row4[0].editMode = true;
+        }
+      }
+      if (carton.row4[1].number == number) {
+        if (toSave) {
+          if (
+            newNumber == carton.row4[0].number ||
+            newNumber == carton.row4[2].number ||
+            newNumber == carton.row4[3].number ||
+            newNumber == carton.row4[4].number
+          ) {
+            alert('El número ya existe en la columna');
+            return;
+          }
+          carton.row4[1].editMode = false;
+          carton.row4[1].selected = false;
+          carton.row4[1].number =
+            newNumber == 0 ? carton.row4[1].number : newNumber;
+          this.newNumber = 0;
+        } else {
+          carton.row4[1].editMode = true;
+        }
+      }
+      if (carton.row4[2].number == number) {
+        if (toSave) {
+          if (
+            newNumber == carton.row4[0].number ||
+            newNumber == carton.row4[1].number ||
+            newNumber == carton.row4[3].number ||
+            newNumber == carton.row4[4].number
+          ) {
+            alert('El número ya existe en la columna');
+            return;
+          }
+          carton.row4[2].editMode = false;
+          carton.row4[2].selected = false;
+          carton.row4[2].number =
+            newNumber == 0 ? carton.row4[2].number : newNumber;
+          this.newNumber = 0;
+        } else {
+          carton.row4[2].editMode = true;
+        }
+      }
+      if (carton.row4[3].number == number) {
+        if (toSave) {
+          if (
+            newNumber == carton.row4[0].number ||
+            newNumber == carton.row4[1].number ||
+            newNumber == carton.row4[2].number ||
+            newNumber == carton.row4[4].number
+          ) {
+            alert('El número ya existe en la columna');
+            return;
+          }
+          carton.row4[3].editMode = false;
+          carton.row4[3].selected = false;
+          carton.row4[3].number =
+            newNumber == 0 ? carton.row4[3].number : newNumber;
+          this.newNumber = 0;
+        } else {
+          carton.row4[3].editMode = true;
+        }
+      }
+      if (carton.row4[4].number == number) {
+        if (toSave) {
+          if (
+            newNumber == carton.row4[0].number ||
+            newNumber == carton.row4[1].number ||
+            newNumber == carton.row4[2].number ||
+            newNumber == carton.row4[3].number
+          ) {
+            alert('El número ya existe en la columna');
+            return;
+          }
+          carton.row4[4].editMode = false;
+          carton.row4[4].selected = false;
+          carton.row4[4].number =
+            newNumber == 0 ? carton.row4[4].number : newNumber;
+          this.newNumber = 0;
+        } else {
+          carton.row4[4].editMode = true;
+        }
+      }
+      this.items[carton.index] = carton;
+    } else if (number < 76) {
+      if (carton.row5[0].number == number) {
+        if (toSave) {
+          if (
+            newNumber == carton.row5[1].number ||
+            newNumber == carton.row5[2].number ||
+            newNumber == carton.row5[3].number ||
+            newNumber == carton.row5[4].number
+          ) {
+            alert('El número ya existe en la columna');
+            return;
+          }
+          if (newNumber > 75 || newNumber < 61) {
+            alert('No se aceptan números menores de 61 ni mayores de 75');
+            return;
+          }
+          carton.row5[0].editMode = false;
+          carton.row5[0].selected = false;
+          carton.row5[0].number =
+            newNumber == 0 ? carton.row5[0].number : newNumber;
+          this.newNumber = 0;
+        } else {
+          carton.row5[0].editMode = true;
+        }
+      }
+      if (carton.row5[1].number == number) {
+        if (toSave) {
+          if (
+            newNumber == carton.row5[0].number ||
+            newNumber == carton.row5[2].number ||
+            newNumber == carton.row5[3].number ||
+            newNumber == carton.row5[4].number
+          ) {
+            alert('El número ya existe en la columna');
+            return;
+          }
+          carton.row5[1].editMode = false;
+          carton.row5[1].selected = false;
+          carton.row5[1].number =
+            newNumber == 0 ? carton.row5[1].number : newNumber;
+          this.newNumber = 0;
+        } else {
+          carton.row5[1].editMode = true;
+        }
+      }
+      if (carton.row5[2].number == number) {
+        if (toSave) {
+          if (
+            newNumber == carton.row5[0].number ||
+            newNumber == carton.row5[1].number ||
+            newNumber == carton.row5[3].number ||
+            newNumber == carton.row5[4].number
+          ) {
+            alert('El número ya existe en la columna');
+            return;
+          }
+          carton.row5[2].editMode = false;
+          carton.row5[2].selected = false;
+          carton.row5[2].number =
+            newNumber == 0 ? carton.row5[2].number : newNumber;
+          this.newNumber = 0;
+        } else {
+          carton.row5[2].editMode = true;
+        }
+      }
+      if (carton.row5[3].number == number) {
+        if (toSave) {
+          if (
+            newNumber == carton.row5[0].number ||
+            newNumber == carton.row5[1].number ||
+            newNumber == carton.row5[2].number ||
+            newNumber == carton.row5[4].number
+          ) {
+            alert('El número ya existe en la columna');
+            return;
+          }
+          carton.row5[3].editMode = false;
+          carton.row5[3].selected = false;
+          carton.row5[3].number =
+            newNumber == 0 ? carton.row5[3].number : newNumber;
+          this.newNumber = 0;
+        } else {
+          carton.row5[3].editMode = true;
+        }
+      }
+      if (carton.row5[4].number == number) {
+        if (toSave) {
+          if (
+            newNumber == carton.row5[0].number ||
+            newNumber == carton.row5[1].number ||
+            newNumber == carton.row5[2].number ||
+            newNumber == carton.row5[3].number
+          ) {
+            alert('El número ya existe en la columna');
+            return;
+          }
+          carton.row5[4].editMode = false;
+          carton.row5[4].selected = false;
+          carton.row5[4].number =
+            newNumber == 0 ? carton.row5[4].number : newNumber;
+          this.newNumber = 0;
+        } else {
+          carton.row5[4].editMode = true;
+        }
+      }
+      this.items[carton.index] = carton;
+    } else {
+      alert('El numero sobrepasa el límite establecido');
+      return;
+    }
   }
 
   setColorToCellNumber() {
