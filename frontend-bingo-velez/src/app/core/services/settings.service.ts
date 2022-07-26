@@ -102,4 +102,13 @@ export class SettingsService {
                 })
             )
     }
+
+    getPartidaById(id: any): Observable<any> {
+        return this._http.get<any>(`${base_url}/partidas/${id}`)
+            .pipe(
+                catchError(err => {
+                    throw err;
+                })
+            )
+    }
 }

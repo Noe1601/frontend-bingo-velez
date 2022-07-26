@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
   partidas: any;
   preventSimpleClick: boolean = false;
   newNumber: number = 0;
+  partidaId: any;
 
   partidasForm: FormGroup;
 
@@ -42,76 +43,43 @@ export class HomeComponent implements OnInit {
     this.partidasForm = this._fb.group({
       partida_id: ['', Validators.required]
     })
-   }
+  }
 
   ngOnInit(): void {
     this.getPartidas();
-
-    // this._settingsService.getAllSettings().subscribe((setting: any) => {
-    //   setting.settings.forEach((s: any) => {
-
-    //     if (s.name.toLowerCase() === 'cartones') {
-    //       this.items = this._homeService.items(
-    //         s.value ? Number(s.value) : 30, CardBoard.Default
-    //       );
-    //     }
-
-    //   })
-    // })
-
-    this.items = this._homeService.items(18, CardBoard.Default).reverse();
-
-    // let diamondCardboard = this._homeService.items(1, CardBoard.Diamond);
-    // let rubyCardboard = this._homeService.items(1, CardBoard.DarkDiamond);
-    // let diamondDarkCardboard = this._homeService.items(1, CardBoard.Ruby);
-
-    // diamondCardboard.forEach((element: any) => {
-    //   element.index = this.items.length;
-    //   this.items.push(element);
-    // })
-
-    // rubyCardboard.forEach((element: any) => {
-    //   element.index = this.items.length;
-    //   this.items.push(element);
-    // })
-
-    // diamondDarkCardboard.forEach((element: any) => {
-    //   element.index = this.items.length;
-    //   this.items.push(element);
-    // })
-
-    // this._playerService.getPlayers().subscribe((data) => {
-    //   this.players = data.list;
-    // });
-
     this.genericTableLeft();
-
-    console.log(this.items);
-
     localStorage.removeItem('RandomNumber');
+    this.getSettings();
+  }
+
+  getSettings() {
+    this._settingsService.getAllSettings().subscribe((setting: any) => {
+      setting.settings.forEach((s: any) => {
+
+        if (s.name.toLowerCase() === 'cartones') {
+          this.items = this._homeService.items(
+            s.value ? Number(s.value) : 30, CardBoard.Default
+          );
+        }
+
+        if (s.name.toLowerCase() === 'diamante negro') {
+          this._homeService.items(Number(s.value), CardBoard.DarkDiamond);
+        }
+
+        if (s.name.toLowerCase() === 'ruby') {
+          this._homeService.items(Number(s.value), CardBoard.Ruby);
+        }
+
+        if (s.name.toLowerCase() === 'diamante') {
+          this._homeService.items(Number(s.value), CardBoard.Diamond);
+        }
+
+      })
+    })
+
   }
 
   EraseAll() {
-    this.items = this._homeService.items(18, CardBoard.Default).reverse();
-
-    let diamondCardboard = this._homeService.items(1, CardBoard.Diamond);
-    let rubyCardboard = this._homeService.items(1, CardBoard.DarkDiamond);
-    let diamondDarkCardboard = this._homeService.items(1, CardBoard.Ruby);
-
-    diamondCardboard.forEach((element: any) => {
-      element.index = this.items.length;
-      this.items.push(element);
-    });
-
-    rubyCardboard.forEach((element: any) => {
-      element.index = this.items.length;
-      this.items.push(element);
-    });
-
-    diamondDarkCardboard.forEach((element: any) => {
-      element.index = this.items.length;
-      this.items.push(element);
-    });
 
     this._playerService.getPlayers().subscribe((data) => {
       this.players = data.list;
@@ -120,6 +88,7 @@ export class HomeComponent implements OnInit {
     this.genericTable = [];
     this.numbers = [];
     this.genericTableLeft();
+    this.getSettings();
   }
 
   getPartidas() {
@@ -129,11 +98,11 @@ export class HomeComponent implements OnInit {
   }
 
   selectPartida(event: any) {
-   const partida = event.value;
+    this.partidaId = event.value;
 
-   this._settingsService.getPlayersByPartida(partida).subscribe(data => {
-    this.players = data.jugadores;
-   })
+    this._settingsService.getPlayersByPartida(this.partidaId).subscribe(data => {
+      this.players = data.jugadores;
+    })
   }
 
   selectPlayer(carton: any, event: any) {
@@ -170,7 +139,7 @@ export class HomeComponent implements OnInit {
       alert(`El nuevo número es el mismo que el anterior`);
       return;
     }
-    if(newNumber > 75 || newNumber < 0){
+    if (newNumber > 75 || newNumber < 0) {
       alert(`El nuevo número no puede ser mayor de 75 ni menor de 0`);
       return;
     }
@@ -747,6 +716,7 @@ export class HomeComponent implements OnInit {
     this.getPlayMediaC(this.items);
     this.getPlayCometa(this.items);
     this.getPlayWholeCarton(this.items);
+    //this.getPlayBingoWithActualDate(this.items);
   }
 
   genericTableLeft() {
@@ -813,6 +783,7 @@ export class HomeComponent implements OnInit {
                     const buildPlayWinner = {
                       jugada_id: 210777,
                       jugador_id: c.row1.playerSelected,
+                      partida_id: this.partidaId
                     };
 
                     this._playWinnerService
@@ -869,6 +840,7 @@ export class HomeComponent implements OnInit {
                     const buildPlayWinner = {
                       jugada_id: 693521,
                       jugador_id: c.row1.playerSelected,
+                      partida_id: this.partidaId
                     };
 
                     this._playWinnerService
@@ -929,6 +901,7 @@ export class HomeComponent implements OnInit {
                     const buildPlayWinner = {
                       jugada_id: 174477,
                       jugador_id: c.row1.playerSelected,
+                      partida_id: this.partidaId
                     };
 
                     this._playWinnerService
@@ -992,18 +965,18 @@ export class HomeComponent implements OnInit {
 
                 this._winnerService.createWinner(buildWinner).subscribe(
                   (data: any) => {
-                    console.log('Se creo winner - letra t');
 
                     const buildPlayWinner = {
                       jugada_id: 669740,
                       jugador_id: c.row1.playerSelected,
+                      partida_id: this.partidaId
                     };
 
                     this._playWinnerService
                       .createPlayWinner(buildPlayWinner)
                       .subscribe(
                         (data) => {
-                          console.log('Se creo play-winner');
+
                         },
                         (err) => {
                           console.log(err);
@@ -1022,6 +995,10 @@ export class HomeComponent implements OnInit {
   }
 
   getPlayBingoRegular(carton: any) {
+
+    const date = new Date();
+    const actualDate = date.getDate();
+    
     carton.forEach((c: any) => {
       if (
         c.row1[0].selected &&
@@ -1039,7 +1016,17 @@ export class HomeComponent implements OnInit {
           c.row5[0].class = 'circle-bingo';
 
           if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
-            this.createWinnerBingoRegular(c);
+
+            if(c.row1[0].number === actualDate || c.row2[0].number === actualDate
+              || c.row3[0].number === actualDate || c.row4[0].number === actualDate ||
+              c.row5[0].number === actualDate){
+
+                this.createWinnerBingoRegular(c, true);
+
+              }else{
+                this.createWinnerBingoRegular(c);
+              }
+
           }
         }
       }
@@ -1060,7 +1047,17 @@ export class HomeComponent implements OnInit {
           c.row1[4].class = 'circle-bingo';
 
           if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
-            this.createWinnerBingoRegular(c);
+
+            if(c.row1[0].number === actualDate || c.row1[1].number === actualDate
+              || c.row1[2].number === actualDate || c.row1[3].number === actualDate ||
+              c.row1[4].number === actualDate){
+
+                this.createWinnerBingoRegular(c, true);
+
+              }else{
+                this.createWinnerBingoRegular(c);
+              }
+
           }
         }
       }
@@ -1081,7 +1078,17 @@ export class HomeComponent implements OnInit {
           c.row2[4].class = 'circle-bingo';
 
           if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
-            this.createWinnerBingoRegular(c);
+
+            if(c.row2[0].number === actualDate || c.row2[1].number === actualDate
+              || c.row2[2].number === actualDate || c.row2[3].number === actualDate ||
+              c.row2[4].number === actualDate){
+
+                this.createWinnerBingoRegular(c, true);
+
+              }else{
+                this.createWinnerBingoRegular(c);
+              }
+
           }
         }
       }
@@ -1101,7 +1108,17 @@ export class HomeComponent implements OnInit {
           c.row5[4].class = 'circle-bingo';
 
           if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
-            this.createWinnerBingoRegular(c);
+            
+            if(c.row3[0].number === actualDate || c.row3[1].number === actualDate
+             || c.row3[3].number === actualDate || c.row3[4].number === actualDate){
+
+                this.createWinnerBingoRegular(c, true);
+
+              }else{
+                this.createWinnerBingoRegular(c);
+              }
+
+
           }
         }
       }
@@ -1122,7 +1139,18 @@ export class HomeComponent implements OnInit {
           c.row4[4].class = 'circle-bingo';
 
           if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
-            this.createWinnerBingoRegular(c);
+            
+            if(c.row4[0].number === actualDate || c.row4[1].number === actualDate
+              || c.row4[2].number === actualDate || c.row4[3].number === actualDate ||
+              c.row4[4].number === actualDate){
+
+                this.createWinnerBingoRegular(c, true);
+
+              }else{
+                this.createWinnerBingoRegular(c);
+              }
+
+
           }
         }
       }
@@ -1143,7 +1171,18 @@ export class HomeComponent implements OnInit {
           c.row5[0].class = 'circle-bingo';
 
           if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
-            this.createWinnerBingoRegular(c);
+            
+            if(c.row5[0].number === actualDate || c.row5[1].number === actualDate
+              || c.row5[2].number === actualDate || c.row5[3].number === actualDate ||
+              c.row5[4].number === actualDate){
+
+                this.createWinnerBingoRegular(c, true);
+
+              }else{
+                this.createWinnerBingoRegular(c);
+              }
+
+
           }
         }
       }
@@ -1183,7 +1222,17 @@ export class HomeComponent implements OnInit {
           c.row5[2].class = 'circle-bingo';
 
           if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
-            this.createWinnerBingoRegular(c);
+            
+            if(c.row1[2].number === actualDate || c.row2[3].number === actualDate
+              || c.row4[2].number === actualDate || c.row5[2].number === actualDate) {
+
+                this.createWinnerBingoRegular(c, true);
+
+              }else{
+                this.createWinnerBingoRegular(c);
+              }
+
+
           }
         }
       }
@@ -1204,7 +1253,18 @@ export class HomeComponent implements OnInit {
           c.row5[3].class = 'circle-bingo';
 
           if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
-            this.createWinnerBingoRegular(c);
+            
+            if(c.row1[3].number === actualDate || c.row2[3].number === actualDate
+              || c.row3[3].number === actualDate || c.row4[3].number === actualDate ||
+              c.row5[3].number === actualDate){
+
+                this.createWinnerBingoRegular(c, true);
+
+              }else{
+                this.createWinnerBingoRegular(c);
+              }
+
+
           }
         }
       }
@@ -1225,7 +1285,18 @@ export class HomeComponent implements OnInit {
           c.row5[4].class = 'circle-bingo';
 
           if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
-            this.createWinnerBingoRegular(c);
+            
+            if(c.row1[4].number === actualDate || c.row2[4].number === actualDate
+              || c.row3[4].number === actualDate || c.row4[4].number === actualDate ||
+              c.row5[4].number === actualDate){
+
+                this.createWinnerBingoRegular(c, true);
+
+              }else{
+                this.createWinnerBingoRegular(c);
+              }
+
+
           }
         }
       }
@@ -1244,7 +1315,16 @@ export class HomeComponent implements OnInit {
           c.row5[4].class = 'circle-bingo';
 
           if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
-            this.createWinnerBingoRegular(c);
+            
+            if(c.row1[0].number === actualDate || c.row2[1].number === actualDate
+              || c.row4[3].number === actualDate || c.row5[4].number === actualDate ){
+
+                this.createWinnerBingoRegular(c, true);
+
+              }else{
+                this.createWinnerBingoRegular(c);
+              }
+
           }
         }
       }
@@ -1263,7 +1343,15 @@ export class HomeComponent implements OnInit {
           c.row5[0].class = 'circle-bingo';
 
           if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
-            this.createWinnerBingoRegular(c);
+            if(c.row1[4].number === actualDate || c.row2[3].number === actualDate
+              || c.row3[1].number === actualDate || c.row5[0].number === actualDate ){
+
+                this.createWinnerBingoRegular(c, true);
+
+              }else{
+                this.createWinnerBingoRegular(c);
+              }
+
           }
         }
       }
@@ -1306,6 +1394,7 @@ export class HomeComponent implements OnInit {
                     const buildPlayWinner = {
                       jugada_id: 170564,
                       jugador_id: c.row1.playerSelected,
+                      partida_id: this.partidaId
                     };
 
                     this._playWinnerService
@@ -1366,6 +1455,7 @@ export class HomeComponent implements OnInit {
                     const buildPlayWinner = {
                       jugada_id: 325808,
                       jugador_id: c.row1.playerSelected,
+                      partida_id: this.partidaId
                     };
 
                     this._playWinnerService
@@ -1436,6 +1526,7 @@ export class HomeComponent implements OnInit {
                     const buildPlayWinner = {
                       jugada_id: 232422,
                       jugador_id: c.row1.playerSelected,
+                      partida_id: this.partidaId
                     };
 
                     this._playWinnerService
@@ -1471,7 +1562,52 @@ export class HomeComponent implements OnInit {
       ) {
         if (!c.row1.mediaC) {
           c.row1.mediaC = true;
-          alert('Media C');
+          c.row2[1].class = 'media-c';
+          c.row2[2].class = 'media-c';
+          c.row2[3].class = 'media-c';
+          c.row3[1].class = 'media-c';
+          c.row3[3].class = 'media-c';
+
+          if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
+            let playerName;
+            this._playerService
+              .getPlayer(c.row1.playerSelected)
+              .subscribe((data) => {
+                playerName = data.listById.name;
+
+                const buildWinner = {
+                  name: playerName,
+                  jugada_id: 713582,
+                  jugador_id: c.row1.playerSelected,
+                  monto: 25,
+                };
+
+                this._winnerService.createWinner(buildWinner).subscribe(
+                  (data) => {
+
+                    const buildPlayWinner = {
+                      jugada_id: 713582,
+                      jugador_id: c.row1.playerSelected,
+                      partida_id: this.partidaId
+                    };
+
+                    this._playWinnerService
+                      .createPlayWinner(buildPlayWinner)
+                      .subscribe(
+                        (data) => {
+
+                        },
+                        (err) => {
+                          console.log(err);
+                        }
+                      );
+                  },
+                  (err) => {
+                    console.log(err);
+                  }
+                );
+              });
+          }
         }
       }
     });
@@ -1489,7 +1625,53 @@ export class HomeComponent implements OnInit {
       ) {
         if (!c.row1.cometa) {
           c.row1.cometa = true;
-          alert('Cometa');
+          c.row1[0].class = 'cometa'
+          c.row2[0].class = 'cometa'
+          c.row1[1].class = 'cometa'
+          c.row2[1].class = 'cometa'
+          c.row4[3].class = 'cometa'
+          c.row5[4].class = 'cometa'
+
+          if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
+            let playerName;
+            this._playerService
+              .getPlayer(c.row1.playerSelected)
+              .subscribe((data) => {
+                playerName = data.listById.name;
+
+                const buildWinner = {
+                  name: playerName,
+                  jugada_id: 912889,
+                  jugador_id: c.row1.playerSelected,
+                  monto: 25,
+                };
+
+                this._winnerService.createWinner(buildWinner).subscribe(
+                  (data) => {
+
+                    const buildPlayWinner = {
+                      jugada_id: 912889,
+                      jugador_id: c.row1.playerSelected,
+                      partida_id: this.partidaId
+                    };
+
+                    this._playWinnerService
+                      .createPlayWinner(buildPlayWinner)
+                      .subscribe(
+                        (data) => {
+
+                        },
+                        (err) => {
+                          console.log(err);
+                        }
+                      );
+                  },
+                  (err) => {
+                    console.log(err);
+                  }
+                );
+              });
+          }
         }
       }
     });
@@ -1534,6 +1716,7 @@ export class HomeComponent implements OnInit {
                     const buildPlayWinner = {
                       jugada_id: 263903,
                       jugador_id: c.row1.playerSelected,
+                      partida_id: this.partidaId
                     };
 
                     this._playWinnerService
@@ -1558,26 +1741,55 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  createWinnerBingoRegular(c: any) {
+
+  createWinnerBingoRegular(c: any, isDatePlay?: boolean) {
     let playerName;
     this._playerService.getPlayer(c.row1.playerSelected).subscribe((data) => {
       playerName = data.listById.name;
 
-      const buildWinner = {
-        name: playerName,
-        jugada_id: 731245,
-        jugador_id: c.row1.playerSelected,
-        monto: 80,
-      };
+      let buildWinner;
+
+      if(isDatePlay){
+
+        buildWinner = {
+          name: playerName,
+          jugada_id: 214192,
+          jugador_id: c.row1.playerSelected,
+          monto: 125,
+        };
+
+      }else{
+        
+        buildWinner = {
+          name: playerName,
+          jugada_id: 731245,
+          jugador_id: c.row1.playerSelected,
+          monto: 80,
+        };
+
+      }
+
 
       this._winnerService.createWinner(buildWinner).subscribe(
         (data) => {
           console.log('Se creo winner - bingo regular');
 
-          const buildPlayWinner = {
-            jugada_id: 731245,
-            jugador_id: c.row1.playerSelected,
-          };
+          let buildPlayWinner;
+          
+          if(isDatePlay){
+            buildPlayWinner = {
+              jugada_id: 214192,
+              jugador_id: c.row1.playerSelected,
+              partida_id: this.partidaId
+            };
+          }else{
+            buildPlayWinner = {
+              jugada_id: 731245,
+              jugador_id: c.row1.playerSelected,
+              partida_id: this.partidaId
+            };
+          }
+
 
           this._playWinnerService.createPlayWinner(buildPlayWinner).subscribe(
             (data) => {

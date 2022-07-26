@@ -843,7 +843,7 @@ export class HomeService {
         item.row5[14].selected = true;
       }
     }
-    console.log(item);
+
     return item;
   }
 }

@@ -218,6 +218,20 @@ body {
                   position: absolute;
                   border-radius: 50%;
                 }
+                .media-c {
+                  width: 20px;
+                  height: 20px;
+                  background-color: black;
+                  position: absolute;
+                  border-radius: 50%;
+                }
+                .cometa {
+                  width: 20px;
+                  height: 20px;
+                  background-color: gray;
+                  position: absolute;
+                  border-radius: 50%;
+                }
               }
               .cell-input-edit{
                 @extend td;

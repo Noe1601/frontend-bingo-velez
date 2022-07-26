@@ -26,6 +26,7 @@
                     <th scope="col">Nombre ganador</th>
                     <th scope="col">Nombre jugada</th>
                     <th scope="col">Monto ganado</th>
+                    <th scope="col">Partida</th>
                     <th scope="col">Fecha</th>
                 </tr>
             </thead>
@@ -34,6 +35,7 @@
                     <th scope="row"> {{ detail.winnerName }} </th>
                     <td> {{ detail.playName }} </td>
                     <td> {{ detail.amount | currency }} </td>
+                    <td> {{ detail.partida }} </td>
                     <td> {{ detail.createdAt | date }} </td>
                 </tr>
             </tbody>

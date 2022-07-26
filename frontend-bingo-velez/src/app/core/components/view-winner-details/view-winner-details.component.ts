@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { PlayWinnerService } from '../../services/play-winners.service';
 import { PlaysService } from '../../services/plays.service';
+import { SettingsService } from '../../services/settings.service';
 import { WinnersService } from '../../services/winners.service';
 
 @Component({
@@ -25,7 +26,8 @@ export class ViewWinnerDetailsComponent implements OnInit {
   constructor(private _winnerServide: WinnersService,
     private _playService: PlaysService,
     private _activatedRoute: ActivatedRoute,
-    private _playWinnerService: PlayWinnerService) {
+    private _playWinnerService: PlayWinnerService,
+    private _settingService: SettingsService) {
     this.params = this._activatedRoute.snapshot.params['id'];
   }
 
@@ -42,12 +44,19 @@ export class ViewWinnerDetailsComponent implements OnInit {
         detail.details.forEach((d: any) => {
 
           this._playService.getPlay(d.jugada_id).subscribe(play => {
-            this.details.push({       
-              winnerName: winner.listById.name,
-              playName: play.listById.name,
-              amount: winner.listById.monto,
-              createdAt: winner.listById.createdAt
+
+            this._settingService.getPartidaById(d.partida_id).subscribe(partida => {
+
+              this.details.push({       
+                winnerName: winner.listById.name,
+                playName: play.listById.name,
+                amount: winner.listById.monto,
+                createdAt: winner.listById.createdAt,
+                partida: partida.listById.name
+              });
+
             })
+
     
           }, err => {
             throw new Error(err);
