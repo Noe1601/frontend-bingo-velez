@@ -638,222 +638,252 @@
                     <span [ngClass]="item.row1[0].class === '' ? 'circle-cover' : item.row1[0].class"
                       *ngIf="item.row1[0].selected"></span>
                   </td>
-                  <td>
-                    {{ item.row2[0].number }}
-                    <span [ngClass]="item.row2[0].class === '' ? 'circle-cover' : item.row2[0].class"
-                      *ngIf="item.row2[0].selected"></span>
-                  </td>
-                  <td>
-                    {{ item.row3[0].number }}
-                    <span [ngClass]="item.row3[0].class === '' ? 'circle-cover' : item.row3[0].class"
-                      *ngIf="item.row3[0].selected"></span>
-                  </td>
-                  <td>
-                    {{ item.row4[0].number }}
-                    <span [ngClass]="item.row4[0].class === '' ? 'circle-cover' : item.row4[0].class"
-                      *ngIf="item.row4[0].selected"></span>
-                  </td>
-                  <td>
-                    {{ item.row5[0].number }}
-                    <span [ngClass]="item.row5[0].class === '' ? 'circle-cover' : item.row5[0].class"
-                      *ngIf="item.row5[0].selected"></span>
-                  </td>
-                </tr>
-                <tr class="t-body">
-                  <td>
-                    {{ item.row1[1].number }}
-                    <span [ngClass]="item.row1[1].class === '' ? 'circle-cover' : item.row1[1].class"
-                      *ngIf="item.row1[1].selected"></span>
-                  </td>
-                  <td>
-                    {{ item.row2[1].number }}
-                    <span [ngClass]="item.row2[1].class === '' ? 'circle-cover': item.row2[1].class"
-                      *ngIf="item.row2[1].selected"></span>
-                  </td>
-                  <td>
-                    {{ item.row3[1].number }}
-                    <span [ngClass]="item.row3[1].class === '' ? 'circle-cover': item.row3[1].class"
-                      *ngIf="item.row3[1].selected"></span>
-                  </td>
-                  <td>
-                    {{ item.row4[1].number }}
-                    <span [ngClass]="item.row4[1].class === '' ? 'circle-cover': item.row4[1].class"
-                      *ngIf="item.row4[1].selected"></span>
-                  </td>
-                  <td>
-                    {{ item.row5[1].number }}
-                    <span [ngClass]="item.row5[1].class === '' ? 'circle-cover': item.row5[1].class"
-                      *ngIf="item.row5[1].selected"></span>
-                  </td>
-                </tr>
-                <tr class="t-body middle-row">
-                  <td>
-                    {{ item.row1[2].number }}
-                    <span [ngClass]="item.row1[2].class === '' ? 'circle-cover': item.row1[2].class"
-                      *ngIf="item.row1[2].selected"></span>
-                  </td>
-                  <td>
-                    {{ item.row2[2].number }}
-                    <span [ngClass]="item.row2[2].class === '' ? 'circle-cover': item.row2[2].class"
-                      *ngIf="item.row2[2].selected"></span>
-                  </td>
-                  <td [ngClass]="{ 'td-color': item.row3[2].selected }">
-                    <img [src]="item.row3[2].image" />
-                  </td>
-                  <td>
-                    {{ item.row4[2].number }}
-                    <span [ngClass]="item.row4[2].class === '' ? 'circle-cover': item.row4[2].class"
-                      *ngIf="item.row4[2].selected"></span>
-                  </td>
-                  <td>
-                    {{ item.row5[2].number }}
-                    <span [ngClass]="item.row5[2].class === '' ? 'circle-cover': item.row5[2].class"
-                      *ngIf="item.row5[2].selected"></span>
-                  </td>
-                </tr>
-                <tr class="t-body">
-                  <td>
-                    {{ item.row1[3].number }}
-                    <span [ngClass]="item.row1[3].class === '' ? 'circle-cover': item.row1[3].class"
-                      *ngIf="item.row1[3].selected"></span>
-                  </td>
-                  <td>
-                    {{ item.row2[3].number }}
-                    <span [ngClass]="item.row2[3].class === '' ? 'circle-cover': item.row2[3].class"
-                      *ngIf="item.row2[3].selected"></span>
-                  </td>
-                  <td>
-                    {{ item.row3[3].number }}
-                    <span [ngClass]="item.row3[3].class === '' ? 'circle-cover': item.row3[3].class"
-                      *ngIf="item.row3[3].selected"></span>
-                  </td>
-                  <td>
-                    {{ item.row4[3].number }}
-                    <span [ngClass]="item.row4[3].class === '' ? 'circle-cover': item.row4[3].class"
-                      *ngIf="item.row4[3].selected"></span>
-                  </td>
-                  <td>
-                    {{ item.row5[3].number }}
-                    <span [ngClass]="item.row5[3].class === '' ? 'circle-cover': item.row5[3].class"
-                      *ngIf="item.row5[3].selected"></span>
-                  </td>
-                </tr>
-                <tr class="t-body last-row">
-                  <td>
-                    {{ item.row1[4].number }}
-                    <span [ngClass]="item.row1[4].class === '' ? 'circle-cover': item.row1[4].class"
-                      *ngIf="item.row1[4].selected"></span>
-                  </td>
-                  <td>
-                    {{ item.row2[4].number }}
-                    <span [ngClass]="item.row2[4].class === '' ? 'circle-cover': item.row2[4].class"
-                      *ngIf="item.row2[4].selected"></span>
-                  </td>
-                  <td>
-                    {{ item.row3[4].number }}
-                    <span [ngClass]="item.row3[4].class === '' ? 'circle-cover': item.row3[4].class"
-                      *ngIf="item.row3[4].selected"></span>
-                  </td>
-                  <td>
-                    {{ item.row4[4].number }}
-                    <span [ngClass]="item.row4[4].class === '' ? 'circle-cover': item.row4[4].class"
-                      *ngIf="item.row4[4].selected"></span>
-                  </td>
-                  <td>
-                    {{ item.row5[4].number }}
-                    <span [ngClass]="item.row5[4].class === '' ? 'circle-cover': item.row5[4].class"
-                      *ngIf="item.row5[4].selected"></span>
-                  </td>
-                </tr>
-                 <tr class="t-body">
-                  <td>
-                    {{ item.row1[0].number }}
-                    <span
-                      class="circle-cover"
-                      *ngIf="item.row1[0].selected"
-                    ></span>
-                  </td>
                   <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row1[0].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row1[0].editMode">
 
                   <td (dblclick)="changeCellToEditMode(item, item.row2[0].number, newNumber, false)" *ngIf="!item.row2[0].editMode">
                     {{ item.row2[0].number }}
-                    <span
-                      class="circle-cover"
-                      *ngIf="item.row2[0].selected"
-                    ></span>
+                    <span [ngClass]="item.row2[0].class === '' ? 'circle-cover' : item.row2[0].class"
+                      *ngIf="item.row2[0].selected"></span>
                   </td>
                   <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row2[0].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row2[0].editMode">
 
                   <td (dblclick)="changeCellToEditMode(item, item.row3[0].number, newNumber, false)" *ngIf="!item.row3[0].editMode">
                     {{ item.row3[0].number }}
-                    <span
-                      class="circle-cover"
-                      *ngIf="item.row3[0].selected"
-                    ></span>
+                    <span [ngClass]="item.row3[0].class === '' ? 'circle-cover' : item.row3[0].class"
+                      *ngIf="item.row3[0].selected"></span>
                   </td>
                   <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row3[0].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row3[0].editMode">
 
                   <td (dblclick)="changeCellToEditMode(item, item.row4[0].number, newNumber, false)" *ngIf="!item.row4[0].editMode">
                     {{ item.row4[0].number }}
-                    <span
-                      class="circle-cover"
-                      *ngIf="item.row4[0].selected"
-                    ></span>
+                    <span [ngClass]="item.row4[0].class === '' ? 'circle-cover' : item.row4[0].class"
+                      *ngIf="item.row4[0].selected"></span>
+                  </td>
+                  <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row4[0].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row4[0].editMode">
+
+                  <td (dblclick)="changeCellToEditMode(item, item.row5[0].number, newNumber, false)" *ngIf="!item.row5[0].editMode">
+                    {{ item.row5[0].number }}
+                    <span [ngClass]="item.row5[0].class === '' ? 'circle-cover' : item.row5[0].class"
+                      *ngIf="item.row5[0].selected"></span>
+                  </td>
+                  <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row5[0].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row5[0].editMode">
+
+                </tr>
+                <tr class="t-body">
+                  <td (dblclick)="changeCellToEditMode(item, item.row1[1].number, newNumber, false)" *ngIf="!item.row1[1].editMode">
+                    {{ item.row1[1].number }}
+                    <span [ngClass]="item.row1[1].class === '' ? 'circle-cover' : item.row1[1].class"
+                      *ngIf="item.row1[1].selected"></span> 
+                  </td>
+                  <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row1[1].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row1[1].editMode">
+
+                  <td (dblclick)="changeCellToEditMode(item, item.row2[1].number, newNumber, false)" *ngIf="!item.row2[1].editMode">
+                    {{ item.row2[1].number }}
+                    <span [ngClass]="item.row2[1].class === '' ? 'circle-cover' : item.row2[1].class"
+                      *ngIf="item.row2[1].selected"></span> 
+                  </td>
+                  <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row2[1].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row2[1].editMode">
+
+                  <td (dblclick)="changeCellToEditMode(item, item.row3[1].number, newNumber, false)" *ngIf="!item.row3[1].editMode">
+                    {{ item.row3[1].number }}
+                    <span [ngClass]="item.row3[1].class === '' ? 'circle-cover' : item.row3[1].class"
+                      *ngIf="item.row3[1].selected"></span>
+                  </td>
+                  <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row3[1].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row3[1].editMode">
+
+                  <td (dblclick)="changeCellToEditMode(item, item.row4[1].number, newNumber, false)" *ngIf="!item.row4[1].editMode">
+                    {{ item.row4[1].number }}
+                    <span [ngClass]="item.row4[1].class === '' ? 'circle-cover' : item.row4[1].class"
+                      *ngIf="item.row4[1].selected"></span>
+                  </td>
+                  <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row4[1].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row4[1].editMode">
+
+                  <td (dblclick)="changeCellToEditMode(item, item.row5[1].number, newNumber, false)" *ngIf="!item.row5[1].editMode">
+                    {{ item.row5[1].number }}
+                    <span [ngClass]="item.row5[1].class === '' ? 'circle-cover' : item.row5[1].class"
+                      *ngIf="item.row5[1].selected"></span>
+                  </td>
+                  <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row5[1].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row5[1].editMode">
+
+                </tr>
+                <tr class="t-body middle-row">
+                  <td (dblclick)="changeCellToEditMode(item, item.row1[2].number, newNumber, false)" *ngIf="!item.row1[2].editMode">
+                    {{ item.row1[2].number }}
+                    <span [ngClass]="item.row1[2].class === '' ? 'circle-cover' : item.row1[2].class"
+                      *ngIf="item.row1[2].selected"></span>
+                  </td>
+                  <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row1[2].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row1[2].editMode">
+
+                  <td (dblclick)="changeCellToEditMode(item, item.row2[2].number, newNumber, false)" *ngIf="!item.row2[2].editMode">
+                    {{ item.row2[2].number }}
+                    <span [ngClass]="item.row2[2].class === '' ? 'circle-cover' : item.row2[2].class"
+                      *ngIf="item.row2[2].selected"></span>
+                  </td>
+                  <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row2[2].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row2[2].editMode">
+
+                  <td [ngClass]="{ 'td-color': item.row3[2].selected }">
+                    <img [src]="item.row3[2].image" />
+                  </td>
+                  <td (dblclick)="changeCellToEditMode(item, item.row4[2].number, newNumber, false)" *ngIf="!item.row4[2].editMode">
+                    {{ item.row4[2].number }}
+                    <span [ngClass]="item.row4[2].class === '' ? 'circle-cover' : item.row4[2].class"
+                      *ngIf="item.row4[2].selected"></span>
+                  </td>
+                  <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row4[2].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row4[2].editMode">
+
+                  <td (dblclick)="changeCellToEditMode(item, item.row5[2].number, newNumber, false)" *ngIf="!item.row5[2].editMode">
+                    {{ item.row5[2].number }}
+                    <span [ngClass]="item.row5[2].class === '' ? 'circle-cover' : item.row5[2].class"
+                      *ngIf="item.row5[2].selected"></span>
+                  </td>
+                  <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row5[2].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row5[2].editMode">
+
+                </tr>
+                <tr class="t-body">
+                  <td (dblclick)="changeCellToEditMode(item, item.row1[3].number, newNumber, false)" *ngIf="!item.row1[3].editMode">
+                    {{ item.row1[3].number }}
+                    <span [ngClass]="item.row1[3].class === '' ? 'circle-cover' : item.row1[3].class"
+                      *ngIf="item.row1[3].selected"></span>
+                  </td>
+                  <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row1[3].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row1[3].editMode">
+
+                  <td (dblclick)="changeCellToEditMode(item, item.row2[3].number, newNumber, false)" *ngIf="!item.row2[3].editMode">
+                    {{ item.row2[3].number }}
+                    <span [ngClass]="item.row2[3].class === '' ? 'circle-cover' : item.row2[3].class"
+                      *ngIf="item.row2[3].selected"></span>
+                  </td>
+                  <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row2[3].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row2[3].editMode">
+
+                  <td (dblclick)="changeCellToEditMode(item, item.row3[3].number, newNumber, false)" *ngIf="!item.row3[3].editMode">
+                    {{ item.row3[3].number }}
+                    <span [ngClass]="item.row3[3].class === '' ? 'circle-cover' : item.row3[3].class"
+                      *ngIf="item.row3[3].selected"></span>
+                  </td>
+                  <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row3[3].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row3[3].editMode">
+
+                  <td (dblclick)="changeCellToEditMode(item, item.row4[3].number, newNumber, false)" *ngIf="!item.row4[3].editMode">
+                    {{ item.row4[3].number }}
+                    <span [ngClass]="item.row4[3].class === '' ? 'circle-cover' : item.row4[3].class"
+                      *ngIf="item.row4[3].selected"></span>
+                  </td>
+                  <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row4[3].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row4[3].editMode">
+
+                  <td (dblclick)="changeCellToEditMode(item, item.row5[3].number, newNumber, false)" *ngIf="!item.row5[3].editMode">
+                    {{ item.row5[3].number }}
+                    <span [ngClass]="item.row5[3].class === '' ? 'circle-cover' : item.row5[3].class"
+                      *ngIf="item.row5[3].selected"></span>
+                  </td>
+                  <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row5[3].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row5[3].editMode">
+
+                </tr>
+                <tr class="t-body last-row">
+                  <td (dblclick)="changeCellToEditMode(item, item.row1[4].number, newNumber, false)" *ngIf="!item.row1[4].editMode">
+                    {{ item.row1[4].number }}
+                    <span [ngClass]="item.row1[4].class === '' ? 'circle-cover' : item.row1[4].class"
+                      *ngIf="item.row1[4].selected"></span>
+                  </td>
+                  <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row1[4].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row1[4].editMode">
+
+                  <td (dblclick)="changeCellToEditMode(item, item.row2[4].number, newNumber, false)" *ngIf="!item.row2[4].editMode">
+                    {{ item.row2[4].number }}
+                    <span [ngClass]="item.row2[4].class === '' ? 'circle-cover' : item.row2[4].class"
+                      *ngIf="item.row2[4].selected"></span>
+                  </td>
+                  <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row2[4].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row2[4].editMode">
+
+                  <td (dblclick)="changeCellToEditMode(item, item.row3[4].number, newNumber, false)" *ngIf="!item.row3[4].editMode">
+                    {{ item.row3[4].number }}
+                    <span [ngClass]="item.row3[4].class === '' ? 'circle-cover' : item.row3[4].class"
+                      *ngIf="item.row3[4].selected"></span>
+                  </td>
+                  <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row3[4].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row3[4].editMode">
+
+                  <td (dblclick)="changeCellToEditMode(item, item.row4[4].number, newNumber, false)" *ngIf="!item.row4[4].editMode">
+                    {{ item.row4[4].number }}
+                    <span [ngClass]="item.row4[4].class === '' ? 'circle-cover' : item.row4[4].class"
+                      *ngIf="item.row4[4].selected"></span>
+                  </td>
+                  <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row4[4].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row4[4].editMode">
+
+                  <td (dblclick)="changeCellToEditMode(item, item.row5[4].number, newNumber, false)" *ngIf="!item.row5[4].editMode">
+                    {{ item.row5[4].number }}
+                    <span [ngClass]="item.row5[4].class === '' ? 'circle-cover' : item.row5[4].class"
+                      *ngIf="item.row5[4].selected"></span>
+                  </td>
+                  <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row5[4].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row5[4].editMode">
+
+                </tr>
+
+                  <!-- <tr class="t-body">
+                  <td (dblclick)="changeCellToEditMode(item, item.row1[0].number, newNumber, false)" *ngIf="!item.row1[0].editMode">
+                    {{ item.row1[0].number }}
+                    <span [ngClass]="item.row1[0].class === '' ? 'circle-cover' : item.row1[0].class"
+                    *ngIf="item.row1[0].selected"></span>
+                  </td>
+                  <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row1[0].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row1[0].editMode">
+
+                  <td (dblclick)="changeCellToEditMode(item, item.row2[0].number, newNumber, false)" *ngIf="!item.row2[0].editMode">
+                    {{ item.row2[0].number }}
+                    <span [ngClass]="item.row2[0].class === '' ? 'circle-cover' : item.row2[0].class"
+                    *ngIf="item.row2[0].selected"></span>
+                  </td>
+                  <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row2[0].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row2[0].editMode">
+
+                  <td (dblclick)="changeCellToEditMode(item, item.row3[0].number, newNumber, false)" *ngIf="!item.row3[0].editMode">
+                    {{ item.row3[0].number }}
+                    <span [ngClass]="item.row3[0].class === '' ? 'circle-cover' : item.row3[0].class"
+                      *ngIf="item.row3[0].selected"></span>
+                  </td>
+                  <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row3[0].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row3[0].editMode">
+
+                  <td (dblclick)="changeCellToEditMode(item, item.row4[0].number, newNumber, false)" *ngIf="!item.row4[0].editMode">
+                    {{ item.row4[0].number }}
+                    <span [ngClass]="item.row4[0].class === '' ? 'circle-cover' : item.row4[0].class"
+                    *ngIf="item.row4[0].selected"></span>
                   </td>
                   <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row4[0].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row4[0].editMode">
                   
                   <td (dblclick)="changeCellToEditMode(item, item.row5[0].number, newNumber, false)" *ngIf="!item.row5[0].editMode">
                     {{ item.row5[0].number }}
-                    <span
-                      class="circle-cover"
-                      *ngIf="item.row5[0].selected"
-                    ></span>
+                    <span [ngClass]="item.row5[0].class === '' ? 'circle-cover' : item.row5[0].class"
+                    *ngIf="item.row5[0].selected"></span>
                   </td>
                   <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row5[0].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row5[0].editMode">
                 </tr>
                 <tr class="t-body">
                   <td (dblclick)="changeCellToEditMode(item, item.row1[1].number, newNumber, false)" *ngIf="!item.row1[1].editMode">
                     {{ item.row1[1].number }}
-                    <span
-                      class="circle-cover"
-                      *ngIf="item.row1[1].selected"
-                    ></span>
+                    <span [ngClass]="item.row1[1].class === '' ? 'circle-cover' : item.row1[1].class"
+                    *ngIf="item.row1[1].selected"></span>
                   </td>
                   <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row1[1].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row1[1].editMode">
 
                   <td (dblclick)="changeCellToEditMode(item, item.row2[1].number, newNumber, false)" *ngIf="!item.row2[1].editMode">
                     {{ item.row2[1].number }}
-                    <span
-                      class="circle-cover"
-                      *ngIf="item.row2[1].selected"
-                    ></span>
+
+                    <span [ngClass]="item.row2[1].class === '' ? 'circle-cover': item.row2[1].class"
+                    *ngIf="item.row2[1].selected"></span>
                   </td>
                   <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row2[1].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row2[1].editMode">
 
                   <td (dblclick)="changeCellToEditMode(item, item.row3[1].number, newNumber, false)" *ngIf="!item.row3[1].editMode">
                     {{ item.row3[1].number }}
-                    <span
-                      class="circle-cover"
-                      *ngIf="item.row3[1].selected"
-                    ></span>
+                    <span [ngClass]="item.row3[1].class === '' ? 'circle-cover': item.row3[1].class"
+                    *ngIf="item.row3[1].selected"></span>
                   </td>
                   <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row3[1].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row3[1].editMode">
 
                   <td (dblclick)="changeCellToEditMode(item, item.row4[1].number, newNumber, false)" *ngIf="!item.row4[1].editMode">
                     {{ item.row4[1].number }}
-                    <span
-                      class="circle-cover"
-                      *ngIf="item.row4[1].selected"
-                    ></span>
+                    <span [ngClass]="item.row4[1].class === '' ? 'circle-cover': item.row4[1].class"
+                    *ngIf="item.row4[1].selected"></span>
                   </td>
                   <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row4[1].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row4[1].editMode">
 
                   <td (dblclick)="changeCellToEditMode(item, item.row5[1].number, newNumber, false)" *ngIf="!item.row5[1].editMode">
                     {{ item.row5[1].number }}
-                    <span
-                      class="circle-cover"
-                      *ngIf="item.row5[1].selected"
-                    ></span>
+                    <span [ngClass]="item.row5[1].class === '' ? 'circle-cover': item.row5[1].class"
+                    *ngIf="item.row5[1].selected"></span>
                   </td>
                   <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row5[1].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row5[1].editMode">
                 </tr>
@@ -989,7 +1019,7 @@
                     ></span>
                   </td>
                   <input type="text" (keydown.enter)="changeCellToEditMode(item, item.row5[4].number, newNumber, true)" class="cell-input-edit" [(ngModel)]="newNumber" *ngIf="item.row5[4].editMode">
-                </tr>
+                </tr> -->
               </tbody>
             </table>
           </div>
