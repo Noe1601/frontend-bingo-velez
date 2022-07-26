@@ -23,7 +23,7 @@ export class HomeService {
 
   items(cartonesQuantity: number, cartonType: string) {
     this.cartones = [];
-    
+
     if (cartonesQuantity == 0) {
       cartonesQuantity = Number(localStorage.getItem('CantidadDeCartones'));
     }
@@ -113,6 +113,7 @@ export class HomeService {
           index,
           number: element,
           selected: false,
+          editMode: false,
           cosita: false,
           medio: false,
           sumita: false,
@@ -126,7 +127,8 @@ export class HomeService {
           mediaC: false,
           cometa: false,
           class: '',
-          isPlayerSelected: false,
+          isPlayerselected: false,
+          itMode: false,
           playerSelected: null,
         });
       });
@@ -139,6 +141,7 @@ export class HomeService {
           index,
           number: element,
           selected: false,
+          editMode: false,
           class: '',
         });
       });
@@ -174,6 +177,7 @@ export class HomeService {
           index,
           number: element,
           selected: false,
+          editMode: false,
           class: '',
         });
       });
@@ -186,6 +190,7 @@ export class HomeService {
           index,
           number: element,
           selected: false,
+          editMode: false,
           class: '',
         });
       });
@@ -198,6 +203,7 @@ export class HomeService {
           index,
           number: element,
           selected: false,
+          editMode: false,
           class: '',
         });
       });
@@ -298,14 +304,24 @@ export class HomeService {
         if (content.row1.length >= 5) {
           return;
         }
-        content.row1.push({ index, number: element, selected: false });
+        content.row1.push({
+          index,
+          number: element,
+          selected: false,
+          editMode: false,
+        });
       });
 
       this.column2.forEach((element, index) => {
         if (content.row2.length >= 5) {
           return;
         }
-        content.row2.push({ index, number: element, selected: false });
+        content.row2.push({
+          index,
+          number: element,
+          selected: false,
+          editMode: false,
+        });
       });
 
       this.column3.forEach((element, index) => {
@@ -334,21 +350,36 @@ export class HomeService {
             image: Image,
           });
         }
-        content.row3.push({ index, number: element, selected: false });
+        content.row3.push({
+          index,
+          number: element,
+          selected: false,
+          editMode: false,
+        });
       });
 
       this.column4.forEach((element, index) => {
         if (content.row4.length >= 5) {
           return;
         }
-        content.row4.push({ index, number: element, selected: false });
+        content.row4.push({
+          index,
+          number: element,
+          selected: false,
+          editMode: false,
+        });
       });
 
       this.column5.forEach((element, index) => {
         if (content.row5.length >= 5) {
           return;
         }
-        content.row5.push({ index, number: element, selected: false });
+        content.row5.push({
+          index,
+          number: element,
+          selected: false,
+          editMode: false,
+        });
       });
 
       this.column1 = [];
