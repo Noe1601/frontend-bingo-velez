@@ -1,0 +1,29 @@
+<mat-card style="margin-top: 40px;">
+    <div class="table-responsive">
+        <button *ngIf="isAdmin" class="btn btn-secondary" (click)="goToUsersInactives()">Usuarios inactivos</button>
+        <table class="table">
+            <caption>List of users</caption>
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Rol</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <th scope="row"> {{ user.id }} </th>
+                    <td> {{ user.NAME }} </td>
+                    <td> {{ user.EMAIL }} </td>
+                    <td> {{ user.ROLE === "ADMIN_ROLE" ? "ADMIN" : "USER" }} </td>
+                    <td>
+                        <button class="btn btn-warning" (click)="openUpdateUserDialog(user)" style="margin-right: 5px;">Actualizar</button>
+                        <button class="btn btn-danger" (click)="deleteUser(user)">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</mat-card>

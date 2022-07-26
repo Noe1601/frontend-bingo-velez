@@ -1,0 +1,33 @@
+.navbar-container {
+  .dropdown {
+    button {
+      background-color: transparent;
+      border: none;
+    }
+  }
+}
+
+.fill-space {
+  flex: 1 1 auto;
+}
+
+.menu-item {
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.clickable {
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  align-items: cente;
+}
+
+.clickable:hover {
+  color: #f0f0f0;
+}
+
+.user {
+  margin-right: 3px;
+  font-size: 18px;
+}

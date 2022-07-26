@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "datatables.net": "^1.12.1",
+    "datatables.net-dt": "^1.12.1",
+    "jquery": "^3.6.0"
+  },
+  "devDependencies": {
+    "@types/datatables.net": "^1.10.22",
+    "@types/jquery": "^3.5.14"
+  }
+}

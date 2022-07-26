@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bingo Velez</title>
+  </head>
+  <body>
+    <main class="main-container">
+      <div class="last-5-plays">
+        <p>{{ numbers[0] }}</p>
+        <p>{{ numbers[1] }}</p>
+        <p>{{ numbers[2] }}</p>
+        <p>{{ numbers[3] }}</p>
+        <p>{{ numbers[4] }}</p>
+      </div>
+
+      <section class="single-card float">
+        <div class="card-cardboard" *ngFor="let generic of genericTable">
+          <div class="cuadriculas">
+            <table class="table-cardboard">
+              <thead>
+                <tr class="t-head">
+                  <th>{{ generic.title.B }}</th>
+                  <th>{{ generic.title.I }}</th>
+                  <th>{{ generic.title.N }}</th>
+                  <th>{{ generic.title.G }}</th>
+                  <th>{{ generic.title.O }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="t-body">
+                  <td (click)="getSelectedNumber(generic.row1[0].number)">
+                    {{ generic.row1[0].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row1[0].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[0].number)">
+                    {{ generic.row2[0].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row2[0].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[0].number)">
+                    {{ generic.row3[0].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row3[0].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row4[0].number)">
+                    {{ generic.row4[0].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row4[0].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[0].number)">
+                    {{ generic.row5[0].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row5[0].selected"
+                    ></span>
+                  </td>
+                </tr>
+                <tr class="t-body">
+                  <td (click)="getSelectedNumber(generic.row1[1].number)">
+                    {{ generic.row1[1].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row1[1].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[1].number)">
+                    {{ generic.row2[1].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row2[1].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[1].number)">
+                    {{ generic.row3[1].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row3[1].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row4[1].number)">
+                    {{ generic.row4[1].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row4[1].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[1].number)">
+                    {{ generic.row5[1].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row5[1].selected"
+                    ></span>
+                  </td>
+                </tr>
+                <tr class="t-body">
+                  <td (click)="getSelectedNumber(generic.row1[2].number)">
+                    {{ generic.row1[2].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row1[2].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[2].number)">
+                    {{ generic.row2[2].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row2[2].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[2].number)">
+                    {{ generic.row3[2].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row3[2].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row4[2].number)">
+                    {{ generic.row4[2].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row4[2].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[2].number)">
+                    {{ generic.row5[2].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row5[2].selected"
+                    ></span>
+                  </td>
+                </tr>
+                <tr class="t-body">
+                  <td (click)="getSelectedNumber(generic.row1[3].number)">
+                    {{ generic.row1[3].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row1[3].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[3].number)">
+                    {{ generic.row2[3].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row2[3].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[3].number)">
+                    {{ generic.row3[3].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row3[3].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row4[3].number)">
+                    {{ generic.row4[3].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row4[3].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[3].number)">
+                    {{ generic.row5[3].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row5[3].selected"
+                    ></span>
+                  </td>
+                </tr>
+                <tr class="t-body">
+                  <td (click)="getSelectedNumber(generic.row1[4].number)">
+                    {{ generic.row1[4].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row1[4].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[4].number)">
+                    {{ generic.row2[4].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row2[4].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[4].number)">
+                    {{ generic.row3[4].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row3[4].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row4[4].number)">
+                    {{ generic.row4[4].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row4[4].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[4].number)">
+                    {{ generic.row5[4].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row5[4].selected"
+                    ></span>
+                  </td>
+                </tr>
+                <tr class="t-body">
+                  <td (click)="getSelectedNumber(generic.row1[5].number)">
+                    {{ generic.row1[5].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row1[5].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[5].number)">
+                    {{ generic.row2[5].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row2[5].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[5].number)">
+                    {{ generic.row3[5].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row3[5].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row4[5].number)">
+                    {{ generic.row4[5].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row4[5].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[5].number)">
+                    {{ generic.row5[5].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row5[5].selected"
+                    ></span>
+                  </td>
+                </tr>
+                <tr class="t-body">
+                  <td (click)="getSelectedNumber(generic.row1[6].number)">
+                    {{ generic.row1[6].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row1[6].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[6].number)">
+                    {{ generic.row2[6].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row2[6].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[6].number)">
+                    {{ generic.row3[6].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row3[6].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row4[6].number)">
+                    {{ generic.row4[6].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row4[6].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[6].number)">
+                    {{ generic.row5[6].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row5[6].selected"
+                    ></span>
+                  </td>
+                </tr>
+                <tr class="t-body">
+                  <td (click)="getSelectedNumber(generic.row1[7].number)">
+                    {{ generic.row1[7].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row1[7].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[7].number)">
+                    {{ generic.row2[7].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row2[7].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[7].number)">
+                    {{ generic.row3[7].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row3[7].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row4[7].number)">
+                    {{ generic.row4[7].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row4[7].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[7].number)">
+                    {{ generic.row5[7].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row5[7].selected"
+                    ></span>
+                  </td>
+                </tr>
+                <tr class="t-body">
+                  <td (click)="getSelectedNumber(generic.row1[8].number)">
+                    {{ generic.row1[8].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row1[8].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[8].number)">
+                    {{ generic.row2[8].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row2[8].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[8].number)">
+                    {{ generic.row3[8].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row3[8].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row4[8].number)">
+                    {{ generic.row4[8].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row4[8].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[8].number)">
+                    {{ generic.row5[8].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row5[8].selected"
+                    ></span>
+                  </td>
+                </tr>
+                <tr class="t-body">
+                  <td (click)="getSelectedNumber(generic.row1[9].number)">
+                    {{ generic.row1[9].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row1[9].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[9].number)">
+                    {{ generic.row2[9].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row2[9].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[9].number)">
+                    {{ generic.row3[9].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row3[9].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row4[9].number)">
+                    {{ generic.row4[9].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row4[9].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[9].number)">
+                    {{ generic.row5[9].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row5[9].selected"
+                    ></span>
+                  </td>
+                </tr>
+                <tr class="t-body">
+                  <td (click)="getSelectedNumber(generic.row1[10].number)">
+                    {{ generic.row1[10].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row1[10].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[10].number)">
+                    {{ generic.row2[10].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row2[10].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[10].number)">
+                    {{ generic.row3[10].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row3[10].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row4[10].number)">
+                    {{ generic.row4[10].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row4[10].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[10].number)">
+                    {{ generic.row5[10].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row5[10].selected"
+                    ></span>
+                  </td>
+                </tr>
+                <tr class="t-body">
+                  <td (click)="getSelectedNumber(generic.row1[11].number)">
+                    {{ generic.row1[11].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row1[11].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[11].number)">
+                    {{ generic.row2[11].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row2[11].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[11].number)">
+                    {{ generic.row3[11].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row3[11].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row4[11].number)">
+                    {{ generic.row4[11].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row4[11].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[11].number)">
+                    {{ generic.row5[11].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row5[11].selected"
+                    ></span>
+                  </td>
+                </tr>
+                <tr class="t-body">
+                  <td (click)="getSelectedNumber(generic.row1[12].number)">
+                    {{ generic.row1[12].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row1[12].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[12].number)">
+                    {{ generic.row2[12].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row2[12].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[12].number)">
+                    {{ generic.row3[12].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row3[12].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row4[12].number)">
+                    {{ generic.row4[12].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row4[12].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[12].number)">
+                    {{ generic.row5[12].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row5[12].selected"
+                    ></span>
+                  </td>
+                </tr>
+                <tr class="t-body">
+                  <td (click)="getSelectedNumber(generic.row1[13].number)">
+                    {{ generic.row1[13].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row1[13].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[13].number)">
+                    {{ generic.row2[13].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row2[13].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[13].number)">
+                    {{ generic.row3[13].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row3[13].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row4[13].number)">
+                    {{ generic.row4[13].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row4[13].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[13].number)">
+                    {{ generic.row5[13].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row5[13].selected"
+                    ></span>
+                  </td>
+                </tr>
+                <tr class="t-body last-row">
+                  <td (click)="getSelectedNumber(generic.row1[14].number)">
+                    {{ generic.row1[14].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row1[14].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row2[14].number)">
+                    {{ generic.row2[14].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row2[14].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row3[14].number)">
+                    {{ generic.row3[14].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row3[14].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row4[14].number)">
+                    {{ generic.row4[14].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row4[14].selected"
+                    ></span>
+                  </td>
+                  <td (click)="getSelectedNumber(generic.row5[14].number)">
+                    {{ generic.row5[14].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="generic.row5[14].selected"
+                    ></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="cards">
+   
+        <form [formGroup]="partidasForm">
+          <mat-form-field style="width: 90%;" appearance="outline">
+            <mat-select placeholder="Partidas" formControlName="partida_id" (selectionChange)="selectPartida($event)">
+              <mat-option [value]="partida.id" *ngFor="let partida of partidas">
+                {{ partida.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </form>
+
+        <div class="card-cardboard" *ngFor="let item of items">
+          <div class="top-content">
+            <p class="carton-number">{{ item.index + 1 }}</p>
+            <select type="text" class="input-name" (change)="selectPlayer(item, $event)">
+              <option [value]="">Jugadores</option>
+              <option [value]="player.id" *ngFor="let player of players">
+                {{ player.name }}
+              </option>
+            </select>
+            <button class="refresh-button" (click)="resetCarton(item)">
+              <img src="../../../../assets/img/logos/refresh.svg" alt="" />
+            </button>
+          </div>
+          <div class="cuadriculas">
+            <table class="table-cardboard">
+              <thead>
+                <tr class="t-head">
+                  <th>{{ item.title.B }}</th>
+                  <th>{{ item.title.I }}</th>
+                  <th>{{ item.title.N }}</th>
+                  <th>{{ item.title.G }}</th>
+                  <th>{{ item.title.O }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="t-body">
+                  <td>
+                    {{ item.row1[0].number }}
+                    <span [ngClass]="item.row1[0].class === '' ? 'circle-cover' : item.row1[0].class"
+                      *ngIf="item.row1[0].selected"></span>
+                  </td>
+                  <td>
+                    {{ item.row2[0].number }}
+                    <span [ngClass]="item.row2[0].class === '' ? 'circle-cover' : item.row2[0].class"
+                      *ngIf="item.row2[0].selected"></span>
+                  </td>
+                  <td>
+                    {{ item.row3[0].number }}
+                    <span [ngClass]="item.row3[0].class === '' ? 'circle-cover' : item.row3[0].class"
+                      *ngIf="item.row3[0].selected"></span>
+                  </td>
+                  <td>
+                    {{ item.row4[0].number }}
+                    <span [ngClass]="item.row4[0].class === '' ? 'circle-cover' : item.row4[0].class"
+                      *ngIf="item.row4[0].selected"></span>
+                  </td>
+                  <td>
+                    {{ item.row5[0].number }}
+                    <span [ngClass]="item.row5[0].class === '' ? 'circle-cover' : item.row5[0].class"
+                      *ngIf="item.row5[0].selected"></span>
+                  </td>
+                </tr>
+                <tr class="t-body">
+                  <td>
+                    {{ item.row1[1].number }}
+                    <span [ngClass]="item.row1[1].class === '' ? 'circle-cover' : item.row1[1].class"
+                      *ngIf="item.row1[1].selected"></span>
+                  </td>
+                  <td>
+                    {{ item.row2[1].number }}
+                    <span [ngClass]="item.row2[1].class === '' ? 'circle-cover': item.row2[1].class"
+                      *ngIf="item.row2[1].selected"></span>
+                  </td>
+                  <td>
+                    {{ item.row3[1].number }}
+                    <span [ngClass]="item.row3[1].class === '' ? 'circle-cover': item.row3[1].class"
+                      *ngIf="item.row3[1].selected"></span>
+                  </td>
+                  <td>
+                    {{ item.row4[1].number }}
+                    <span [ngClass]="item.row4[1].class === '' ? 'circle-cover': item.row4[1].class"
+                      *ngIf="item.row4[1].selected"></span>
+                  </td>
+                  <td>
+                    {{ item.row5[1].number }}
+                    <span [ngClass]="item.row5[1].class === '' ? 'circle-cover': item.row5[1].class"
+                      *ngIf="item.row5[1].selected"></span>
+                  </td>
+                </tr>
+                <tr class="t-body middle-row">
+                  <td>
+                    {{ item.row1[2].number }}
+                    <span [ngClass]="item.row1[2].class === '' ? 'circle-cover': item.row1[2].class"
+                      *ngIf="item.row1[2].selected"></span>
+                  </td>
+                  <td>
+                    {{ item.row2[2].number }}
+                    <span [ngClass]="item.row2[2].class === '' ? 'circle-cover': item.row2[2].class"
+                      *ngIf="item.row2[2].selected"></span>
+                  </td>
+                  <td [ngClass]="{ 'td-color': item.row3[2].selected }">
+                    <img [src]="item.row3[2].image" />
+                  </td>
+                  <td>
+                    {{ item.row4[2].number }}
+                    <span [ngClass]="item.row4[2].class === '' ? 'circle-cover': item.row4[2].class"
+                      *ngIf="item.row4[2].selected"></span>
+                  </td>
+                  <td>
+                    {{ item.row5[2].number }}
+                    <span [ngClass]="item.row5[2].class === '' ? 'circle-cover': item.row5[2].class"
+                      *ngIf="item.row5[2].selected"></span>
+                  </td>
+                </tr>
+                <tr class="t-body">
+                  <td>
+                    {{ item.row1[3].number }}
+                    <span [ngClass]="item.row1[3].class === '' ? 'circle-cover': item.row1[3].class"
+                      *ngIf="item.row1[3].selected"></span>
+                  </td>
+                  <td>
+                    {{ item.row2[3].number }}
+                    <span [ngClass]="item.row2[3].class === '' ? 'circle-cover': item.row2[3].class"
+                      *ngIf="item.row2[3].selected"></span>
+                  </td>
+                  <td>
+                    {{ item.row3[3].number }}
+                    <span [ngClass]="item.row3[3].class === '' ? 'circle-cover': item.row3[3].class"
+                      *ngIf="item.row3[3].selected"></span>
+                  </td>
+                  <td>
+                    {{ item.row4[3].number }}
+                    <span [ngClass]="item.row4[3].class === '' ? 'circle-cover': item.row4[3].class"
+                      *ngIf="item.row4[3].selected"></span>
+                  </td>
+                  <td>
+                    {{ item.row5[3].number }}
+                    <span [ngClass]="item.row5[3].class === '' ? 'circle-cover': item.row5[3].class"
+                      *ngIf="item.row5[3].selected"></span>
+                  </td>
+                </tr>
+                <tr class="t-body last-row">
+                  <td>
+                    {{ item.row1[4].number }}
+                    <span [ngClass]="item.row1[4].class === '' ? 'circle-cover': item.row1[4].class"
+                      *ngIf="item.row1[4].selected"></span>
+                  </td>
+                  <td>
+                    {{ item.row2[4].number }}
+                    <span [ngClass]="item.row2[4].class === '' ? 'circle-cover': item.row2[4].class"
+                      *ngIf="item.row2[4].selected"></span>
+                  </td>
+                  <td>
+                    {{ item.row3[4].number }}
+                    <span [ngClass]="item.row3[4].class === '' ? 'circle-cover': item.row3[4].class"
+                      *ngIf="item.row3[4].selected"></span>
+                  </td>
+                  <td>
+                    {{ item.row4[4].number }}
+                    <span [ngClass]="item.row4[4].class === '' ? 'circle-cover': item.row4[4].class"
+                      *ngIf="item.row4[4].selected"></span>
+                  </td>
+                  <td>
+                    {{ item.row5[4].number }}
+                    <span [ngClass]="item.row5[4].class === '' ? 'circle-cover': item.row5[4].class"
+                      *ngIf="item.row5[4].selected"></span>
+                  </td>
+                </tr>
+                <!-- <tr class="t-body">
+                  <td>
+                    {{ item.row1[0].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row1[0].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row2[0].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row2[0].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row3[0].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row3[0].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row4[0].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row4[0].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row5[0].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row5[0].selected"
+                    ></span>
+                  </td>
+                </tr>
+                <tr class="t-body">
+                  <td>
+                    {{ item.row1[1].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row1[1].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row2[1].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row2[1].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row3[1].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row3[1].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row4[1].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row4[1].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row5[1].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row5[1].selected"
+                    ></span>
+                  </td>
+                </tr>
+                <tr class="t-body middle-row">
+                  <td>
+                    {{ item.row1[2].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row1[2].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row2[2].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row2[2].selected"
+                    ></span>
+                  </td>
+                  <td [ngClass]="{ 'td-color': item.row3[2].selected }">
+                    <img [src]="item.row3[2].image" />
+                  </td>
+                  <td>
+                    {{ item.row4[2].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row4[2].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row5[2].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row5[2].selected"
+                    ></span>
+                  </td>
+                </tr>
+                <tr class="t-body">
+                  <td>
+                    {{ item.row1[3].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row1[3].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row2[3].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row2[3].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row3[3].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row3[3].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row4[3].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row4[3].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row5[3].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row5[3].selected"
+                    ></span>
+                  </td>
+                </tr>
+                <tr class="t-body last-row">
+                  <td>
+                    {{ item.row1[4].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row1[4].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row2[4].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row2[4].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row3[4].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row3[4].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row4[4].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row4[4].selected"
+                    ></span>
+                  </td>
+                  <td>
+                    {{ item.row5[4].number }}
+                    <span
+                      class="circle-cover"
+                      *ngIf="item.row5[4].selected"
+                    ></span>
+                  </td>
+                </tr> -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

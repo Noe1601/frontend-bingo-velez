@@ -1,0 +1,27 @@
+<mat-card style="margin-top: 40px;">
+    <div class="table-responsive">
+        <button class="btn btn-secondary" (click)="openCreatePlayerDialog()">Crear jugador</button>
+        <table class="table">
+            <caption>Listado de jugadores</caption>
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let player of players">
+                    <th scope="row"> {{ player.id }} </th>
+                    <td> {{ player.name }} </td>
+                    <td> {{ player.state ? "Activo" : "Inactivo" }} </td>
+                    <td>
+                        <button class="btn btn-warning" (click)="openUpdatePlayerDialog(player)" style="margin-right: 5px;">Actualizar</button>
+                        <button class="btn btn-danger" (click)="deletePlayer(player)">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</mat-card>
