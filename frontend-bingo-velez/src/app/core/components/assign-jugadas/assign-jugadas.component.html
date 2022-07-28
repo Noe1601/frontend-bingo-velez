@@ -1,0 +1,86 @@
+<div class="" style="align-items: center;">
+    <h1> Asignar precios a jugada </h1>
+    <hr>
+    <form [formGroup]="assignForm">
+
+      <mat-checkbox (change)="changeSelection()">Asignar el mismo precio a todos</mat-checkbox>
+
+      <form *ngIf="canShowGenericInputPrice" [formGroup]="assignSamePriceForm">
+        <mat-form-field style="width:90%; margin-right: 5px;" appearance="outline">
+          <mat-label>Precio general</mat-label>
+          <input formControlName="price" matInput placeholder="Precio general">
+        </mat-form-field>
+      </form>
+
+      <button (click)="assignSamePrice()" *ngIf="canShowGenericInputPrice" style="width: 100%;" mat-raised-button color="primary">
+        Asignar precio
+      </button>
+      
+      <hr>
+
+        <mat-form-field style="width: 40%; margin-right: 5px;" appearance="outline">
+          <mat-label>Cosita</mat-label>
+          <input formControlName="cosita_price" matInput placeholder="Precio de la cosita">
+        </mat-form-field>
+    
+        <mat-form-field style="width: 40%;" appearance="outline">
+          <mat-label>Medio</mat-label>
+          <input formControlName="medio_price" matInput placeholder="Precio del medio">
+        </mat-form-field>
+    
+        <mat-form-field style="width: 40%; margin-right: 5px;" appearance="outline">
+            <mat-label>Sumita</mat-label>
+            <input formControlName="sumita_price" matInput placeholder="Precio de la sumita">
+          </mat-form-field>
+    
+          <mat-form-field style="width: 40%; " appearance="outline">
+            <mat-label>Letra T</mat-label>
+            <input formControlName="letra_t_price" matInput placeholder="Precio letra T">
+          </mat-form-field>
+    
+          <mat-form-field style="width: 40%; margin-right: 5px;" appearance="outline">
+            <mat-label>Bingo Regular</mat-label>
+            <input formControlName="bingo_regular_price" matInput placeholder="Precio bingo regular">
+          </mat-form-field>
+    
+          <mat-form-field style="width: 40%;" appearance="outline">
+            <mat-label>Bingo 4 esquinas</mat-label>
+            <input formControlName="bingo_4_esquinas_price" matInput placeholder="Precio bingo 4 esquinas">
+          </mat-form-field>
+    
+          <mat-form-field style="width: 40%; margin-right: 5px;" appearance="outline">
+            <mat-label>Bingo regular con fecha</mat-label>
+            <input formControlName="bingo_4_esquinas_fecha_price" matInput placeholder="Precio bingo regular con fecha">
+          </mat-form-field>
+    
+          <mat-form-field style="width: 40%;" appearance="outline">
+            <mat-label>Letra X</mat-label>
+            <input formControlName="letra_x_price" matInput placeholder="Precio letra X">
+          </mat-form-field>
+    
+          <mat-form-field style="width: 40%; margin-right: 5px;" appearance="outline">
+            <mat-label>Letra L</mat-label>
+            <input formControlName="letra_l_price" matInput placeholder="Precio letra L">
+          </mat-form-field>
+    
+          <mat-form-field style="width: 40%;" appearance="outline">
+            <mat-label>Carton lleno</mat-label>
+            <input formControlName="carton_lleno" matInput placeholder="Precio carton lleno">
+          </mat-form-field>
+    
+          <mat-form-field style="width: 40%; margin-right: 5px;" appearance="outline">
+            <mat-label>Media C</mat-label>
+            <input formControlName="media_c_price" matInput placeholder="Precio media c">
+          </mat-form-field>
+    
+          <mat-form-field style="width: 40%;" appearance="outline">
+            <mat-label>Cometa</mat-label>
+            <input formControlName="cometa_price" matInput placeholder="Precio cometa">
+          </mat-form-field>
+      </form>
+
+      <button (click)="assignPricesPlaysToPartida()" style="width: 100%;" mat-raised-button color="primary">
+        Guardar cambios
+      </button>
+</div>
+

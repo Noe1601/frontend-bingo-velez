@@ -98,6 +98,10 @@
                 <td>
                   <button class="btn btn-warning" style="margin-right: 5px;"
                     (click)="setToUpdate(item)">Actualizar</button>
+
+                    <button class="btn btn-primary" style="margin-right: 5px;"
+                    (click)="openJugadasDetail(item)">Jugadas</button>
+
                 </td>
               </tr>
             </tbody>
@@ -122,7 +126,7 @@
           </mat-form-field>
   
           <mat-form-field style="width: 90%;" appearance="outline">
-            <mat-select placeholder="Jugadores" formControlName="jugador_id">
+            <mat-select multiple placeholder="Jugadores" formControlName="jugador_id">
               <mat-option [value]="jugador.id" *ngFor="let jugador of players">
                 {{ jugador.name }}
               </mat-option>

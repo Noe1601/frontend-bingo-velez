@@ -840,6 +840,24 @@ export class HomeComponent implements OnInit {
         if (!c.row1.cosita) {
           c.row1.cosita = true;
 
+          if(c.row1[0].selected && c.row2[0].selected){
+            c.row1[0].class = 'circle-red';
+            c.row2[0].class = 'circle-red';
+          }
+          else if(c.row1[4].selected && c.row2[4].selected){
+            c.row1[4].class = 'circle-red';
+            c.row2[4].class = 'circle-red';
+          }
+          else if(c.row4[0].selected && c.row5[0].selected){
+            c.row4[0].class = 'circle-red';
+            c.row5[0].class = 'circle-red';
+          }
+          else if(c.row4[4].selected && c.row5[4].selected){
+            c.row4[4].class = 'circle-red';
+            c.row5[4].class = 'circle-red';
+          }
+
+
           if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
             let playerName;
             this._playerService
@@ -896,6 +914,23 @@ export class HomeComponent implements OnInit {
       ) {
         if (!c.row1.medio) {
           c.row1.medio = true;
+
+          if(c.row1[2].selected && c.row5[2].selected){
+            c.row1[2].class = 'circle-red';
+            c.row5[2].class = 'circle-red';
+          }
+          else if(c.row1[2].selected && c.row2[2].selected){
+            c.row1[2].class = 'circle-red';
+            c.row2[2].class = 'circle-red';
+          }
+          else if(c.row4[2].selected && c.row5[2].selected){
+            c.row1[2].class = 'circle-red';
+            c.row5[2].class = 'circle-red';
+          }
+          else if(c.row2[2].selected && c.row4[2].selected){
+            c.row2[2].class = 'circle-red';
+            c.row4[2].class = 'circle-red';
+          }
 
           if (c.row1.isPlayerSelected && c.row1.playerSelected != null) {
             let playerName;
@@ -1818,7 +1853,6 @@ export class HomeComponent implements OnInit {
       }
     });
   }
-
 
   createWinnerBingoRegular(c: any, isDatePlay?: boolean) {
     let playerName;

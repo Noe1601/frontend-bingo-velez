@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 import { PlayersService } from 'src/app/core/services/players.service';
 import { CreatePlayerComponent } from 'src/app/core/components/create-player/create-player.component';
 import { MatDialog } from '@angular/material/dialog';
+import { AssignJugadasComponent } from 'src/app/core/components/assign-jugadas/assign-jugadas.component';
 
 @Component({
   selector: 'app-settings',
@@ -164,6 +165,7 @@ export class SettingsComponent implements OnInit {
       this._settingsService.createPartida(request).subscribe(data => {
         Swal.fire('Creacion de partida', 'Se creo la partida exitosamente.', 'success');
         this.formPartidas.reset();
+        this.getPartidas();
       }, err => {
         Swal.fire('Creacion de partida', 'Hubo un error en la creacion de la partida.', 'error')
       })
@@ -206,17 +208,41 @@ export class SettingsComponent implements OnInit {
 
 
   createJugadorPartida() {
-    this._settingsService.createJugadorPartida(this.formJugadoresPartidas.value).subscribe(data => {
-      Swal.fire('Agregando jugador en partida', 'Se agrego jugador a la partida.', 'success');
-      this.formJugadoresPartidas.reset();
-    }, err => {
-      Swal.fire('Agregando jugador en partida', err.message, 'error');
+
+    const { jugador_id, partida_id } = this.formJugadoresPartidas.value;
+
+    jugador_id.forEach((j: any, index: number) => {
+
+      const request = {
+        jugador_id: j,
+        partida_id
+      }
+
+      this._settingsService.createJugadorPartida(request).subscribe(data => {
+        
+        if( index + 1 === jugador_id.length ){
+          Swal.fire('Agregando jugadores en partida', `Se agregaron ${ index + 1 } a esta partida.`, 'success');
+          this.formJugadoresPartidas.reset();
+        }
+
+      }, err => {
+        Swal.fire('Agregando jugador en partida', err.message, 'error');
+      })
     })
+
+
   }
 
     openCreatePlayerDialog(){
       this._dialog.open(CreatePlayerComponent, {
         width: '500px'
+      })
+    }
+
+    openJugadasDetail(partida: any){
+      this._dialog.open(AssignJugadasComponent, {
+        width: '600px',
+        data: { partida }
       })
     }
 

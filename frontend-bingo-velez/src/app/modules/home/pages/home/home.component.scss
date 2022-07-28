@@ -179,7 +179,8 @@ body {
                 .circle-cover {
                   width: 20px;
                   height: 20px;
-                  background-color: #ff1111;
+                  // background-color: #ff1111;
+                  background-color: blue;
                   position: absolute;
                   border-radius: 50%;
                 }
@@ -229,6 +230,13 @@ body {
                   width: 20px;
                   height: 20px;
                   background-color: gray;
+                  position: absolute;
+                  border-radius: 50%;
+                }
+                .circle-red {
+                  width: 20px;
+                  height: 20px;
+                  background-color: #ff1111;
                   position: absolute;
                   border-radius: 50%;
                 }

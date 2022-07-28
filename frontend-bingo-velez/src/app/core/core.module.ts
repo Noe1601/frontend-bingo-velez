@@ -17,6 +17,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { PlaysDesactivatedComponent } from './components/plays-desactivated/plays-desactivated.component';
 import { RecuperatePasswordComponent } from './components/recuperate-password/recuperate-password.component';
+import { AssignJugadasComponent } from './components/assign-jugadas/assign-jugadas.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { RecuperatePasswordComponent } from './components/recuperate-password/re
     CreatePlayerComponent,
     CreatePlayComponent,
     PlaysDesactivatedComponent,
-    RecuperatePasswordComponent
+    RecuperatePasswordComponent,
+    AssignJugadasComponent
   ],
   imports: [
     CommonModule,
